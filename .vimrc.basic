@@ -1,0 +1,19 @@
+let mapleader = ","
+set scrolloff=5
+set nobackup
+set autoread
+set noswapfile
+set hidden
+set backspace=indent,eol,start
+set formatoptions=lmoq
+set vb t_vb=
+set browsedir=buffer
+set whichwrap=b,s,h,l,<,>,[,]
+set showcmd
+
+" ヤンクをクリップボードコピー
+set clipboard=unnamed
+
+" Ev/Rvでvimrcの編集と反映
+command! Ev edit $MYVIMRC
+command! Rv source $MYVIMRC
