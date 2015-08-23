@@ -34,14 +34,16 @@ NeoBundle 'taku-o/vim-toggle'
 
 " }}}
 
-"  Completion {{{
+" Programing {{{
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'thinca/vim-quickrun'
 "  }}}
 
 " color scheme
 NeoBundle 'tomasr/molokai'
 " Unit.vim
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 " vimfiler.vim
 NeoBundle 'Shougo/vimfiler'
 " Tree directory
@@ -60,8 +62,9 @@ NeoBundle 'Shougo/neocomplcache'
 " neocomplecacheのsnipet
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/neosnippet.git'
+"  }}}
 
-" Utilitu {{{
+" Utility {{{
 
 " vimshell
 NeoBundle 'Shougo/vimshell.git'

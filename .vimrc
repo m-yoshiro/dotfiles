@@ -1,6 +1,5 @@
 " Plugin
 source ~/dotfiles/.vimrc.bundle
-source ~/dotfiles/.vimrc.plugin_setting
 
 " Basic setting
 source ~/dotfiles/.vimrc.basic
@@ -10,6 +9,12 @@ source ~/dotfiles/.vimrc.editing
 
 " Indent
 source ~/dotfiles/.vimrc.indent
+
+" Completion
+source ~/dotfiles/.vimrc.completion
+
+"Plugin setting
+source ~/dotfiles/.vimrc.plugin_setting
 
 " ------------------
 " #ColorScheme

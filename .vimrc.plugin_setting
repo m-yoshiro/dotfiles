@@ -6,3 +6,15 @@
 " emmet
 " ---------------
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+
+
+" ---------------
+" unite.vim
+" ---------------
+nnoremap   [unite]   <Nop>
+nmap    <Leader>f [unite]
+
+nnoremap [unite]u  :<C-u>Unite -no-split -no-resize -start-insert<Space>
+
+nnoremap <silent> [unite]a :<C-u>UniteWithCurrentDir -no-split -no-resize -start-insert -buffer-name=files buffer file_mru bookmark file<CR>

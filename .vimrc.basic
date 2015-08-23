@@ -1,4 +1,4 @@
-let mapleader = ","
+let mapleader = "\<Space>"
 set scrolloff=5
 set nobackup
 set autoread
@@ -17,3 +17,6 @@ set clipboard=unnamed
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
+
+" Help 日本語化
+: set helplang=ja

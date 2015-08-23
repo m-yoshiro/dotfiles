@@ -13,8 +13,13 @@ set expandtab
 
 " コンマの後にスペース
 inoremap , ,<Space>
+
 " XMLの閉じタグ
 augroup MyXML
   autocmd!
   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
 augroup END
+
+" quickfixウィンドウ
+autocmd FileType qf nnoremap <buffer> q :ccl<CR>
+autocmd Filetype qf nnoremap <buffer> <ESC> :ccl<CR>

@@ -1,1 +1,24 @@
+" ====================
 " Completion
+" ====================
+
+" NeoComplCacheをON
+let g:neocomplcache_enable_at_startup = 1
+" 補完が自動で開始される文字数
+let g:neocomplcache_auto_completion_start_length = 3
+" smart case
+let g:neocomplcache_enable_smart_case = 1
+" _区切り有効
+let g:NeoComplCache_enable_underbar_completion = 1
+" シンタックスキャッシュ指定
+let g:NeoComplCache_min_syntax_length = 3
+" 補完候補の先頭選択
+let g:NeoComplCache_enable_auto_select = 1
+" ポップップリスト数
+let g:neocomplecache_max_list = 20
+" -入力で候補番号
+let g:neocomplecache_enable_quick_match = 1
+
+
+
+
