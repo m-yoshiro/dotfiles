@@ -8,6 +8,37 @@
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 
+" ---------------
+" vimfiler.vim
+" ---------------
+nnoremap [vimfiler] <Nop>
+nmap <Leader>, [vimfiler]
+
+"デフォルトのfilerに設定
+let g:vimfiler_as_default_explorer = 1
+"セーフモード無効で起動
+let g:vimfiler_safe_mode_by_default = 0
+
+" 現在のディレクトリ
+nnoremap <silent> [vimfiler]e :<C-u>VimFilerBufferDir -quit<CR>
+" IDE風
+
+
+" ---------------
+" neocomplecache
+" ---------------
+let g:neoComplCache_vim_completefuncs = {
+  \ 'Unite' : 'unite#complete_source',
+  \ 'vimFiler' : 'vimfiler#complete',
+  \}
+
+
+" ---------------
+" NERDtree
+" ---------------
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 
 " ---------------
 " unite.vim

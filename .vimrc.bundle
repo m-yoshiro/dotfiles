@@ -3,17 +3,17 @@
 "====================
 
 " neobundle settings {{{
-if has('vim_starting')
-	if !isdirectory(expand("~.vim/bundle/neobundle.vim/"))
-		echo "install neobundle..."
-		:call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
-	endif
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-call neobundle#begin(expand('~/.vim/bundle/'))
-let g:neobundle_default_git_protocol='https'
+  if has('vim_starting')
+    if !isdirectory(expand("~.vim/bundle/neobundle.vim/"))
+      echo "install neobundle..."
+      :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
+    endif
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+  endif
+  call neobundle#begin(expand('~/.vim/bundle/'))
+  let g:neobundle_default_git_protocol='https'
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+  NeoBundleFetch 'Shougo/neobundle.vim'
 
 " ------------------
 " #Plugin sets
@@ -21,22 +21,30 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Edit{{{
 
-" XML,HTMLの編集強化
-NeoBundle 'xmledit'
-" Align 整形
-NeoBundle 'Align'
-" surround.vim
-NeoBundle 'tpope/vim-surround'
-" textobj-user
-NeoBundle 'textobj-user'
-" true/false切り替え
-NeoBundle 'taku-o/vim-toggle'
+  " XML,HTMLの編集強化
+  NeoBundle 'xmledit'
+  " Align 整形
+  NeoBundle 'Align'
+  " surround.vim
+  NeoBundle 'tpope/vim-surround'
+  " textobj-user
+  NeoBundle 'textobj-user'
+  " vim-textobj-syntax
+  NeoBundle 'kana/vim-textobj-syntax.git'
+  " vim-textobj-indent
+  NeoBundle 'kana/vim-textobj-indent.git'
+  " vim-textobj-fold
+  NeoBundle 'kana/vim-textobj-fold.git'
+  " vim-textobj-lastpat
+  NeoBundle 'kana/vim-textobj-lastpat.git'
+  " true/false切り替え
+  NeoBundle 'taku-o/vim-toggle'
 
 " }}}
 
 " Programing {{{
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'thinca/vim-quickrun'
+  NeoBundle 'mattn/emmet-vim'
+  NeoBundle 'thinca/vim-quickrun'
 "  }}}
 
 " color scheme
@@ -46,6 +54,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tsukkee/unite-tag'
+NeoBundle 'h1mesuke/unite-outline'
 " vimfiler.vim
 NeoBundle 'Shougo/vimfiler'
 " Tree directory
@@ -58,28 +67,29 @@ NeoBundle 'jl/gundo.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " Completion {{{
-" neocomplecache.vim
-NeoBundle 'Shougo/neocomplcache'
+  " neocomplecache.vim
+  NeoBundle 'Shougo/neocomplcache'
 
-" neocomplecacheのsnipet
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/neosnippet.git'
+  " neocomplecacheのsnipet
+  NeoBundle 'Shougo/neosnippet-snippets'
+  NeoBundle 'Shougo/neosnippet.git'
 "  }}}
 
 " Utility {{{
 
-" vimshell
-NeoBundle 'Shougo/vimshell.git'
-" vimproc
-NeoBundle 'Shougo/vimproc', {
-	\ 'build' : {
-	\     'windows' : 'make -f make_mingw32.mak',
-	\     'cygwin' : 'make -f make_cygwin.mak',
-	\     'mac' : 'make -f make_mac.mak',
-	\     'unix' : 'make -f make_unix.mak',
-	\    },
-	\ }
+  " vimshell
+  NeoBundle 'Shougo/vimshell.git'
+  " vimproc
+  NeoBundle 'Shougo/vimproc', {
+    \ 'build' : {
+    \     'windows' : 'make -f make_mingw32.mak',
+    \     'cygwin' : 'make -f make_cygwin.mak',
+    \     'mac' : 'make -f make_mac.mak',
+    \     'unix' : 'make -f make_unix.mak',
+    \    },
+    \ }
 
+" }}}
 
 call neobundle#end()
 
