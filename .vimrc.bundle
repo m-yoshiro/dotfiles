@@ -4,7 +4,7 @@
 
 " neobundle settings {{{
   if has('vim_starting')
-    if !isdirectory(expand("~.vim/bundle/neobundle.vim/"))
+    if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
       echo "install neobundle..."
       :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
     endif
@@ -42,10 +42,30 @@
 
 " }}}
 
+" Grep{{{
+  NeoBundle 'rking/ag.vim'
+" }}}
+
 " Programing {{{
   NeoBundle 'mattn/emmet-vim'
   NeoBundle 'thinca/vim-quickrun'
 "  }}}
+
+" Syntax {{{
+  " haml
+  NeoBundle 'haml.zip'
+
+  " JavaScript
+  NeoBundle 'JavaScript-syntax'
+
+  " jQuery
+  NeoBundle 'jQuery'
+
+  " coffee script
+  NeoBundle 'kchmck/vim-coffee-script'
+
+" }}}
+
 
 " color scheme
 NeoBundle 'tomasr/molokai'

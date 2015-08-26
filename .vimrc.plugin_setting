@@ -36,8 +36,8 @@ let g:neoComplCache_vim_completefuncs = {
 " ---------------
 " NERDtree
 " ---------------
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 
 " ---------------
@@ -60,5 +60,19 @@ nnoremap <silent> [unite]u :<C-u>Unite -no-split -no-resize -start-insert buffer
 nnoremap <silent> [unite]m :<C-u>Unite -no-split -no-resize -start-insert file_mru<CR>
 " 現在のバッファのカレントディレクトリからファイル一覧
 nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -no-split -no-resize -start-insert file<CR>
+" grep検索
+nnoremap <silent> <Leader>g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+" ディレクトリを指定してgrep
+nnoremap <silent> <Leader>dg :<C-u>Unite grep -buffer-name=search-buffer<CR>
+" カーソル位置の単語をgrep検索
+nnoremap <silent> <Leader>r :<C-u>UniteResume search-buffer<CR>
+
+" unite grepにag を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
 " snippet一覧　
 " nnoremap <silent> [unite]s :<C-u>Unite snippet<CR>
