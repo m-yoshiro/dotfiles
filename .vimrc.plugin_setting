@@ -21,17 +21,6 @@ let g:vimfiler_safe_mode_by_default = 0
 
 " 現在のディレクトリ
 nnoremap <silent> [vimfiler]e :<C-u>VimFilerBufferDir -quit<CR>
-" IDE風
-
-
-" ---------------
-" neocomplecache
-" ---------------
-let g:neoComplCache_vim_completefuncs = {
-  \ 'Unite' : 'unite#complete_source',
-  \ 'vimFiler' : 'vimfiler#complete',
-  \}
-
 
 " ---------------
 " NERDtree

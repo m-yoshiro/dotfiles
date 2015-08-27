@@ -42,7 +42,12 @@
 
 " }}}
 
-" Grep{{{
+" Searching/Moving{{{
+  " smooth_scroll.vim スクロール
+  NeoBundle 'yuroyoro/smooth_scroll.vim'
+  " 単語移動
+  NeoBundle 'smartword'
+  " The Silver seacher
   NeoBundle 'rking/ag.vim'
 " }}}
 
@@ -87,8 +92,10 @@ NeoBundle 'jl/gundo.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " Completion {{{
+  " neocomplete.vim
+  NeoBundle 'Shougo/neocomplete.vim'
   " neocomplecache.vim
-  NeoBundle 'Shougo/neocomplcache'
+  "NeoBundle 'Shougo/neocomplcache'
 
   " neocomplecacheのsnipet
   NeoBundle 'Shougo/neosnippet-snippets'
