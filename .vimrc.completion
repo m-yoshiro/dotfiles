@@ -2,6 +2,29 @@
 " Completion
 " ====================
 
+
+" ---------------
+" emmet
+" ---------------
+" 補完をインサートモードのみに限定
+  let g:user_emmet_mode='inv'
+  let g:user_emmet_install_global = 0
+  let g:user_emmet_complete_tag = 1
+  let g:user_emmet_leader_key = '<C-e>'
+  let g:user_emmet_settings = {
+    \ 'custom_expands1' : {
+    \   '^\%(lorem\|lipsum\)\(\d*\)$' : function('emmet#lorem#ja#expand')
+    \ }
+    \}
+
+autocmd FileType html,css EmmetInstall
+autocmd FileType html,css imap <tab> <plug>(emmet-expand-abbr)
+
+
+" ---------------
+" Neocomplete
+" ---------------
+
 " Disable AutocompPop
 let g:acp_enableAtStartup = 0
 " NeoCompleteをON
