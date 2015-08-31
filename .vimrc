@@ -10,6 +10,9 @@ source ~/dotfiles/.vimrc.editing
 " Indent
 source ~/dotfiles/.vimrc.indent
 
+" Moving
+source ~/dotfiles/.vimrc.moving
+
 " Completion
 source ~/dotfiles/.vimrc.completion
 

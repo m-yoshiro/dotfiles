@@ -83,7 +83,7 @@ NeoBundle 'h1mesuke/unite-outline'
 " vimfiler.vim
 NeoBundle 'Shougo/vimfiler'
 " Tree directory
-NeoBundle 'scrooloose/nerdtree'
+" NeoBundle 'scrooloose/nerdtree'
 " 行末の半角スペースを可視化
 NeoBundle 'bronson/vim-trailing-whitespace'
 " 編集履歴をツリー表示

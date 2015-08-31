@@ -1,0 +1,28 @@
+" ====================
+" moving
+" ====================
+
+" 0,  9で行頭、行末
+nmap 1 0
+nmap 0 ^
+nmap 9 $
+
+" 前回終了したカーソル行に移動
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+
+" F2で前バッファ
+map <F2> <ESC>;bp<CR>
+" F4で次バッファ
+map <F3> <ESC>;bn<CR>
+" F4でバッファを削除
+map <F4> <ESC>;bnext \| bdelete #<CR>
+command! Bw :bnext \| bdelete #
+
+" フレームサイズを変更
+map <kPlus> <C-W>+
+map <kMinus> <C-W>-
+
+" 対応するカッコに移動　
+nnoremap ( %
+nnoremap ) %
+
