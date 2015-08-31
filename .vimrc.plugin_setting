@@ -126,7 +126,7 @@ nnoremap [vimfiler] <Nop>
 nmap <Leader>f [vimfiler]
 
 "IDE風
-noremap <silent> <Leader>f :<C-u>VimFilerExplorer -winwidth=25 -split -no-quit -toggle<CR>
+noremap <silent> [vimfiler]f :<C-u>VimFilerExplorer -winwidth=25 -split -no-quit -toggle<CR>
 
 "デフォルトのfilerに設定
 let g:vimfiler_as_default_explorer = 1
@@ -146,7 +146,7 @@ nnoremap <silent> [vimfiler]e :<C-u>VimFilerBufferDir -quit<CR>
 augroup vimpr
   autocmd FileType vimfiler call s:vimfiler_my_settings()
 augroup END
-function! s:vimfiler_my_settings() 
+function! s:vimfiler_my_settings()
   nmap <buffer> q <Plug>(vimfiler_exit)
   nmap <buffer> Q <Plug>(vimfiler_hide)
 endfunction
