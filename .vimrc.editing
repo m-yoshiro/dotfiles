@@ -2,6 +2,11 @@
 "Edit
 "---------------------
 
+" 自動で閉じ括弧
+imap { {}<LEFT>
+imap [ []LEFT>
+imap ( ()<LEFT>
+
 " insert抜けるとIMEオフ
 set noimdisable
 set iminsert=0 imsearch=0

@@ -3,15 +3,17 @@
 "--------------------
 
 " ---------------
-" NERDtree
+" open-browser
 " ---------------
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
+let g:netrw_nogx = 1
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 "------------------------------------
 " vim-trailing-whitespace
 "------------------------------------
+  " uniteでスペースが表示されるので、設定でOFFにします。
+  let g:extra_whitespace_ignored_filetypes = ['unite', 'vimfiler']
 
 "------------------------------------
 " toggle.vim
@@ -27,6 +29,7 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'ye
 " ---------------
 " quickrun.vim
 " ---------------
+
 let g:quickrun_config = {}
 let g:quickrun_config._ = {
   \ 'runner' : 'vimproc',

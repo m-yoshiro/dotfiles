@@ -41,6 +41,7 @@
   NeoBundle 'taku-o/vim-toggle'
   " コメントアウト
   NeoBundle 'tomtom/tcomment_vim'
+ 
 
 " }}}
 
@@ -51,6 +52,8 @@
   NeoBundle 'smartword'
   " The Silver seacher
   NeoBundle 'rking/ag.vim'
+  " 「%」対応括弧へのカーソル移動を拡張
+  NeoBundle 'matchit.zip'
 " }}}
 
 " Programing {{{
@@ -119,6 +122,9 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
     \     'unix' : 'make -f make_unix.mak',
     \    },
     \ }
+
+  "URLからブラウザを開く
+  NeoBundle 'tyru/open-browser.vim'
 
 " }}}
 
