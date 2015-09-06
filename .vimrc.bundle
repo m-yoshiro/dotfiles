@@ -1,17 +1,16 @@
 "====================
 " Plugin
 "====================
-
 " neobundle settings {{{
   if has('vim_starting')
     if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-      echo "install neobundle..."
+      echo "Test install neobundle..."
       :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
     endif
     set runtimepath+=~/.vim/bundle/neobundle.vim/
   endif
   call neobundle#begin(expand('~/.vim/bundle/'))
-  let g:neobundle_default_git_protocol='https'
+  let g:neobundle#types#git#default_protocol = 'https'
 
   NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -41,8 +40,14 @@
   NeoBundle 'taku-o/vim-toggle'
   " コメントアウト
   NeoBundle 'tomtom/tcomment_vim'
- 
+  " テキスト整形
+  NeoBundle 'godlygeek/tabular'
+" }}}
 
+" Marcdown {{{
+  NeoBundle 'plasticboy/vim-markdown'
+  NeoBundle 'kannokanno/previm'
+  " NeoBundle 'gabrielelana/vim-markdown'
 " }}}
 
 " Searching/Moving{{{
@@ -89,12 +94,10 @@ NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'h1mesuke/unite-outline'
 " vimfiler.vim
 NeoBundle 'Shougo/vimfiler'
-" Tree directory
-" NeoBundle 'scrooloose/nerdtree'
 " 行末の半角スペースを可視化
 NeoBundle 'bronson/vim-trailing-whitespace'
 " 編集履歴をツリー表示
-NeoBundle 'jl/gundo.vim'
+NeoBundle 'sjl/gundo.vim'
 " インデント表示
 NeoBundle 'nathanaelkane/vim-indent-guides'
 

@@ -15,6 +15,7 @@ vmap gx <Plug>(openbrowser-smart-search)
   " uniteでスペースが表示されるので、設定でOFFにします。
   let g:extra_whitespace_ignored_filetypes = ['unite', 'vimfiler']
 
+
 "------------------------------------
 " toggle.vim
 "------------------------------------
@@ -23,7 +24,6 @@ nmap <C-A> <Plug>ToggleN
 vmap <C-A> <Plug>ToggleV
 
 let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'yes':'no', 'no':'yes', 'enable':'disable', 'disable':'enable', 'pick':'reword', 'reword':'fixup', 'fixup':'squash', 'squash':'edit', 'edit':'exec', 'exec':'pick' }
-
 
 
 " ---------------
@@ -159,5 +159,17 @@ function! s:vimfiler_my_settings()
   nmap <buffer> Q <Plug>(vimfiler_hide)
 endfunction
 
+" ---------------
+" Gundo.vim
+" ---------------
+nnoremap <F5> :GundoToggle<CR>
 
+" ---------------
+" vim-markdown
+" ---------------
 
+augroup MyMarkdown
+  autocmd!
+  autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd FileType markdown nnoremap <buffer> ml <C-u>for i in range(v:count1) \| call append(line('.'), '*') \| endfor<CR>
+augroup END
