@@ -107,6 +107,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
   " neocomplecacheのsnipet
   NeoBundle 'Shougo/neosnippet-snippets'
   NeoBundle 'Shougo/neosnippet.git'
+
 "  }}}
 
 " Utility {{{
