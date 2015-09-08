@@ -27,3 +27,19 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
+" ウィンドウ関連
+nnoremap [s-window] <Nop>
+nmap <Leader>s [s-window]
+
+" 分割
+nnoremap [s-window]v <C-w>v
+nnoremap [s-window]s <C-w>s
+" 移動
+nnoremap [s-window]h <C-w>h
+nnoremap [s-window]j <C-w>j
+nnoremap [s-window]k <C-w>k
+nnoremap [s-window]l <C-w>l
+nnoremap [s-window]w <C-w>w
+" 閉じる
+nnoremap [s-window]c <C-w>c
+

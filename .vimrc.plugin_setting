@@ -134,7 +134,7 @@ nnoremap [vimfiler] <Nop>
 nmap <Leader>f [vimfiler]
 
 "IDE風
-noremap <silent> [vimfiler]f :<C-u>VimFilerExplorer -winwidth=25 -split -no-quit -toggle<CR>
+noremap <silent> [vimfiler]f :<C-u>VimFilerBufferDir -winwidth=25 -split -no-quit -toggle<CR>
 
 "デフォルトのfilerに設定
 let g:vimfiler_as_default_explorer = 1
@@ -171,5 +171,6 @@ nnoremap <F5> :GundoToggle<CR>
 augroup MyMarkdown
   autocmd!
   autocmd BufRead,BufNewFile *.md set filetype=markdown
+  " mlでlist-item追加
   autocmd FileType markdown nnoremap <buffer> ml <C-u>for i in range(v:count1) \| call append(line('.'), '*') \| endfor<CR>
 augroup END
