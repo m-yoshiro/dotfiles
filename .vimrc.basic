@@ -11,6 +11,9 @@ set browsedir=buffer
 set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
 
+" コマンドモード
+nnoremap ; :
+
 " ヤンクをクリップボードコピー
 set clipboard=unnamed
 
@@ -28,18 +31,33 @@ nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
 " ウィンドウ関連
-nnoremap [s-window] <Nop>
-nmap <Leader>s [s-window]
+nnoremap s <Nop>
 
 " 分割
-nnoremap [s-window]v <C-w>v
-nnoremap [s-window]s <C-w>s
+nnoremap sv <C-w>v
+nnoremap ss <C-w>s
 " 移動
-nnoremap [s-window]h <C-w>h
-nnoremap [s-window]j <C-w>j
-nnoremap [s-window]k <C-w>k
-nnoremap [s-window]l <C-w>l
-nnoremap [s-window]w <C-w>w
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sw <C-w>w
+" ウィンドウ自体を移動
+nnoremap sH <C-w>H
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sr <C-w>r
 " 閉じる
-nnoremap [s-window]c <C-w>c
-
+nnoremap sc <C-w>c
+" ウィンドウサイズ
+nnoremap so <C-w>_<C-w>|
+nnoremap s= <C-w>=
+nnoremap s> <C-w>>
+nnoremap s< <C-w><
+nnoremap s+ <C-w>+
+nnoremap s- <C-w>-
+" タブ関連
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sn gt
+nnoremap sp gT
