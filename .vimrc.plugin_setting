@@ -134,7 +134,7 @@ nnoremap [vimfiler] <Nop>
 nmap <Leader>f [vimfiler]
 
 "IDE風
-noremap <silent> [vimfiler]f :<C-u>VimFilerBufferDir -winwidth=30 -split -no-quit -toggle<CR>
+noremap <silent> [vimfiler]t :<C-u>VimFilerBufferDir -winwidth=35 -split -no-quit -simple -toggle<CR>
 
 "デフォルトのfilerに設定
 let g:vimfiler_as_default_explorer = 1
@@ -151,7 +151,8 @@ let g:vimfiler_marked_file_icon = '*'
 nnoremap <silent> [vimfiler]e :<C-u>VimFilerBufferDir -quit<CR>
 
 "vimfiler上でのキーマッピング
-augroup vimpr
+augroup vimfiller_setting
+  autocmd!
   autocmd FileType vimfiler call s:vimfiler_my_settings()
 augroup END
 function! s:vimfiler_my_settings()
