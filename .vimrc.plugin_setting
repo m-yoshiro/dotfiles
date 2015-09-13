@@ -9,6 +9,16 @@ let g:netrw_nogx = 1
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
+
+
+"------------------------------------
+" vim-indent-guides
+"------------------------------------
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_color_change_percent = 30
+let g:indent_guides_guide_size=1
+let g:indent_guides_exclude_filetypes = ['help', 'vimfiler',  'unite']
+
 "------------------------------------
 " vim-trailing-whitespace
 "------------------------------------
@@ -30,40 +40,23 @@ let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'ye
 " quickrun.vim
 " ---------------
 
-let g:quickrun_config = {}
+let g:quickrun_config = get(g:, 'quickrun_config', {})
 let g:quickrun_config._ = {
-  \ 'runner' : 'vimproc',
-  \"runner/vimproc/updatetime" : 60,
-  \'outputtr/buffer/split' : ':botright 8sp',
-  \'outputtr/buffer/close_on_empty' : 1
-  \}
-
-let g:quickrun_config['rspec/bundle'] = {
-      \ 'type' : 'rspec/bundle',
-      \ 'command' : 'rspec',
-      \ 'cmdopt' : "-l %{line('.')}",
-      \ 'exec' : "bundle exec %c %o %s ",
-      \ 'outputter/buffer/filetype' : 'rspec-result',
-      \ 'filetype' : 'rspec-result'
-      \}
-
-let g:quickrun_config['rspec/normal'] = {
-      \ 'type' : 'rspec/normal',
-      \ 'command' : 'rspec',
-      \ 'cmdopt' : "-l %{line('.')}",
-      \ 'exec' : "exec %c %o %s ",
-      \ 'outputter/buffer/filetype' : 'rspec-result',
-      \ 'filetype' : 'rspec-result'
-      \}
-function! RSpecQuickrun()
-  let b:quickrun_config = {'type' : 'rspec/bundle'}
-endfunction
+    \ 'runner'    : 'vimproc',
+    \ 'runner/vimproc/updatetime' : 60,
+    \ 'outputter' : 'error',
+    \ 'outputter/error/success' : 'buffer',
+    \ 'outputter/error/error'   : 'quickfix',
+    \ 'outputter/buffer/split'  : ':rightbelow 8sp',
+    \ 'outputter/buffer/close_on_empty' : 1,
+    \ }
 
 "<C-c> で実行を強制終了
 " quickrun.vim が実行してない場合は<C-c>を呼び出す
-nnoremap <expr><slient> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
-
-autocmd BufReadPost *_spec.rb call RSpecQuickrun()
+au FileType qf nnoremap <silent><buffer>q :quit<CR>
+let g:quickrun_no_default_key_mappings = 1
+nmap <Leader>r <Plug>(quickrun)
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 " ---------------
 " unite.vim
@@ -73,6 +66,8 @@ nmap    <Leader>u [unite]
 
 nnoremap [unite]u  :<C-u>Unite -no-split -no-resize -start-insert<Space>
 
+let g:unite_source_history_yank_enable=1
+let g:unite_source_file_mru_limit=200
 let g:unite_source_rec_async_command='pt --nocolor --nogroup -g .'
 let g:unite_source_rec_max_cache_files=5000
 call unite#custom#source(
@@ -98,33 +93,45 @@ nnoremap <silent> [unite]d :<C-u>UniteWithBufferDir -no-split -no-resize -start-
 nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
 " 検索行を一覧
 nnoremap <silent> [unite]; :<C-u>Unite line<CR>
+" ヤンクヒストリ一覧
+nnoremap <silent> [unite]y :<C-u>Unite historyhistory/yank<CR>
 
+" ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+
+call unite#custom_default_action('source/bookmark/directory' , 'vimfiler')
 
 " grep検索
 nnoremap <silent> <Leader>g :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 " ディレクトリを指定してgrep
 nnoremap <silent> <Leader>dg :<C-u>Unite grep -buffer-name=search-buffer<CR>
 " カーソル位置の単語をgrep検索
-nnoremap <silent> <Leader>r :<C-u>UniteResume search-buffer<CR>
+" nnoremap <silent> <Leader>r :<C-u>UniteResume search-buffer<CR>
 " Bookmarkを開く
 nnoremap <silent> <Leader><Leader>b :<C-u>Unite bookmark<CR>
 " Bookmark追加
 nnoremap <silent> <Leader><Leader>B :<C-u>UniteBookmarkAdd<CR>
 
-call unite#custom_default_action('source/bookmark/directory' , 'vimfiler')
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+let g:unite_source_grep_max_candidates = 200
 
-
-" unite grepにag を使う
-if executable('ag')
-
-  let g:unite_source_rec_async_command =
-    \ 'ag --follow --nocolor --nogroup --hidden -g ""'
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+" unite grepにpt を使う
+if executable('pt')
+  let g:unite_source_grep_command = 'pt'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor'
   let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_encoding = 'utf-8'
 endif
 
-" snippet一覧　
+" snippet一覧
 " nnoremap <silent> [unite]s :<C-u>Unite snippet<CR>
 
 " ---------------
@@ -141,7 +148,7 @@ let g:vimfiler_as_default_explorer = 1
 "セーフモード無効で起動
 let g:vimfiler_safe_mode_by_default = 0
 " Like Textmate icons.
-let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_leaf_icon = '⋮'
 let g:vimfiler_tree_opened_icon = '▾'
 let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_file_icon = '-'
@@ -158,6 +165,9 @@ augroup END
 function! s:vimfiler_my_settings()
   nmap <buffer> q <Plug>(vimfiler_exit)
   nmap <buffer> Q <Plug>(vimfiler_hide)
+  nnoremap <buffer> <C-r> <Plug>(vimfiler_redraw_screen)
+  nmap <buffer> <C-q> <Plug>(vimfiler_quick_look)
+  nmap <buffer> <C-w> <Plug>(vimfiler_switch_to_history_directory)
   setlocal nonumber
 endfunction
 

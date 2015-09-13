@@ -92,6 +92,7 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tsukkee/unite-tag'
 NeoBundle 'h1mesuke/unite-outline'
+NeoBundle 'monochromegane/unite-yaml'
 " vimfiler.vim
 NeoBundle 'Shougo/vimfiler'
 " 行末の半角スペースを可視化
@@ -130,6 +131,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
   "URLからブラウザを開く
   NeoBundle 'tyru/open-browser.vim'
 
+  " git plugin
+  NeoBundle 'tpope/vim-fugitive'
 " }}}
 
 call neobundle#end()
