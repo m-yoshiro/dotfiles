@@ -10,6 +10,15 @@ set vb t_vb=
 set browsedir=buffer
 set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
+set showmode
+set notitle
+
+" OSのクリップボードを使用する
+set clipboard+=unnamed
+" ターミナルでマウスを使用できるようにする
+set mouse=a
+set guioptions+=a
+set ttymouse=xterm2
 
 " ------------------
 "  # Text option
@@ -26,6 +35,12 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " コマンドモード
 nnoremap ; :
+" コマンドラインでの自動補完をzsh風に
+set wildmenu
+set wildmode=full
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " ヤンクをクリップボードコピー
 set clipboard=unnamed
