@@ -22,12 +22,15 @@ source ~/dotfiles/.vimrc.plugin_setting
 " ------------------
 " #ColorScheme
 " ------------------
-
 syntax on
 colorscheme molokai
 let g:molokai_original = 1
 let g:rehash256 = 1
 set background=dark
+" syntax enable
+" set background=dark
+" let g:solarized_termcolors=256
+" colorscheme solarized
 
 " -------------------
 " 全角スペースを表示する

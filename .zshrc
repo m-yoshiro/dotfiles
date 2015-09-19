@@ -54,7 +54,6 @@ plugins=(git)
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 DEFAULT_USER="Yoshiro"
 
@@ -87,3 +86,9 @@ setopt no_beep
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export PYENV_ROOT="${HOME}/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+ export PATH=${PYENV_ROOT}/bin:$PATH
+ eval "$(pyenv init -)"
+fi
+
