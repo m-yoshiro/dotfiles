@@ -91,9 +91,10 @@
 " color scheme
 NeoBundle 'tomasr/molokai'
 " NeoBundle 'altercation/vim-colors-solarized'
-" ステータスラインの色変更
-" NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+" ステータスラインの色変更(powerlineから乗り換え)
+  NeoBundle 'bling/vim-airline'
+
 " Unit.vim
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
@@ -138,7 +139,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 
   "URLからブラウザを開く
   NeoBundle 'tyru/open-browser.vim'
-
+  "PATHの設定を自動化
+  NeoBundle 'tpope/vim-bundler'
   " git plugin
   NeoBundle 'tpope/vim-fugitive'
 " }}}

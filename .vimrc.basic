@@ -13,12 +13,20 @@ set showcmd
 set showmode
 set notitle
 
+" 軽くするための設定
+set synmaxcol=300
+set lazyredraw
+set ttyfast
+
 " OSのクリップボードを使用する
 set clipboard+=unnamed
 " ターミナルでマウスを使用できるようにする
 set mouse=a
-set guioptions+=a
-set ttymouse=xterm2
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
 
 " ------------------
 "  # Text option
@@ -34,7 +42,7 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " コマンドモード
-nnoremap ; :
+" nnoremap ; :
 " コマンドラインでの自動補完をzsh風に
 set wildmenu
 set wildmode=full
@@ -57,6 +65,11 @@ nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
+
+" ウィンドウを閉じる
+nnoremap sq :<C-u>q<CR>
+" バッファを閉じる
+nnoremap sQ :<C-u>bd<CR>
 
 " ウィンドウ関連
 nnoremap s <Nop>
