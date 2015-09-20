@@ -1,0 +1,165 @@
+# Edit{{{
+
+# XML,HTMLの編集強化
+[[plugins]]
+repository = 'xmledit'
+# Align 整形
+[[plugins]]
+repository = 'Align'
+# surround.vim
+[[plugins]]
+repository = 'tpope/vim-surround'
+# textobj-user
+[[plugins]]
+repository = 'textobj-user'
+# vim-textobj-syntax
+[[plugins]]
+repository = 'kana/vim-textobj-syntax.git'
+# vim-textobj-indent
+[[plugins]]
+repository = 'kana/vim-textobj-indent.git'
+# vim-textobj-fold
+[[plugins]]
+repository = 'kana/vim-textobj-fold.git'
+# vim-textobj-lastpat
+[[plugins]]
+repository = 'kana/vim-textobj-lastpat.git'
+# true/false切り替え
+[[plugins]]
+repository = 'taku-o/vim-toggle'
+# コメントアウト
+[[plugins]]
+repository = 'tomtom/tcomment_vim'
+# テキスト整形
+[[plugins]] 'godlygeek/tabular'
+# }}}
+
+# Marcdown {{{
+[[plugins]]
+repository = 'plasticboy/vim-markdown'
+[[plugins]]
+repository = 'kannokanno/previm'
+# [[plugins]]
+repository = 'gabrielelana/vim-markdown'
+# }}}
+
+# Searching/Moving{{{
+# smooth_scroll.vim スクロール
+[[plugins]]
+repository = 'yuroyoro/smooth_scroll.vim'
+# 単語移動
+[[plugins]]
+repository = 'smartword'
+# The Silver seacher
+[[plugins]]
+repository = 'rking/ag.vim'
+# 「%」対応括弧へのカーソル移動を拡張
+[[plugins]]
+repository = 'matchit.zip'
+# }}}
+
+# Programing {{{
+[[plugins]]
+repository = 'mattn/emmet-vim'
+[[plugins]]
+repository = 'thinca/vim-quickrun'
+#  }}}
+
+# Syntax {{{
+# haml
+[[plugins]]
+repository = 'haml.zip'
+
+# JavaScript
+[[plugins]]
+repository = 'JavaScript-syntax'
+
+# jQuery
+[[plugins]]
+repository = 'jQuery'
+
+# coffee script
+[[plugins]]
+repository = 'kchmck/vim-coffee-script'
+
+# toml(設定ファイル書いたり)
+[[plugins]]
+repository = 'cespare/vim-toml'
+
+# }}}
+
+
+# color scheme
+[[plugins]]
+repository = 'tomasr/molokai'
+# ステータスラインの色変更
+# [[plugins]]
+repository = 'itchyny/lightline.vim'
+[[plugins]]
+repository = 'powerline/powerline'
+rtp = 'powerline/bindings/vim/'
+# Unit.vim
+[[plugins]]
+repository = 'Shougo/unite.vim'
+[[plugins]]
+repository = 'Shougo/neomru.vim'
+[[plugins]]
+repository = 'tsukkee/unite-help'
+[[plugins]]
+repository = 'tsukkee/unite-tag'
+[[plugins]]
+repository = 'h1mesuke/unite-outline'
+[[plugins]]
+repository = 'monochromegane/unite-yaml'
+# vimfiler.vim
+[[plugins]]
+repository = 'Shougo/vimfiler'
+# 行末の半角スペースを可視化
+[[plugins]]
+repository = 'bronson/vim-trailing-whitespace'
+# 編集履歴をツリー表示
+[[plugins]]
+repository = 'sjl/gundo.vim'
+# インデント表示
+[[plugins]]
+repository = 'nathanaelkane/vim-indent-guides'
+
+# Completion {{{
+# neocomplete.vim
+[[plugins]]
+repository = 'Shougo/neocomplete.vim'
+# neocomplecache.vim
+#[[plugins]]
+repository = 'Shougo/neocomplcache'
+
+# neocomplecacheのsnipet
+[[plugins]]
+repository = 'Shougo/neosnippet-snippets'
+[[plugins]]
+repository = 'Shougo/neosnippet.git'
+
+#  }}}
+
+# Utility {{{
+
+# vimshell
+[[plugins]]
+repository = 'Shougo/vimshell.git'
+# vimproc
+[[plugins]]
+repository = 'Shougo/vimproc'
+
+  [plugins.build]
+  windows = 'tools\\update-dll-mingw'
+  cygwin = 'make -f make_cygwin.mak'
+  mac = 'make -f make_mac.mak'
+  unix = 'make -f make_unix.mak'
+
+#URLからブラウザを開く
+[[plugins]]
+repository = 'tyru/open-browser.vim'
+
+# git plugin
+[[plugins]]
+repository = 'tpope/vim-fugitive'
+# }}}

@@ -92,3 +92,10 @@ if [ -d "${PYENV_ROOT}" ]; then
  eval "$(pyenv init -)"
 fi
 
+# Powerline
+export PATH=$PATH:~/Library/Python/2.7/bin
+# iterm上でvim等のツールからpowerlineを呼び出せる?
+# 無いとvim上で補完の際にちらつく
+powerline-daemon -q
+# iterm上でPowerlineを自動起動
+# . ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
