@@ -1,0 +1,54 @@
+# ------------------
+# #Plugin Lazy sets
+# -------------------
+
+# Edit{{{
+
+# Completion {{{
+
+# neocomplete.vim
+[[plugins]]
+repository = 'Shougo/neocomplete.vim'
+insert = 1
+
+[[plugins]]
+repository = 'Shougo/neosnippet.vim'
+insert = 1
+
+[[plugins]]
+repository = 'Shougo/neosnippet-snippets'
+insert = 1
+filetypes = 'snippet'
+# }}}
+
+# Utility {{{
+
+
+# Syntax {{{
+# haml
+[[plugins]]
+repository = 'haml.zip'
+filetypes = 'haml'
+
+
+# JavaScript
+[[plugins]]
+repository = 'JavaScript-syntax'
+filetypes = 'JavaScript'
+
+# jQuery
+[[plugins]]
+repository = 'jQuery'
+filetypes = 'JavaScript'
+
+# coffee script
+[[plugins]]
+repository = 'kchmck/vim-coffee-script'
+filetypes = 'coffee'
+
+# toml(設定ファイル書いたり)
+[[plugins]]
+repository = 'cespare/vim-toml'
+filetypes = 'toml'
+
+# }}}

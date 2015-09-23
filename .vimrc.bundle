@@ -1,4 +1,4 @@
-"====================
+"l====================
 " Plugin
 "====================
 " neobundle settings {{{
@@ -15,118 +15,7 @@
   if neobundle#load_cache()
 
   NeoBundleFetch 'Shougo/neobundle.vim'
-  " call neobundle#load_toml('~/dotfiles/neobundle.toml')
 
-
-" ------------------
-" #Plugin sets
-" -------------------
-
-" Edit{{{
-
-  " XML,HTMLの編集強化
-  NeoBundle 'xmledit'
-  " Align 整形
-  NeoBundle 'Align'
-  " surround.vim
-  NeoBundle 'tpope/vim-surround'
-  " textobj-user
-  NeoBundle 'textobj-user'
-  " vim-textobj-syntax
-  NeoBundle 'kana/vim-textobj-syntax.git'
-  " vim-textobj-indent
-  NeoBundle 'kana/vim-textobj-indent.git'
-  " vim-textobj-fold
-  NeoBundle 'kana/vim-textobj-fold.git'
-  " vim-textobj-lastpat
-  NeoBundle 'kana/vim-textobj-lastpat.git'
-  " true/false切り替え
-  NeoBundle 'taku-o/vim-toggle'
-  " コメントアウト
-  NeoBundle 'tomtom/tcomment_vim'
-  " テキスト整形
-  NeoBundle 'godlygeek/tabular'
-" }}}
-
-" Marcdown {{{
-  NeoBundle 'plasticboy/vim-markdown'
-  NeoBundle 'kannokanno/previm'
-  " NeoBundle 'gabrielelana/vim-markdown'
-" }}}
-
-" Searching/Moving{{{
-  " smooth_scroll.vim スクロール
-  NeoBundle 'yuroyoro/smooth_scroll.vim'
-  " 単語移動
-  NeoBundle 'smartword'
-  " The Silver seacher
-  NeoBundle 'rking/ag.vim'
-  " 「%」対応括弧へのカーソル移動を拡張
-  NeoBundle 'matchit.zip'
-" }}}
-
-" Programing {{{
-  NeoBundle 'mattn/emmet-vim'
-  NeoBundle 'thinca/vim-quickrun'
-"  }}}
-
-" Syntax {{{
-  " haml
-  NeoBundle 'haml.zip'
-
-  " JavaScript
-  NeoBundle 'JavaScript-syntax'
-
-  " jQuery
-  NeoBundle 'jQuery'
-
-  " coffee script
-  NeoBundle 'kchmck/vim-coffee-script'
-
-  " toml(設定ファイル書いたり)
-  NeoBundle 'cespare/vim-toml'
-
-" }}}
-
-" color scheme
-NeoBundle 'tomasr/molokai'
-" NeoBundle 'altercation/vim-colors-solarized'
-
-" ステータスラインの色変更(powerlineから乗り換え)
-  NeoBundle 'bling/vim-airline'
-
-" Unit.vim
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'tsukkee/unite-help'
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'monochromegane/unite-yaml'
-" vimfiler.vim
-NeoBundle 'Shougo/vimfiler'
-" 行末の半角スペースを可視化
-NeoBundle 'bronson/vim-trailing-whitespace'
-" 編集履歴をツリー表示
-NeoBundle 'sjl/gundo.vim'
-" インデント表示
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
-" Completion {{{
-  " neocomplete.vim
-  NeoBundle 'Shougo/neocomplete.vim'
-  " neocomplecache.vim
-  "NeoBundle 'Shougo/neocomplcache'
-
-  " neocomplecacheのsnipet
-  NeoBundle 'Shougo/neosnippet-snippets'
-  NeoBundle 'Shougo/neosnippet.git'
-
-"  }}}
-
-" Utility {{{
-
-  " vimshell
-  NeoBundle 'Shougo/vimshell.git'
   " vimproc
   NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
@@ -137,13 +26,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
     \    },
     \ }
 
-  "URLからブラウザを開く
-  NeoBundle 'tyru/open-browser.vim'
-  "PATHの設定を自動化
-  NeoBundle 'tpope/vim-bundler'
-  " git plugin
-  NeoBundle 'tpope/vim-fugitive'
-" }}}
+  call neobundle#load_toml('~/dotfiles/neobundle.toml')
+  call neobundle#load_toml('~/dotfiles/neobundle_lazy.toml', {'lazy' :1})
 
   NeoBundleSaveCache
 endif
@@ -151,4 +35,5 @@ endif
 call neobundle#end()
 
 filetype plugin indent on
+NeoBundleCheck
 

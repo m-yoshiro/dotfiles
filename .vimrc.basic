@@ -12,6 +12,18 @@ set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
 set showmode
 set notitle
+" 検索関連
+set hlsearch
+set incsearch
+" ビジュアルモードで選択範囲を検索
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+function! s:VSetSearch()
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\v' . substitute(escape(@s,  '/\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
 
 " 軽くするための設定
 set synmaxcol=300
@@ -52,6 +64,9 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " ヤンクをクリップボードコピー
 set clipboard=unnamed
+
+" pasteモードのトグル
+set pastetoggle=<F4>
 
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC

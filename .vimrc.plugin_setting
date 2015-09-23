@@ -35,9 +35,9 @@ let g:indent_guides_exclude_filetypes = ['help', 'vimfiler',  'unite']
   let g:extra_whitespace_ignored_filetypes = ['unite', 'vimfiler']
 
 "------------------------------------
-" matchit
+" Helpを日本語化
 "------------------------------------
-
+set helplang& helplang=ja,en
 
 "------------------------------------
 " toggle.vim
