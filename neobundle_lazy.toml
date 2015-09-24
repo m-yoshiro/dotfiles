@@ -5,7 +5,6 @@
 # Edit{{{
 
 # Completion {{{
-
 # neocomplete.vim
 [[plugins]]
 repository = 'Shougo/neocomplete.vim'
@@ -21,7 +20,6 @@ insert = 1
 filetypes = 'snippet'
 # }}}
 
-# Utility {{{
 
 
 # Syntax {{{
@@ -30,11 +28,14 @@ filetypes = 'snippet'
 repository = 'haml.zip'
 filetypes = 'haml'
 
-
 # JavaScript
 [[plugins]]
 repository = 'JavaScript-syntax'
 filetypes = 'JavaScript'
+
+[[plugins]]
+repository = 'elzr/vim-json'
+filetypes = 'json'
 
 # jQuery
 [[plugins]]
@@ -50,5 +51,95 @@ filetypes = 'coffee'
 [[plugins]]
 repository = 'cespare/vim-toml'
 filetypes = 'toml'
+# }}}
 
+# Languages {{{
+[[plugins]]
+repository = 'mattn/emmet-vim'
+filetypes = 'html'
+
+# XML,HTMLの編集強化
+[[plugins]]
+repository = 'xmledit'
+filetypes = ['html', 'xml']
+
+# }}}
+
+# Markdown {{{
+[[plugins]]
+repository = 'plasticboy/vim-markdown'
+filetypes = ['markdown', 'md']
+
+[[plugins]]
+repository = 'kannokanno/previm'
+filetypes = ['markdown', 'md', 'rst']
+depends = 'tyru/open-browser.vim'
+
+#URLからブラウザを開く
+[[plugins]]
+repository = 'tyru/open-browser.vim'
+filetypes = ['markdown', 'md', 'rst']
+mappings = '<Plug>'
+
+# }}}
+
+# Development {{{
+[[plugins]]
+repository = 'thinca/vim-quickrun'
+mappings = '<Plug>'
+# }}}
+
+# Searching/Moving{{{
+# The Silver seacher
+[[plugins]]
+repository = 'rking/ag.vim'
+mappings = '<Plug>'
+# }}}
+
+# Utility {{{
+
+# 編集履歴をツリー表示
+[[plugins]]
+repository = 'sjl/gundo.vim'
+mappings = '<Plug>'
+
+# vimshell
+[[plugins]]
+repository = 'Shougo/vimshell.git'
+mappings = '<Plug>'
+# }}}
+
+# Text objects {{{
+# textobj-user
+[[plugins]]
+repository = 'kana/vim-textobj-user'
+# vim-textobj-syntax
+[[plugins]]
+repository = 'kana/vim-textobj-syntax.git'
+depends = 'vim-textobj-user'
+# vim-textobj-indent
+[[plugins]]
+repository = 'kana/vim-textobj-indent.git'
+depends = 'vim-textobj-user'
+# vim-textobj-fold
+[[plugins]]
+repository = 'kana/vim-textobj-fold.git'
+depends = 'vim-textobj-user'
+# vim-textobj-lastpat
+[[plugins]]
+repository = 'kana/vim-textobj-lastpat.git'
+depends = 'vim-textobj-user'
+[[plugins]]
+repository = 'smartword'
+mappings = '<Plug>'
+
+# Unit.vim {{{
+[[plugins]]
+repository = 'Shougo/unite-help'
+
+[[plugins]]
+repository = 'tsukkee/unite-tag'
+
+[[plugins]]
+repository = 'Shougo/unite-outline'
 # }}}

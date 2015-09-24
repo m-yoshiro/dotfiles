@@ -108,6 +108,10 @@ nnoremap <silent> [unite]r :<C-u>Unite -start-insert file_rec/async:!<CR>
 nnoremap <silent> [unite]; :<C-u>Unite line<CR>
 " ヤンクヒストリ一覧
 nnoremap <silent> [unite]y :<C-u>Unite historyhistory/yank<CR>
+" ヘルプをuniteで表示
+nnoremap <silent> [unite]h :<C-u>Unite -no-split -buffer-name=help help<CR>
+" テキスト、ソースをoutline表示
+nnoremap <silent> [unite]o :<C-u>Unite -no-split -no-resize outline<CR>
 
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
