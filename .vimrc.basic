@@ -12,6 +12,13 @@ set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
 set showmode
 set notitle
+set nrformats=
+" カレント行をハイライト
+set cursorline
+" アンダーライン
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+highlight CursorLine gui=underline guifg=NONE guibg=NONE
+
 " 検索関連
 set hlsearch
 set incsearch
@@ -39,6 +46,12 @@ if has("mouse_sgr")
 else
     set ttymouse=xterm2
 end
+
+" 起動時にマーク表示
+aug show-marks-sync
+        au!
+        au BufReadPost * sil! DoShowMarks
+aug END
 
 " ------------------
 "  # Text option

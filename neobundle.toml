@@ -73,4 +73,7 @@ repository = 'tpope/vim-abolish'
 # インデント表示
 [[plugins]]
 repository = 'nathanaelkane/vim-indent-guides'
+# マークを可視化
+[[plugins]]
+repository = 'jacquesbh/vim-showmarks'
 # }}}

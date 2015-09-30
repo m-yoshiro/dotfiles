@@ -94,6 +94,16 @@ mappings = '<Plug>'
 [[plugins]]
 repository = 'rking/ag.vim'
 mappings = '<Plug>'
+
+# JSHint
+# [[plugins]]
+# repository = 'Shutnik/jshint2.vim'
+# filetypes = 'javascript'
+
+[[plugins]]
+repository = 'scrooloose/syntastic'
+filetypes = ['javascript', 'php']
+
 # }}}
 
 # Utility {{{
