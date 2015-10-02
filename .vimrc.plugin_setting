@@ -212,22 +212,54 @@ augroup END
 " let jshint2_save = 1
 
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_mode_map = {
-  \ "mode": "active",
-  \ "active_filetypes": ["javascript"],
-  \ "passive_filetypes": ["puppet"] }
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_save=1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_mode_map = {
+"   \ "mode": "active",
+"   \ "active_filetypes": ["javascript"],
+"   \ "passive_filetypes": ["puppet"] }
+" let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_save=1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 " let g:syntastic_enable_signs=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-hi SyntasticErrorSign ctermfg=160
-hi SyntasticWarningSign ctermfg=220
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_warning_symbol='⚠'
+" hi SyntasticErrorSign ctermfg=160
+" hi SyntasticWarningSign ctermfg=220
+
+if !exists("g:quickrun_config")
+    let g:quickrun_config = {}
+endif
+let g:quickrun_config["watchdogs_checker/_"] = {
+      \ "outputter/quickfix/open_cmd" : "",
+      \ }
+
+let g:watchdogs_check_BufWritePost_enable = 1
+let g:watchdogs_check_CursorHold_enable = 1
+let g:quickrun_config = {
+\   "javascript/watchdogs_checker" : {
+\     "type" : "jshint"
+\   }
+\ }
+call watchdogs#setup(g:quickrun_config)
+
+augroup my_watchdogs
+  autocmd!
+  autocmd BufWritePost *.js WatchdogsRun
+  autocmd BufRead,BufNewFile *.js WatchdogsRun
+  autocmd BufRead,BufNewFile *.js
+        \   xnoremap <buffer><silent> x x:WatchdogsRun<CR><left>
+        \ | xnoremap <buffer><silent> d d:WatchdogsRun<CR><left>
+        \ | xnoremap <buffer><silent> D D:WatchdogsRun<CR><left>
+        \ | nnoremap <buffer><silent> D D:WatchdogsRun<CR><left>
+        \ | nnoremap <buffer><silent> dd dd:WatchdogsRun<CR><left>
+        \ | nnoremap <buffer><silent> dw dw:WatchdogsRun<CR><left>
+        \ | nnoremap <buffer><silent> u u:WatchdogsRun<CR><left>
+        \ | nnoremap <buffer><silent> <C-R> <C-R>:WatchdogsRun<CR><left>
+        \ | inoremap <buffer><silent> <Esc> <Esc>:WatchdogsRun<CR><left>
+augroup END

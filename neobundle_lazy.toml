@@ -100,9 +100,25 @@ mappings = '<Plug>'
 # repository = 'Shutnik/jshint2.vim'
 # filetypes = 'javascript'
 
+# [[plugins]]
+# repository = 'scrooloose/syntastic'
+# filetypes = ['javascript', 'php']
+
 [[plugins]]
-repository = 'scrooloose/syntastic'
-filetypes = ['javascript', 'php']
+repository = 'osyo-manga/shabadou.vim'
+
+[[plugins]]
+repository = 'jceb/vim-hier'
+
+[[plugins]]
+repository = 'dannyob/quickfixstatus'
+
+[[plugins]]
+repository = 'osyo-manga/vim-watchdogs'
+depends = ['thinca/vim-quickrun', 'osyo-manga/shabadou.vim', 'jceb/vim-hier', 'dannyob/quickfixstatus']
+filetypes = 'all'
+
+# filetypes = ['javascript', 'json']
 
 # }}}
 
