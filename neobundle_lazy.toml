@@ -108,15 +108,14 @@ mappings = '<Plug>'
 repository = 'osyo-manga/shabadou.vim'
 
 [[plugins]]
-repository = 'jceb/vim-hier'
+repository = 'cohama/vim-hier'
 
 [[plugins]]
 repository = 'dannyob/quickfixstatus'
-
 [[plugins]]
 repository = 'osyo-manga/vim-watchdogs'
-depends = ['thinca/vim-quickrun', 'osyo-manga/shabadou.vim', 'jceb/vim-hier', 'dannyob/quickfixstatus']
-filetypes = 'all'
+depends = ['thinca/vim-quickrun', 'osyo-manga/shabadou.vim', 'cohama/vim-hier', 'dannyob/quickfixstatus']
+filetypes = ['javascript', 'json', 'php']
 
 # filetypes = ['javascript', 'json']
 
