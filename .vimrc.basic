@@ -1,0 +1,136 @@
+let mapleader = "\<Space>"
+set scrolloff=5
+set nobackup
+set autoread
+set noswapfile
+set hidden
+set backspace=indent,eol,start
+set formatoptions=lmoq
+set vb t_vb=
+set browsedir=buffer
+set whichwrap=b,s,h,l,<,>,[,]
+set showcmd
+set showmode
+set notitle
+set nrformats=
+" カレント行をハイライト
+set cursorline
+" アンダーライン
+highlight CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+highlight CursorLine gui=underline guifg=NONE guibg=NONE
+
+" 検索関連
+set hlsearch
+set incsearch
+" ビジュアルモードで選択範囲を検索
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+function! s:VSetSearch()
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\v' . substitute(escape(@s,  '/\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+" 軽くするための設定
+set synmaxcol=300
+set lazyredraw
+set ttyfast
+
+" OSのクリップボードを使用する
+set clipboard+=unnamed
+" ターミナルでマウスを使用できるようにする
+set mouse=a
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+
+" 起動時にマーク表示
+aug show-marks-sync
+        au!
+        au BufReadPost * sil! DoShowMarks
+aug END
+
+" ------------------
+"  # Text option
+" ------------------
+scriptencoding utf-8
+
+set list listchars=tab:>-,trail:_
+
+set number
+
+" iterm上のカーソル表示設定
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+" コマンドモード
+" nnoremap ; :
+" コマンドラインでの自動補完をzsh風に
+set wildmenu
+set wildmode=full
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
+
+" ヤンクをクリップボードコピー
+set clipboard=unnamed
+
+" pasteモードのトグル
+set pastetoggle=<F4>
+
+" Ev/Rvでvimrcの編集と反映
+command! Ev edit $MYVIMRC
+command! Rv source $MYVIMRC
+
+" Help 日本語化
+set helplang=ja
+
+" バッファの移動
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
+" ウィンドウを閉じる
+nnoremap sq :<C-u>q<CR>
+" バッファを閉じる
+nnoremap sQ :<C-u>bd<CR>
+
+" ウィンドウ関連
+nnoremap s <Nop>
+
+" 分割
+nnoremap sv <C-w>v
+nnoremap ss <C-w>s
+" 移動
+nnoremap sh <C-w>h
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sw <C-w>w
+" ウィンドウ自体を移動
+nnoremap sH <C-w>H
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+nnoremap sr <C-w>r
+" 閉じる
+nnoremap sc <C-w>c
+" ウィンドウサイズ
+nnoremap so <C-w>_<C-w>|
+nnoremap s= <C-w>=
+nnoremap s> <C-w>>
+nnoremap s< <C-w><
+nnoremap s+ <C-w>+
+nnoremap s- <C-w>-
+" タブ関連
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sn gt
+nnoremap sp gT
+
+
+"" set scss,stylus files RIGHT
+au BufRead,BufNewFile *.scss set filetype=scss.css
