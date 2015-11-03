@@ -246,32 +246,30 @@ let g:watchdogs_check_BufWritePost_enable = 1
 " let g:watchdogs_check_BufWritePost_enables = {
 " \}
 
+let g:watchdogs_check_CursorHold_enable = 1
 let g:watchdogs_check_CursorHold_enables = {
-\  "javascript" : 1,
-\  "css" : 1,
-\  "scss" : 1,
 \  "vim" : 0
 \}
 
 " JavaScript {{{
 let s:config = {
-\  "watchdogs_checker/_" : {
-\    "hook/u_nya_/enable" : 1,
-\    "hook/inu/enable" : 0,
-\    "hook/unite_quickfix/enable" : 0,
-\    "hook/echo/enable" : 0,
-\    "hook/back_buffer/enable" : 0,
-\    "hook/close_unite_quickfix/enable" : 0,
-\    "hook/close_buffer/enable_exit" : 0,
+\  'watchdogs_checker/_' : {
+\    'hook/u_nya_/enable' : 1,
+\    'hook/inu/enable' : 0,
+\    'hook/unite_quickfix/enable' : 0,
+\    'hook/echo/enable' : 0,
+\    'hook/back_buffer/enable' : 0,
+\    'hook/close_unite_quickfix/enable' : 0,
+\    'hook/close_buffer/enable_exit' : 0,
 \    'outputter/quickfix/open_cmd' : '',
-\    "hook/redraw_unite_quickfix/enable_exit" : 0,
-\    "hook/close_unite_quickfix/enable_exit" : 1,
+\    'hook/redraw_unite_quickfix/enable_exit' : 0,
+\    'hook/close_unite_quickfix/enable_exit' : 1,
 \  },
 \'javascript/watchdogs_checker' : {
-        \'type' : 'watchdogs_checker/jshint'
+        \'type' : 'watchdogs_checker/eslint',
         \},
 \'css/watchdogs_checker' : {
-        \'type' : 'watchdogs_checker/csslint'
+        \'type' : 'watchdogs_checker/csslint',
         \},
 \'scss/watchdogs_checker' : {
 \  'type' : 'watchdogs_checker/scsslint',
@@ -279,10 +277,10 @@ let s:config = {
 \'watchdogs_checker/scsslint' : {
 \  'command' : 'scss-lint',
 \   'exec'    : '%c %o --format=compact %s:p',
-\   'quickfix/errorformat' : '%A%f:\ line\ %l\\,\ col\ %c\\,\ %m'
+\   'quickfix/errorformat' : '%A%f:\ line\ %l\\,\ col\ %c\\,\ %m',
 \},
 \'vim/watchdogs_checker' : {
-        \'type' : 'watchdogs_checker/vint'
+        \'type' : 'watchdogs_checker/vint',
         \}
 \}
 

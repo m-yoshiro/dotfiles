@@ -12,12 +12,9 @@ insert = 1
 
 [[plugins]]
 repository = 'Shougo/neosnippet.vim'
+depends = ['Shougo/neosnippet-snippets', 'honza/vim-snippets']
 insert = 1
-
-[[plugins]]
-repository = 'Shougo/neosnippet-snippets'
-insert = 1
-filetypes = 'snippet'
+filetypes = 'neosnippet'
 
 # }}}
 
@@ -80,6 +77,7 @@ filetypes = 'JavaScript'
 [[plugins]]
 repository = 'elzr/vim-json'
 filetypes = 'json'
+
 
 # jQuery
 [[plugins]]

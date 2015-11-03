@@ -12,13 +12,16 @@
   let g:user_emmet_complete_tag = 1
   let g:user_emmet_leader_key = '<C-e>'
   let g:user_emmet_settings = {
+    \ 'variables' : {
+    \   'lang' : 'ja',
+    \ },
     \ 'custom_expands1' : {
     \   '^\%(lorem\|lipsum\)\(\d*\)$' : function('emmet#lorem#ja#expand')
     \ }
     \}
 
 autocmd FileType html,css,scss EmmetInstall
-autocmd FileType html,css,scss imap <tab> <plug>(emmet-expand-abbr)
+autocmd FileType html,css,scss imap <buffer> <tab> <plug>(emmet-expand-abbr)
 
 
 " ---------------
@@ -102,5 +105,4 @@ endif
 let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/bundle/snipmate-nodejs'
