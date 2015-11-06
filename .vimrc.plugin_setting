@@ -187,34 +187,6 @@ augroup MyMarkdown
 augroup END
 
 " ---------------
-" jshint
-" ---------------
-" jshint2
-" let jshint2_read = 1
-" let jshint2_save = 1
-
-" syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-"
-" let g:syntastic_mode_map = {
-"   \ "mode": "active",
-"   \ "active_filetypes": ["javascript"],
-"   \ "passive_filetypes": ["puppet"] }
-" let g:syntastic_javascript_checkers = ['jshint']
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_save=1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_enable_signs=1
-" let g:syntastic_error_symbol='✗'
-" let g:syntastic_warning_symbol='⚠'
-" hi SyntasticErrorSign ctermfg=160
-" hi SyntasticWarningSign ctermfg=220
-
-" ---------------
 " quickrun.vim
 " ---------------
 
@@ -272,9 +244,9 @@ let s:config = {
         \'type' : 'watchdogs_checker/csslint',
         \},
 \'scss/watchdogs_checker' : {
-\  'type' : 'watchdogs_checker/scsslint',
+\  'type' : 'watchdogs_checker/scss',
 \},
-\'watchdogs_checker/scsslint' : {
+\'watchdogs_checker/scss' : {
 \  'command' : 'scss-lint',
 \   'exec'    : '%c %o --format=compact %s:p',
 \   'quickfix/errorformat' : '%A%f:\ line\ %l\\,\ col\ %c\\,\ %m',
@@ -335,3 +307,21 @@ let g:sass_compile_beforecmd = ''
 " 例：growlnotifyによる通知(${sasscompileresult}は実行結果)
 " let g:sass_compile_aftercmd = "growlnotify -t 'sass-compile.vim' -m ${sasscompileresult}"
 let g:sass_compile_aftercmd = ''
+
+" ---------------
+" vim-easy-align
+" ---------------
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" ---------------
+" cssComb
+" ---------------
+" Map bc to run CSScomb. bc stands for beautify css
+autocmd FileType css noremap <buffer> <leader>bc :CSScomb<CR>
+" Automatically comb your CSS on save
+autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb

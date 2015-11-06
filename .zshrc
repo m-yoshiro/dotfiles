@@ -106,7 +106,13 @@ autoload -U compinit
 compinit
 
 # hash directories
-hash -d StudyWeb=~/Documents/Work/Privates/study/web
+hash -d StudyWeb=~/Documents/Work/Private/study/web
 
 # cd + Tab で移動履歴表示
 setopt auto_pushd
+
+# =========================
+# Alias
+# =========================
+
+alias relogin='exec $SHELL -l'

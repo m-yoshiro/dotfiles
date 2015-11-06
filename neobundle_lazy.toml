@@ -41,6 +41,10 @@ filetypes = ['html']
 repository = 'hail2u/vim-css3-syntax'
 filetypes = ['css']
 
+[[plugins]]
+repository = 'csscomb/vim-csscomb'
+filetypes = ['css', 'scss']
+
 # sass
 [[plugins]]
 repository = 'cakebaker/scss-syntax.vim'
@@ -204,9 +208,12 @@ repository = 'Shougo/unite-outline'
 [[plugins]]
 repository = 'AtsushiM/search-parent.vim'
 
-
 # pyenvからpythonを使用
 [[plugins]]
 repository = 'lambdalisue/vim-pyenv'
 #depends = ['', ''] python依存プラグイン
 filetypes = ['python', 'python3']
+
+
+[[plugins]]
+repository = 'junegunn/vim-easy-align'
