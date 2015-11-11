@@ -98,6 +98,9 @@ filetypes = 'coffee'
 repository = 'cespare/vim-toml'
 filetypes = 'toml'
 
+[[plugins]]
+repository = 'stephpy/vim-yaml'
+filetypes = 'yaml'
 
 # }}}
 
