@@ -120,6 +120,7 @@ repository = 'tyru/open-browser.vim'
 filetypes = ['markdown', 'md', 'rst']
 mappings = '<Plug>'
 
+
 # }}}
 
 # Development {{{

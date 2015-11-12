@@ -67,6 +67,11 @@ source ~/dotfiles/.vimrc.completion
 "Plugin setting
 source ~/dotfiles/.vimrc.plugin_setting
 
+if isdirectory('$HOME/dotfiles/.vim/.ignore')
+  source ~/dotfiles/.vim/.ignore/.hateblo.vim
+endif
+
+
 " ------------------
 " #ColorScheme
 " ------------------

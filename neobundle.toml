@@ -86,3 +86,9 @@ depends = 'ynkdir/vim-vimlparser'
 functions = 'vimlint#vimlint'
 
 # }}}
+
+
+# はてなblog
+[[plugins]]
+repository = 'moznion/hateblo.vim'
+depends =['mattn/webapi-vim', 'kana/vim-metarw']

@@ -214,7 +214,6 @@ nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() 
 
 " 書き込み後にシンタックスチェックを行う
 let g:watchdogs_check_BufWritePost_enable = 1
-
 let g:watchdogs_check_CursorHold_enable = 1
 
 " JavaScript {{{
