@@ -237,12 +237,12 @@ let s:config = {
         \'type' : 'watchdogs_checker/csslint',
         \},
 \'scss/watchdogs_checker' : {
-\  'type' : 'watchdogs_checker/scss',
+        \ 'type' : 'watchdogs_checker/scss',
 \},
 \'watchdogs_checker/scss' : {
-\  'command' : 'scss-lint',
-\   'exec'    : '%c %o --format=compact %s:p',
-\   'quickfix/errorformat' : '%A%f:\ line\ %l\\,\ col\ %c\\,\ %m',
+        \'command' : 'scss-lint',
+        \'exec'    : '%c %o --format=compact %s:p',
+        \'quickfix/errorformat' : '%A%f:\ line\ %l\\,\ col\ %c\\,\ %m',
 \},
 \'vim/watchdogs_checker' : {
         \'type' : 'watchdogs_checker/vint',
