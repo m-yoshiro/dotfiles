@@ -70,21 +70,15 @@ plugins=(git)
 # For a full list of active aliases, run `alias`.
 #
 
-# User configuration
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$HOME/.nodebrew/current/bin:$PATH"
 
 # =========================
 # Ruby
 # =========================
-[[ -d ~/.rbenv  ]] && \
-export PATH="$HOME/.rbenv/bin:$PATH" && \
-  eval "$(rbenv init -)"
+eval "$(rbenv init -)"
 
 # =========================
 # Python pyenv
 # =========================
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 DEFAULT_USER="Yoshiro"
@@ -116,3 +110,14 @@ setopt auto_pushd
 # =========================
 
 alias relogin='exec $SHELL -l'
+
+# wordpressのローカルセットアップ
+# vagrant + vccw
+
+# alias wpsetup = 'run-wpsetup'
+#
+# function run-wpsetup()
+# {
+#   git clone git@github.com:vccw-team/vccw.git
+#   vagrant up
+# }

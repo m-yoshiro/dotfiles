@@ -1,19 +1,20 @@
-.bash_profile
-export PATH=$PATH:/Applications/eclipse/android/platform-tools
-PATH=/opt/local/bin:/opt/local/sbin:$PATH
-MANPATH=/opt/local/man:$MANPATH
+export LANG=ja_JP.UTF-8
 
-# MySQL Path Setting
-export PATH=$PATH:/Applications/XAMPP/xamppfiles/bin
+HISTFILE=~/.zhistory
+SAVEHIST=100000
+HISTSIZE=10000
 
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+# User configuration
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$HOME/.nodebrew/current/bin:$PATH"
 
 
-# if [ -f ~/.bashrc ]; then
-#     . ~/.bashrc
-# fi
+# =========================
+# Ruby rbenv
+# =========================
+export PATH="$HOME/.rbenv/bin:$PATH"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+# =========================
+# Python pyenv
+# =========================
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
