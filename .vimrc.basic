@@ -54,6 +54,32 @@ aug show-marks-sync
 aug END
 
 " ------------------
+" #ColorScheme
+" ------------------
+syntax on
+colorscheme molokai
+let g:molokai_original = 1
+let g:rehash256 = 1
+set background=dark
+
+" -------------------
+" 全角スペースを表示する
+" " http://inari.hatenablog.com/entry/2014/05/05/231307
+" -------------------
+function! ZenkakuSpace()
+  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+endfunction
+
+if has('syntax')
+  augroup ZenkakuSpace
+    autocmd!
+    autocmd ColorScheme * call ZenkakuSpace()
+    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+  augroup END
+  call ZenkakuSpace()
+endif
+
+" ------------------
 "  # Text option
 " ------------------
 scriptencoding utf-8
@@ -67,7 +93,6 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " コマンドモード
-" nnoremap ; :
 " コマンドラインでの自動補完をzsh風に
 set wildmenu
 set wildmode=full
@@ -88,49 +113,17 @@ command! Rv source $MYVIMRC
 " Help 日本語化
 set helplang=ja
 
-" バッファの移動
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :blast<CR>
-
-" ウィンドウを閉じる
-nnoremap sq :<C-u>q<CR>
-" バッファを閉じる
-nnoremap sQ :<C-u>bd<CR>
-
-" ウィンドウ関連
-nnoremap s <Nop>
-
-" 分割
-nnoremap sv <C-w>v
-nnoremap ss <C-w>s
-" 移動
-nnoremap sh <C-w>h
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sw <C-w>w
-" ウィンドウ自体を移動
-nnoremap sH <C-w>H
-nnoremap sJ <C-w>J
-nnoremap sK <C-w>K
-nnoremap sL <C-w>L
-nnoremap sr <C-w>r
-" 閉じる
-nnoremap sc <C-w>c
-" ウィンドウサイズ
-nnoremap so <C-w>_<C-w>|
-nnoremap s= <C-w>=
-nnoremap s> <C-w>>
-nnoremap s< <C-w><
-nnoremap s+ <C-w>+
-nnoremap s- <C-w>-
-" タブ関連
-nnoremap st :<C-u>tabnew<CR>
-nnoremap sn gt
-nnoremap sp gT
 
 
-"" set scss,stylus files RIGHT
-au BufRead,BufNewFile *.scss set filetype=scss.css
+" ------------------
+" # FileType
+" ------------------
+" set scss,stylus files RIGHT
+augroup setFiletype
+  autocmd!
+  au BufRead,BufNewFile *.scss set filetype=scss
+  au BufRead,BufNewFile *.css set filetype=css
+  au BufRead,BufNewFile *.less set filetype=less
+  au BufRead,BufNewFile *.stylus set filetype=stylus
+  au BufNewFile,BufRead *.vimrc*,*.vim  setf vim
+augroup END

@@ -23,10 +23,6 @@ autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "norm
 nnoremap ( %
 nnoremap ) %
 
-" F2で前バッファ
-map <F2> <ESC>;bp<CR>
-" F4で次バッファ
-map <F3> <ESC>;bn<CR>
 " F4でバッファを削除
 map <F4> <ESC>;bnext \| bdelete #<CR>
 command! Bw :bnext \| bdelete #
@@ -39,3 +35,6 @@ map <kMinus> <C-W>-
 nnoremap ( %
 nnoremap ) %
 
+" ファイルの先頭・末尾に移動
+nnoremap <CR> G
+nnoremap <BS> gg

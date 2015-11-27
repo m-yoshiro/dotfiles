@@ -20,8 +20,8 @@
     \ }
     \}
 
-autocmd FileType html,css,scss EmmetInstall
-autocmd FileType html,css,scss imap <buffer> <tab> <plug>(emmet-expand-abbr)
+autocmd FileType html,jade,css,scss EmmetInstall
+autocmd FileType html,jade,css,scss imap <buffer> <tab> <plug>(emmet-expand-abbr)
 
 
 " ---------------
@@ -106,3 +106,8 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/bundle/snipmate-nodejs'
+
+
+" jscomplete
+autocmd FileType javascript
+  \ :setl omnifunc=jscomplete#CompleteJS

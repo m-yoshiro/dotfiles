@@ -1,12 +1,4 @@
 " ====================
-" # Python
-" ====================
-" PATHの自動更新関数
-" | 指定された path が $PATH に存在せず、ディレクトリとして存在している場合
-" | のみ $PATH に加える
-let $PATH = "~/.pyenv/shims:".$PATH
-
-" ====================
 " # Plugin
 " ====================
 " neobundle settings {{{
@@ -45,6 +37,7 @@ call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
 
+
 " ====================
 " # Include .vimrc.~
 " ====================
@@ -65,42 +58,9 @@ source ~/dotfiles/.vimrc.moving
 source ~/dotfiles/.vimrc.completion
 
 "Plugin setting
-source ~/dotfiles/.vimrc.plugin_setting
-
-if isdirectory('$HOME/dotfiles/.vim/.ignore')
-  source ~/dotfiles/.vim/.ignore/.hateblo.vim
-endif
+source ~/dotfiles/.vimrc.plugin
 
 
-" ------------------
-" #ColorScheme
-" ------------------
-syntax on
-colorscheme molokai
-let g:molokai_original = 1
-let g:rehash256 = 1
-set background=dark
-" syntax enable
-" set background=dark
-" let g:solarized_termcolors=256
-" colorscheme solarized
 
-" -------------------
-" 全角スペースを表示する
-" " http://inari.hatenablog.com/entry/2014/05/05/231307
-" -------------------
-function! ZenkakuSpace()
-  highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-endfunction
 
-if has('syntax')
-  augroup ZenkakuSpace
-    autocmd!
-    autocmd ColorScheme * call ZenkakuSpace()
-    autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
-  augroup END
-  call ZenkakuSpace()
-
-endif
-" -----------------
 
