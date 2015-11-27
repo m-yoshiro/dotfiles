@@ -45,6 +45,8 @@ repository = 'bling/vim-airline'
 [[plugins]]
 repository = 'Shougo/unite.vim'
 [[plugins]]
+repository = 'Shougo/neoyank.vim'
+[[plugins]]
 repository = 'Shougo/neomru.vim'
 [[plugins]]
 repository = 'monochromegane/unite-yaml'
