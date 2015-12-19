@@ -101,6 +101,11 @@ filetypes = 'JavaScript'
 repository = 'kchmck/vim-coffee-script'
 filetypes = 'coffee'
 
+# C
+[[plugins]]
+repository = 'Rip-Rip/clang_complete'
+filetypes = ['c', 'cpp']
+
 # toml(設定ファイル書いたり)
 [[plugins]]
 repository = 'cespare/vim-toml'
