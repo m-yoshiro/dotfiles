@@ -7,6 +7,10 @@ HISTSIZE=10000
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$HOME/.nodebrew/current/bin:$PATH"
 
+# =========================
+# Nodebrew
+# =========================
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
 
 # =========================
 # Ruby rbenv
