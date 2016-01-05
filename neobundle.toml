@@ -41,6 +41,10 @@ repository = 'tomasr/molokai'
 [[plugins]]
 repository = 'bling/vim-airline'
 
+# tmuxline
+# [[plugins]]
+# repository = 'edkolev/tmuxline.vim'
+
 # Unit.vim
 [[plugins]]
 repository = 'Shougo/unite.vim'

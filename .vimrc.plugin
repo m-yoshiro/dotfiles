@@ -20,12 +20,11 @@ command! CanIuse execute ":OpenBrowserSmartSearch" "-caniuse" input('Can I use?:
 "------------------------------------
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
+" if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+" endif
+" let g:airline_symbols.space = '\ua0'
 set laststatus=2
-
 "------------------------------------
 " vim-indent-guides
 "------------------------------------
@@ -226,7 +225,10 @@ let g:quickrun_config._ = {
 
 "<C-c> で実行を強制終了
 " quickrun.vim が実行してない場合は<C-c>を呼び出す
-au FileType qf nnoremap <silent><buffer>q :quit<CR>
+augroup quickrunSettings
+  autocmd!
+  autocmd FileType qf nnoremap <silent><buffer>q :quit<CR>
+augroup END
 let g:quickrun_no_default_key_mappings = 1
 nmap <Leader>r <Plug>(quickrun)
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
@@ -368,14 +370,33 @@ nmap ga <Plug>(EasyAlign)
 " cssComb
 " ---------------
 " Map bc to run CSScomb. bc stands for beautify css
-autocmd FileType css noremap <buffer> <leader>bc :CSScomb<CR>
-" Automatically comb your CSS on save
-autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb
+augroup cssCombSettings
+  autocmd!
+  autocmd FileType css noremap <buffer> <leader>bc :CSScomb<CR>
+  " Automatically comb your CSS on save
+  autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb
+augroup END
 
 
 " ---------------
 " vim-jade
 " ---------------
-autocmd BufNewFile,BufRead *.jade  setf jade
-autocmd BufNewFile,BufRead *.jade  set tabstop=2 shiftwidth=2 expandtab
+augroup vimJadeSetting
+  autocmd!
+  autocmd BufNewFile,BufRead *.jade  setf jade
+  autocmd BufNewFile,BufRead *.jade  set tabstop=2 shiftwidth=2 expandtab
+augroup END
+
 let g:quickrun_config['jade']={'command': 'jade', 'cmdopt': '-P', 'exec': ['%c &o < %s']}
+
+
+" ---------------
+" vim-airline
+" ---------------
+let g:airline#extensions#tabline#enabled = 1
+
+" ---------------
+" tmuxline
+" ---------------
+" let g:airline#extensions#tmuxline#enabled = 1
+" let g:tmuxline_theme = 'airline'
