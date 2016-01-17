@@ -61,7 +61,7 @@ source ~/dotfiles/.vimrc.completion
 source ~/dotfiles/.vimrc.plugin
 
 "Local setting
-source ~/dotfiles/.vimrc.local
+source ~/dotfiles/vim/.vimrc.local
 
 " augroup vimrc-local
 "   autocmd!
