@@ -1,3 +1,4 @@
 fonts/
 **/.ignore/
-.vimrc.local
+**/.vimrc.local
+**/.zshrc.local
