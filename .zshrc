@@ -1,11 +1,9 @@
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -87,8 +85,8 @@ eval "$(pyenv init -)"
 
 DEFAULT_USER="Yoshiro"
 
-# Thema management
-source $ZSH/oh-my-zsh.sh
+export TERM=xterm-256color
+
 
 # You may need to manually set your language environment
 export LANG=ja_JP.UTF-8
