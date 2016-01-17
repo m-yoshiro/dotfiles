@@ -37,9 +37,9 @@ repository = 'matchit.zip'
 [[plugins]]
 repository = 'tomasr/molokai'
 
-# ステータスラインの色変更(powerlineから乗り換え)
+# ステータスラインの色変更
 [[plugins]]
-repository = 'bling/vim-airline'
+repository = 'itchyny/lightline.vim'
 
 # tmuxline
 # [[plugins]]
