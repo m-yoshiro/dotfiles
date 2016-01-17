@@ -63,15 +63,15 @@ source ~/dotfiles/.vimrc.plugin
 "Local setting
 source ~/dotfiles/.vimrc.local
 
-augroup vimrc-local
-  autocmd!
-  autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand("<afile>:p:h"))
-augroup END
-
-function! s:vimrc_local(loc) abort
-  let files = findfile(".vimrc", escape(a:lock, " ") . ";", -1)
-  for i in reverse(filter(files, "filereadable(v:val)"))
-    source `=i`
-  endfor
-endfunction
+" augroup vimrc-local
+"   autocmd!
+"   autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand("<afile>:p:h"))
+" augroup END
+"
+" function! s:vimrc_local(loc) abort
+"   let files = findfile(".vimrc", escape(a:lock, " ") . ";", -1)
+"   for i in reverse(filter(files, "filereadable(v:val)"))
+"     source `=i`
+"   endfor
+" endfunction
 
