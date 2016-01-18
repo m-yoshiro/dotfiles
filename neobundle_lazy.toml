@@ -74,6 +74,11 @@ filetypes = 'haml'
 repository = 'digitaltoad/vim-jade'
 filetypes = 'jade'
 
+# slim
+[[plugins]]
+repository = 'slim-template/vim-slim'
+filetypes = 'slim'
+
 # JavaScript
 [[plugins]]
 repository = 'JavaScript-syntax'
