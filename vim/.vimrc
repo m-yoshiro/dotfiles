@@ -26,8 +26,8 @@
     \    },
     \ }
 
-  call neobundle#load_toml('~/dotfiles/vim/neobundle.toml')
-  call neobundle#load_toml('~/dotfiles/vim/neobundle_lazy.toml', {'lazy' :1})
+  call neobundle#load_toml('~/dotfiles/neobundle.toml')
+  call neobundle#load_toml('~/dotfiles/neobundle_lazy.toml', {'lazy' :1})
 
   NeoBundleSaveCache
 endif

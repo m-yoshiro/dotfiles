@@ -3,6 +3,8 @@
 DOTPATH=~/.dotfiles
 GITHUB_URL=https://github.com/yoshiro4460/dotfiles.git
 
+
+# get dotfiles
 if has "git"; then
   git clone --recursive "$GITHUB_URL" "$DOTPATH"
 
@@ -38,7 +40,7 @@ do
 
 done
 
-# install oh-my-zsh
-[ ! -d ~/.oh-my-zsh ] && git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
+
 [ ! -d ~/dotfiles/fonts/ ] && git clone git://github.com/powerline/fonts.git ~/dotfiles/fonts/
 
