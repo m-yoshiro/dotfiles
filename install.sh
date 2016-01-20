@@ -1,10 +1,13 @@
 #!/bin/bash
 
-DOTPATH=~/.dotfiles
+DOTPATH=~/dotfiles
 GITHUB_URL=https://github.com/yoshiro4460/dotfiles.git
 
 
+# =======================
 # get dotfiles
+# =======================
+
 if has "git"; then
   git clone --recursive "$GITHUB_URL" "$DOTPATH"
 
@@ -25,21 +28,24 @@ if has "git"; then
     die "curl or wget required"
 fi
 
-cd ~/.dotfiles
+cd ~/dotfiles
 if [ $? -ne 0 ]; then
   die "not found: $DOTPATH"
 fi
 
+# =======================
+# symbolic link
+# =======================
+
 for file in .??*
 do
-
   [ "$file" = ".git" ] && continue
   [ "$file" = ".vimrc.*" ] && continue
 
   ln -snfv "$DOTPATH/$file" "$HOME/$file"
-
 done
 
+ln -snfv "$DOTPATH/zsh/prezto_overrides/.zpreztorc" "${ZDOTDIR:-$HOME}/.zprezto/runcoms/.zpreztorc"
 
 
 [ ! -d ~/dotfiles/fonts/ ] && git clone git://github.com/powerline/fonts.git ~/dotfiles/fonts/
