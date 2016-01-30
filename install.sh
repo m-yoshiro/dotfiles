@@ -1,52 +1,50 @@
 #!/bin/bash
 
-DOTPATH=~/dotfiles
-GITHUB_URL=https://github.com/yoshiro4460/dotfiles.git
+DOTFILES_ROOT=~/dotfiles
+CURRNET_DIR=`pwd`
 
-
-# =======================
-# get dotfiles
-# =======================
-
-if has "git"; then
-  git clone --recursive "$GITHUB_URL" "$DOTPATH"
-
-  elif has "curl" || has "wget"; then
-    tarball="https://github.com/yoshiro4460/dotfiles/archive/master.tar.gz"
-
-    if has "curl"; then
-      curl -L "$tarball"
-
-    elif has "wget"; then
-      wget -O - "$tarball"
-
-    fi | tar xv -
-
-    mv -f dotfiles-master "$DOTPATH"
-
-  else
-    die "curl or wget required"
-fi
-
-cd ~/dotfiles
+# check directory
+cd ~/.dotfiles
 if [ $? -ne 0 ]; then
-  die "not found: $DOTPATH"
+  die "not found: $DOTFILES_ROOT"
 fi
 
-# =======================
-# symbolic link
-# =======================
 
+# ----------------------
+# Install tools
+# ----------------------
+
+# install homebrew
+if has "brew"; then
+  echo "Already installed Homebrew"
+else
+  echo "Installing Homebrew..."
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  # install dependencies
+  $DOTFILES_ROOT/brew/brew.sh
+  wait
+  echo "Done Homebrew"
+fi
+
+# install powerline
+if [ -d "$HOME/.powerline"]; then
+  pip install --user powerline-status
+  git clone git://github.com/powerline/fonts.git ~/.powerline
+  cd ~/.powerline;./install.sh
+  cd "$CURRNET_DIR"
+fi
+
+# ----------------------
+# Set symlinks
+# ----------------------
+
+echo "Setting symlinks..."
 for file in .??*
 do
   [ "$file" = ".git" ] && continue
   [ "$file" = ".vimrc.*" ] && continue
-
-  ln -snfv "$DOTPATH/$file" "$HOME/$file"
+  ln -snfv "$DOTFILES_ROOT/$file" "$HOME/$file"
 done
-
-ln -snfv "$DOTPATH/zsh/prezto_overrides/.zpreztorc" "${ZDOTDIR:-$HOME}/.zprezto/runcoms/.zpreztorc"
-
-
-[ ! -d ~/dotfiles/fonts/ ] && git clone git://github.com/powerline/fonts.git ~/dotfiles/fonts/
-
+ln -snfv "$DOTFILES_ROOT/zsh/prezto_overrides/.zpreztorc" "${ZDOTDIR:-$HOME}/.zprezto/runcoms/.zpreztorc"
+echo "Done symlink"
