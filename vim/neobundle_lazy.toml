@@ -96,6 +96,10 @@ filetypes = 'json'
 repository = 'mattn/jscomplete-vim'
 filetypes = 'JavaScript'
 
+[[plugins]]
+repository = 'pangloss/vim-javascript'
+filetypes = 'JavaScript'
+
 # jQuery
 [[plugins]]
 repository = 'jQuery'
