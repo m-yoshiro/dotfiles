@@ -22,6 +22,8 @@ highlight CursorLine gui=underline guifg=NONE guibg=NONE
 " 検索関連
 set hlsearch
 set incsearch
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
 " ビジュアルモードで選択範囲を検索
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
