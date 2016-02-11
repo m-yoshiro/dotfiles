@@ -79,31 +79,30 @@ filetypes = 'jade'
 repository = 'slim-template/vim-slim'
 filetypes = 'slim'
 
-# JavaScript
+# javascript
+
 [[plugins]]
-repository = 'JavaScript-syntax'
+repository = 'isRuslan/vim-es6'
+filetypes = 'JavaScript'
+depends = 'SirVer/ultisnips'
+
+[[plugins]]
+repository = 'othree/jspc'
 filetypes = 'JavaScript'
 
 [[plugins]]
 repository = 'moll/vim-node'
 filetypes = 'JavaScript'
 
-[[plugins]]
-repository = 'elzr/vim-json'
-filetypes = 'json'
-
-[[plugins]]
-repository = 'mattn/jscomplete-vim'
-filetypes = 'JavaScript'
-
-[[plugins]]
-repository = 'pangloss/vim-javascript'
-filetypes = 'JavaScript'
-
 # jQuery
 [[plugins]]
 repository = 'jQuery'
 filetypes = 'JavaScript'
+
+[[plugins]]
+repository = 'elzr/vim-json'
+filetypes = 'json'
+
 
 # coffee script
 [[plugins]]
@@ -120,6 +119,7 @@ filetypes = ['c', 'cpp']
 repository = 'cespare/vim-toml'
 filetypes = 'toml'
 
+# yaml
 [[plugins]]
 repository = 'stephpy/vim-yaml'
 filetypes = 'yaml'
@@ -173,10 +173,6 @@ repository = 'KazuakiM/vim-qfstatusline'
 
 [[plugins]]
 repository = 'KazuakiM/vim-qfsigns'
-
-# [[plugins]]
-# repository = 'osyo-manga/vim-watchdogs'
-# depends = ['thinca/vim-quickrun', 'osyo-manga/shabadou.vim', 'cohama/vim-hier', 'dannyob/quickfixstatus', 'Shougo/vimproc']
 
 [[plugins]]
 repository = 'scrooloose/syntastic'

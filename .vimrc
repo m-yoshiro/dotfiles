@@ -12,7 +12,11 @@
   call neobundle#begin(expand('~/.vim/bundle/'))
   let g:neobundle#types#git#default_protocol = 'https'
 
-  if neobundle#load_cache()
+  if neobundle#load_cache(
+      \ $MYVIMRC,
+      \ '~/dotfiles/vim/neobundle.toml',
+      \ '~/dotfiles/vim/neobundle_lazy.toml',
+      \)
 
   NeoBundleFetch 'Shougo/neobundle.vim'
 
