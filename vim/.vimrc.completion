@@ -107,14 +107,3 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets, ~/.vim/bundle/snipmate-nodejs'
 
-" javascript
-let s:omnifuncs = {}
-let s:omnifuncs.javascript = [ 'javascriptcomplete#CompleteJS' ]
-
-if neobundle#tap('jspc')
-  let s:indexdefault = index(s:omnifuncs.javascript, 'javascriptcomplete#CompleteJS')
-  call remove(s:omnifuncs.javascript, s:indexdefault)
-  call add(s:omnifuncs.javascript, 'jspc#omni')
-endif
-call extend(g:neocomplete#sources#omni#functions, s:omnifuncs)
-let g:tern_map_keys = 0

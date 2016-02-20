@@ -14,8 +14,6 @@
 
   if neobundle#load_cache(
       \ $MYVIMRC,
-      \ '~/dotfiles/vim/neobundle.toml',
-      \ '~/dotfiles/vim/neobundle_lazy.toml',
       \)
 
   NeoBundleFetch 'Shougo/neobundle.vim'

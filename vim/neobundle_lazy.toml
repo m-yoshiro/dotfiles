@@ -81,10 +81,6 @@ filetypes = 'slim'
 
 # javascript
 
-[[plugins]]
-repository = 'isRuslan/vim-es6'
-filetypes = 'JavaScript'
-depends = 'SirVer/ultisnips'
 
 [[plugins]]
 repository = 'othree/jspc'
