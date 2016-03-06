@@ -81,19 +81,23 @@ filetypes = 'slim'
 
 # javascript
 
-
 [[plugins]]
 repository = 'othree/jspc'
-filetypes = 'JavaScript'
+filetypes = ['JavaScript', 'jsx']
 
 [[plugins]]
 repository = 'moll/vim-node'
-filetypes = 'JavaScript'
+filetypes = ['JavaScript', 'jsx']
+
+# jsx
+# [[plugins]]
+# repository = 'moll/vim-node'
+# filetypes = ['JavaScript', 'jsx']
 
 # jQuery
 [[plugins]]
 repository = 'jQuery'
-filetypes = 'JavaScript'
+filetypes = ['JavaScript', 'jsx']
 
 [[plugins]]
 repository = 'elzr/vim-json'
