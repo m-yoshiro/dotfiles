@@ -40,9 +40,14 @@ filetype plugin indent on
 NeoBundleCheck
 
 
+
 " ====================
 " # Include .vimrc.~
 " ====================
+
+if has('nvim')
+  source ~/dotfiles/vim/.nvimrc
+endif
 
 " Basic setting
 source ~/dotfiles/vim/.vimrc.basic
