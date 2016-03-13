@@ -12,6 +12,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
 set showmode
 set notitle
+set shell=/bin/sh
 set nrformats=
 " カレント行をハイライト
 set cursorline
