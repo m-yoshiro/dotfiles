@@ -12,4 +12,3 @@ let g:user_emmet_settings = {
   \   '^\%(lorem\|lipsum\)\(\d*\)$' : function('emmet#lorem#ja#expand')
   \ }
   \}
-

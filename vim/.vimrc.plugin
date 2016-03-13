@@ -275,10 +275,10 @@ if dein#tap('neosnippet.vim') "{{{
         \ source ~/dotfiles/vim/plugin/neosnippet.vim
 endif "}}}
 
+let g:user_emmet_leader_key = '<C-e>'
 if dein#tap('emmet.vim') "{{{
-  imap <buffer><expr><tab>
-          \ emmet#isExpandable() ? "\<Plug>(emmet-expand-abbr)" :
-          \ "\<tab>"
+  " let g:user_emmet_install_global = 0
+  " autocmd FileType html,jade,css,scss EmmetInstall
   autocmd MyAutoCmd User dein#source#emmet.vim
         \ source ~/dotfiles/vim/plugin/emmet.vim
 endif "}}}
