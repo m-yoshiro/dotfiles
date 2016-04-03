@@ -5,43 +5,29 @@ if &compatible
   set nocompatible
 endif
 
+let $CACHE = expand('~/.cache')
+
+if !isdirectory(expand($CACHE))
+  call mkdir(expand($CACHE), 'p')
+endif
+
 " dein.vim settings {{{
-" installed dir
-let s:dein_dir = expand('~/.vim/dein')
-" dein.vim path
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-
-function! s:source_rc(path) abort
-  execute 'source' fnameescape(expand('~/dotfiles/vim/' . a:path))
-endfunction
-
- " install dein.vim
-if &runtimepath !~# '/dein.bim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+" Load dein.
+let s:dein_dir = finddir('dein.vim', '.;')
+if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
+  if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
+    let s:dein_dir = expand('$CACHE/dein')
+          \. '/repos/github.com/Shougo/dein.vim'
+    if !isdirectory(s:dein_dir)
+      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+    endif
   endif
-  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+  execute ' set runtimepath^=' . substitute(
+        \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
 endif
 
-" start dein
-call dein#begin(s:dein_dir)
+source ~/dotfiles/vim/.vimrc.dein
 
-" Plugin lists
-let s:toml = '~/dotfiles/vim/plugin.toml'
-let s:lazy_toml = '~/dotfiles/vim/plugin_lazy.toml'
-
-" Cashe TOML
-if dein#load_cache([expand('<sfile>'), s:toml, s:lazy_toml])
-  call dein#load_toml(s:toml, {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-  call dein#save_cache()
-endif
-
-call dein#end()
-
-if dein#check_install()
-  call dein#install()
-endif
 
 filetype plugin indent on
 

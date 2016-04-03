@@ -11,12 +11,7 @@ repo = 'Shougo/dein.vim'
 # vimproc
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
-  [plugins.build]
-  windows = 'tools\\update-dll-mingw'
-  cygwin  = 'make -f make_cygwin.mak'
-  mac     = 'make -f make_mac.mak'
-  linux   = 'make'
-  unix    = 'gmake'
+build = 'make'
 
 # }}}
 
@@ -92,10 +87,14 @@ repo = 'Yggdroot/indentLine'
 repo = 'jacquesbh/vim-showmarks'
 # }}}
 
-# lint {{{
-# [[plugins]]
-# repo = 'syngan/vim-vimlint'
-# depends = 'vim-vimlparser'
+[[plugins]]
+repo = 'ternjs/tern_for_vim'
+on_ft = 'javaScript'
+build = 'npm install'
+# on_cmd = ['TernDef', 'TernDoc', 'TernType', 'TernRefs', 'TernRename']
+#   [plugins.build]
+#   mac     ='npm install'
+
 
 
 # }}}

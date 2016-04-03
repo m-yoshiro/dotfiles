@@ -251,6 +251,19 @@ if dein#tap('vim-jade.vim') "{{{
   let g:quickrun_config['jade']={'command': 'jade', 'cmdopt': '-P', 'exec': ['%c &o < %s']}
 endif "}}}
 
+" ---------------
+" vim-easy-align
+" ---------------
+if dein#tap('vim-processing.vim') "{{{
+  let g:processing_fold = 1
+endif "}}}
+
+" ---------------
+" vim-slim
+" ---------------
+if dein#tap('vim-slim.vim') "{{{
+endif "}}}
+autocmd BufNewFile,BufRead *.slim set ft=slim
 
 "------------------------------------
 " Completion

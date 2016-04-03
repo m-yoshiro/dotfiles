@@ -1,0 +1,29 @@
+" ---------------------
+" dein
+" ---------------------
+
+let s:path = expand('$CACHE/dein')
+if !dein#load_state(s:path)
+  finish
+endif
+
+""
+" start dein
+
+" Plugin lists
+let s:toml = '~/dotfiles/vim/plugin.toml'
+let s:lazy_toml = '~/dotfiles/vim/plugin_lazy.toml'
+
+call dein#begin(s:path, [expand('<sfile>'),
+      \s:toml, s:lazy_toml])
+
+call dein#load_toml(s:toml, {'lazy': 0})
+call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+
+call dein#end()
+call dein#save_state()
+
+if !has('vim_starting') && dein#check_install()
+  call dein#install()
+endif

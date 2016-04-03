@@ -14,7 +14,7 @@ on_source = 'unite.vim'
 
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
-depends = 'unite.vim'
+# depends = 'unite.vim'
 on_map = '<Plug>'
 on_path = '.*'
 
@@ -75,6 +75,11 @@ on_ft = ['css']
 repo = 'csscomb/vim-csscomb'
 on_ft = ['css', 'scss']
 
+[[plugins]]
+repo = 'jasonlong/vim-textobj-css'
+on_ft = ['css', 'scss']
+depends = 'kana/vim-textobj-user'
+
 # sass
 [[plugins]]
 repo = 'cakebaker/scss-syntax.vim'
@@ -118,12 +123,6 @@ on_ft = ['javaScript', 'jsx']
 repo = 'moll/vim-node'
 on_ft = ['javaScript', 'jsx']
 
-[[plugins]]
-repo = 'ternjs/tern_for_vim'
-on_ft = 'javaScript'
-on_cmd = ['TernDef', 'TernDoc', 'TernType', 'TernRefs', 'TernRename']
-  [plugins.build]
-  mac     ='npm install'
 
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
@@ -164,6 +163,10 @@ on_ft = 'toml'
 [[plugins]]
 repo = 'stephpy/vim-yaml'
 on_ft = 'yaml'
+
+[[plugins]]
+repo = 'sophacles/vim-processing'
+on_ft = 'processing'
 
 # }}}
 
@@ -243,19 +246,19 @@ on_map = '<Plug>'
 repo = 'kana/vim-textobj-user'
 # vim-textobj-syntax
 [[plugins]]
-repo = 'kana/vim-textobj-syntax.git'
+repo = 'kana/vim-textobj-syntax'
 depends = 'vim-textobj-user'
 # vim-textobj-indent
 [[plugins]]
-repo = 'kana/vim-textobj-indent.git'
+repo = 'kana/vim-textobj-indent'
 depends = 'vim-textobj-user'
 # vim-textobj-fold
 [[plugins]]
-repo = 'kana/vim-textobj-fold.git'
+repo = 'kana/vim-textobj-fold'
 depends = 'vim-textobj-user'
 # vim-textobj-lastpat
 [[plugins]]
-repo = 'kana/vim-textobj-lastpat.git'
+repo = 'kana/vim-textobj-lastpat'
 depends = 'vim-textobj-user'
 [[plugins]]
 repo = 'smartword'
