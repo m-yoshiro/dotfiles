@@ -80,15 +80,16 @@ repo = 'jasonlong/vim-textobj-css'
 on_ft = ['css', 'scss']
 depends = 'kana/vim-textobj-user'
 
+[[plugins]]
+repo = 'Ioannis-Kapoulas/vim-autoprefixer'
+on_ft = ['css', 'scss']
+build = 'npm install --global postcss-cli autoprefixer'
+
 # sass
 [[plugins]]
 repo = 'cakebaker/scss-syntax.vim'
 on_ft = ['scss']
 
-[[plugins]]
-repo = 'AtsushiM/sass-compile.vim'
-on_ft = ['scss']
-depends = 'AtsushiM/search-parent.vim'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -124,10 +125,10 @@ repo = 'moll/vim-node'
 on_ft = ['javaScript', 'jsx']
 
 
-[[plugins]]
-repo = 'carlitux/deoplete-ternjs'
-on_ft = 'javaScript'
-depends = 'deoplete'
+# [[plugins]]
+# repo = 'carlitux/deoplete-ternjs'
+# on_ft = 'javaScript'
+# depends = 'deoplete'
 
 # jsx
 # [[plugins]]
