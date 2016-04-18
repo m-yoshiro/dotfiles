@@ -98,3 +98,7 @@ nnoremap sp gT
 " 空行の追加
 nnoremap <Leader>[  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
 nnoremap <Leader>]  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+
+
+" 上に改行
+inoremap <C-]> <C-o>O
