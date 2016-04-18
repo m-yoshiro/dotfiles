@@ -1,6 +1,6 @@
-"---------------------
-"Edit
-"---------------------
+" ---------------------
+" Edit
+" ---------------------
 
 " 自動で閉じ括弧
 imap { {}<LEFT>
@@ -14,8 +14,6 @@ augroup MyCSS
 augroup END
 
 " Line ハイフン
-imap ;-- -------------------------
-imap ;== =========================
 
 " insert抜けるとIMEオフ
 set noimdisable
@@ -96,3 +94,7 @@ nnoremap s- <C-w>-
 nnoremap st :<C-u>tabnew<CR>
 nnoremap sn gt
 nnoremap sp gT
+
+" 空行の追加
+nnoremap <Leader>[  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+nnoremap <Leader>]  :<c-u>put =repeat(nr2char(10), v:count1)<cr>

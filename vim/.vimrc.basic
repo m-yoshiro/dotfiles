@@ -12,6 +12,7 @@ set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
 set showmode
 set notitle
+set shell=/bin/sh
 set nrformats=
 " カレント行をハイライト
 set cursorline
@@ -46,7 +47,9 @@ set mouse=a
 if has("mouse_sgr")
     set ttymouse=sgr
 else
+  if !has('nvim')
     set ttymouse=xterm2
+  endif
 end
 
 " 起動時にマーク表示

@@ -1,48 +1,43 @@
 " ====================
-" # Plugin
+" # Initialize
 " ====================
-" neobundle settings {{{
-  if has('vim_starting')
-    if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
-      echo "Test install neobundle..."
-      :call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
-    endif
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-  endif
-  call neobundle#begin(expand('~/.vim/bundle/'))
-  let g:neobundle#types#git#default_protocol = 'https'
-
-  if neobundle#load_cache(
-      \ $MYVIMRC,
-      \)
-
-  NeoBundleFetch 'Shougo/neobundle.vim'
-
-  " vimproc
-  NeoBundle 'Shougo/vimproc', {
-    \ 'build' : {
-    \     'windows' : 'tools\\update-dll-mingw',
-    \     'cygwin' : 'make -f make_cygwin.mak',
-    \     'mac' : 'make -f make_mac.mak',
-    \     'unix' : 'make -f make_unix.mak',
-    \    },
-    \ }
-
-  call neobundle#load_toml('~/dotfiles/vim/neobundle.toml')
-  call neobundle#load_toml('~/dotfiles/vim/neobundle_lazy.toml', {'lazy' :1})
-
-  NeoBundleSaveCache
+if &compatible
+  set nocompatible
 endif
 
-call neobundle#end()
+let $CACHE = expand('~/.cache')
+
+if !isdirectory(expand($CACHE))
+  call mkdir(expand($CACHE), 'p')
+endif
+
+" dein.vim settings {{{
+" Load dein.
+let s:dein_dir = finddir('dein.vim', '.;')
+if s:dein_dir != '' || &runtimepath !~ '/dein.vim'
+  if s:dein_dir == '' && &runtimepath !~ '/dein.vim'
+    let s:dein_dir = expand('$CACHE/dein')
+          \. '/repos/github.com/Shougo/dein.vim'
+    if !isdirectory(s:dein_dir)
+      execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+    endif
+  endif
+  execute ' set runtimepath^=' . substitute(
+        \ fnamemodify(s:dein_dir, ':p') , '/$', '', '')
+endif
+
+source ~/dotfiles/vim/.vimrc.dein
+
 
 filetype plugin indent on
-NeoBundleCheck
-
 
 " ====================
 " # Include .vimrc.~
 " ====================
+
+if has('nvim')
+  source ~/dotfiles/vim/.nvimrc
+endif
 
 " Basic setting
 source ~/dotfiles/vim/.vimrc.basic
@@ -56,24 +51,8 @@ source ~/dotfiles/vim/.vimrc.indent
 " Moving
 source ~/dotfiles/vim/.vimrc.moving
 
-" Completion
 source ~/dotfiles/vim/.vimrc.completion
 
-"Plugin setting
 source ~/dotfiles/vim/.vimrc.plugin
-
 "Local setting
 source ~/dotfiles/vim/.vimrc.local
-
-" augroup vimrc-local
-"   autocmd!
-"   autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand("<afile>:p:h"))
-" augroup END
-"
-" function! s:vimrc_local(loc) abort
-"   let files = findfile(".vimrc", escape(a:lock, " ") . ";", -1)
-"   for i in reverse(filter(files, "filereadable(v:val)"))
-"     source `=i`
-"   endfor
-" endfunction
-
