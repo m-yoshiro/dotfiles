@@ -13,6 +13,12 @@ augroup MyCSS
   autocmd Filetype css,scss,sass inoremap <buffer> { {}<LEFT><CR><C-o>O
 augroup END
 
+" JS用
+augroup MyJS
+  autocmd!
+  autocmd Filetype javascript,jsx inoremap <buffer> >> =>
+augroup END
+
 " Line ハイフン
 
 " insert抜けるとIMEオフ

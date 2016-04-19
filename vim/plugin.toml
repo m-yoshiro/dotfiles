@@ -36,6 +36,10 @@ repo = 'tomtom/tcomment_vim'
 repo = 'godlygeek/tabular'
 # }}}
 
+# Text objects {{{
+# textobj-user
+[[plugins]]
+repo = 'kana/vim-textobj-user'
 
 # Searching/Moving{{{
 # smooth_scroll.vim スクロール
@@ -91,10 +95,6 @@ repo = 'jacquesbh/vim-showmarks'
 repo = 'ternjs/tern_for_vim'
 on_ft = 'javaScript'
 build = 'npm install'
-# on_cmd = ['TernDef', 'TernDoc', 'TernType', 'TernRefs', 'TernRename']
-#   [plugins.build]
-#   mac     ='npm install'
-
 
 
 # }}}
