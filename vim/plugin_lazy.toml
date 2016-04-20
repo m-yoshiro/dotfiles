@@ -187,16 +187,18 @@ on_ft = ['javaScript', 'jsx']
 repo = 'moll/vim-node'
 on_ft = ['javaScript', 'jsx']
 
+[[plugins]]
+repo = 'mxw/vim-jsx'
+on_ft = ['jsx']
+depends = 'vim-javascript'
 
-# [[plugins]]
-# repo = 'carlitux/deoplete-ternjs'
-# on_ft = 'javaScript'
-# depends = 'deoplete'
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'jsx']
 
-# jsx
-# [[plugins]]
-# repo = 'moll/vim-node'
-# on_ft = ['JavaScript', 'jsx']
+[[plugins]]
+repo = 'jiangmiao/simple-javascript-indenter'
+on_ft = ['javaScript', 'jsx']
 
 # jQuery
 [[plugins]]
@@ -207,11 +209,15 @@ on_ft = ['javaScript', 'jsx']
 repo = 'elzr/vim-json'
 on_ft = 'json'
 
-
 # coffee script
 [[plugins]]
 repo = 'kchmck/vim-coffee-script'
 on_ft = 'coffee'
+
+# Rails
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_map = '<Plug>'
 
 # C
 [[plugins]]
