@@ -27,14 +27,6 @@ else
   echo "Done Homebrew"
 fi
 
-# install powerline
-if [ -d "$HOME/.powerline"]; then
-  pip install --user powerline-status
-  git clone git://github.com/powerline/fonts.git ~/.powerline
-  cd ~/.powerline;./install.sh
-  cd "$CURRNET_DIR"
-fi
-
 # ----------------------
 # Set symlinks
 # ----------------------

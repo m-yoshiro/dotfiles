@@ -17,6 +17,7 @@ repo = 'Shougo/vimfiler.vim'
 depends = 'unite.vim'
 on_map = '<Plug>'
 on_path = '.*'
+hook_source = 'source ~/dotfiles/vim/plugin/vimfiler.vim'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -156,7 +157,7 @@ on_ft = ['scss']
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'jade', 'css', 'scss']
+on_ft = ['html', 'jade', 'pug', 'css', 'scss']
 
 # XML,HTMLの編集強化
 [[plugins]]
@@ -171,7 +172,7 @@ on_ft = 'haml'
 # jade
 [[plugins]]
 repo = 'digitaltoad/vim-jade'
-on_ft = 'jade'
+on_ft = ['jade', 'pug']
 
 # slim
 [[plugins]]
@@ -254,6 +255,7 @@ depends = 'tyru/open-browser.vim'
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 on_map = '<Plug>'
+hook_source = 'source ~/dotfiles/vim/plugin/open-browser.vim'
 
 
 # }}}
