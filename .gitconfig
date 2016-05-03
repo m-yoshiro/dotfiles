@@ -3,7 +3,7 @@
   email = massugu.massugu@gmail.com
 [core]
   excludesfile = /Users/Yoshiro/.gitexclude
-  editor = /usr/local/bin/vim
+  editor = /usr/local/bin/nvim
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
@@ -18,4 +18,4 @@
   tree = log --graph --all --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
   st = status
 [push]
-	default = simple
+  default = simple
