@@ -6,7 +6,7 @@
 repo = 'altercation/vim-colors-solarized'
 hook_add = '''
 set background=dark
-autocmd MyAutoCmd VimEnter * colorscheme solarized
+autocmd VimEnter * colorscheme solarized
 '''
 
 [[plugins]]
@@ -21,14 +21,17 @@ on_source = 'unite.vim'
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
 depends = 'unite.vim'
-on_map = '<Plug>'
-on_path = '.*'
+on_map = [['n', '<Plug>']]
+on_if = "isdirectory(bufname('%'))"
+hook_add = '''
+  nnoremap [vimfiler] <Nop>
+  nmap <Leader>f [vimfiler]
+'''
 hook_source = 'source ~/dotfiles/vim/plugin/vimfiler.vim'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
 depends = 'neomru.vim'
-on_map = [['n', '[unite]']]
 hook_source = 'source ~/dotfiles/vim/plugin/unite.vim'
 hook_add = '''
   nnoremap [unite]u  :<C-u>Unite -no-split -no-resize -start-insert<Space>
@@ -97,21 +100,25 @@ hook_add = '''
 
 # Completion {{{
 # neocomplete.vim
+
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 on_i = 1
 disabled = '!has("lua")'
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-on_i = 1
+hook_source = '''
+  let g:loaded_deoplete = 1
+  let g:neocomplete#enable_at_startup = 1
+  source ~/dotfiles/vim/plugin/neocomplete.vim
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 depends = ['neosnippet-snippets', 'vim-snippets', 'context_filetype.vim']
 on_i = 1
 on_ft = 'snippet'
+hook_add = '''
+  source ~/dotfiles/vim/plugin/neosnippet.vim
+'''
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
@@ -160,10 +167,10 @@ build = 'npm install --global postcss-cli autoprefixer'
 repo = 'cakebaker/scss-syntax.vim'
 on_ft = ['scss']
 
-
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'jade', 'pug', 'css', 'scss']
+hook_source = 'source ~/dotfiles/vim/plugin/emmet.vim'
 
 # XML,HTMLの編集強化
 [[plugins]]
@@ -292,13 +299,11 @@ repo = 'KazuakiM/vim-qfstatusline'
 [[plugins]]
 repo = 'KazuakiM/vim-qfsigns'
 
-# [[plugins]]
-# repo = 'scrooloose/syntastic'
-# on_ft = ['all']
-
 [[plugins]]
 repo = 'benekastah/neomake'
-
+hook_source = '''
+  source ~/dotfiles/vim/plugin/neomake.vim
+'''
 
 # }}}
 
@@ -306,9 +311,12 @@ repo = 'benekastah/neomake'
 
 # 編集履歴をツリー表示
 [[plugins]]
-repo = 'sjl/gundo.vim'
+repo = 'mbbill/undotree'
 on_map = '<Plug>'
-
+hook_add = '''
+  set undodir=~/.undodir/
+  set undofile
+'''
 # vimshell
 [[plugins]]
 repo = 'Shougo/vimshell.git'
@@ -368,7 +376,6 @@ repo = 'AtsushiM/search-parent.vim'
 repo = 'lambdalisue/vim-pyenv'
 #depends = ['', ''] python依存プラグイン
 on_ft = ['python', 'python3']
-
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'

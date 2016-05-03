@@ -28,12 +28,16 @@ repo = 'Align'
 # surround.vim
 [[plugins]]
 repo = 'tpope/vim-surround'
+
 # true/false切り替え
 [[plugins]]
 repo = 'taku-o/vim-toggle'
+hook_add = 'source ~/dotfiles/vim/plugin/toggle.vim'
+
 # コメントアウト
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
+
 # テキスト整形
 [[plugins]]
 repo = 'godlygeek/tabular'
@@ -56,8 +60,8 @@ repo = 'matchit.zip'
 
 
 # color scheme
-[[plugins]]
-repo = 'tomasr/molokai'
+# [[plugins]]
+# repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'othree/yajs'
@@ -65,6 +69,9 @@ repo = 'othree/yajs'
 # ステータスラインの色変更
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+hook_source = '''
+  source ~/dotfiles/vim/plugin/lightline.vim
+'''
 
 # vimfiler.vim
 # 行末の半角スペースを可視化
@@ -98,7 +105,11 @@ repo = 'jacquesbh/vim-showmarks'
 repo = 'ternjs/tern_for_vim'
 on_ft = 'javaScript'
 build = 'npm install'
-
+hook_source = '''
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+'''
 
 # }}}
-

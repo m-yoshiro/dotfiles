@@ -6,16 +6,6 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-
-"------------------------------------
-" lightline
-"------------------------------------
-if dein#tap('lightline.vim') "{{{
-  execute 'autocmd MyAutoCmd User' 'dein#source#'.g:dein#name
-        \ 'source ~/dotfiles/vim/plugin/lightline.vim'
-endif "}}}
-
-
 "------------------------------------
 " vim-indent-guides
 "------------------------------------
@@ -48,15 +38,9 @@ set helplang& helplang=ja,en
 "------------------------------------
 " toggle.vim
 "------------------------------------
-if dein#tap('toggle.vim') "{{{
-  imap <C-A> <Plug>ToggleI
-  nmap <C-A> <Plug>ToggleN
-  vmap <C-A> <Plug>ToggleV
-
-  execute 'autocmd MyAutoCmd User' 'dein#source#'.g:dein#name
-        \ 'source ~/dotfiles/vim/plugin/toggle.vim'
-endif "}}}
-
+imap <C-A> <Plug>ToggleI
+nmap <C-A> <Plug>ToggleN
+vmap <C-A> <Plug>ToggleV
 
 " ---------------
 " unite.vim
@@ -70,13 +54,10 @@ nmap    <Leader>u [unite]
 nnoremap [vimfiler] <Nop>
 nmap <Leader>f [vimfiler]
 
-
 " ---------------
-" Gundo.vim
+" undotree.vim
 " ---------------
-if dein#tap('gundo.vim') "{{{
-  nnoremap <F5> :GundoToggle<CR>
-endif "}}}
+nnoremap <F5> :UndotreeToggle<CR>
 
 " ---------------
 " vim-markdown
@@ -110,21 +91,9 @@ if dein#tap('quickrun.vim') "{{{
 endif "}}}
 
 " ---------------
-" syntastic
-" ---------------
-" if dein#tap('syntastic.vim') "{{{
-"   execute 'autocmd MyAutoCmd User' 'dein#source#'.g:dein#name
-"         \ 'source ~/dotfiles/vim/plugin/syntastic.vim'
-" endif "}}}
-
-" ---------------
 " neomake
 " ---------------
 autocmd! BufWritePost,BufEnter * Neomake
-if dein#tap('neomake.vim') "{{{
-  execute 'autocmd MyAutoCmd User' 'dein#source#'.g:dein#name
-        \ 'source ~/dotfiles/vim/plugin/neomake.vim'
-endif "}}}
 
 " ---------------
 " VimCSS3Syntax
@@ -187,38 +156,5 @@ autocmd BufNewFile,BufRead *.slim set ft=slim
 "------------------------------------
 " Completion
 "------------------------------------
-
-if dein#tap('deoplete.nvim') && has('nvim') "{{{
-  let g:loaded_neocomplete = 1
-  let g:deoplete#enable_at_startup = 1
-  execute 'autocmd MyAutoCmd User' 'dein#source#'.g:dein#name
-        \ 'source ~/dotfiles/vim/plugin/deoplete.vim'
-endif "}}}
-
-if dein#tap('neocomplete.vim') && has('lua') "{{{
-  let g:loaded_deoplete = 1
-  let g:neocomplete#enable_at_startup = 1
-  autocmd MyAutoCmd User dein#source#neocomplete.vim
-        \ source ~/dotfiles/vim/plugin/neocomplete.vim
-endif "}}}
-
-if dein#tap('neosnippet.vim') "{{{
-  autocmd MyAutoCmd User dein#source#neosnippet.vim
-        \ source ~/dotfiles/vim/plugin/neosnippet.vim
-endif "}}}
-
+" Emmet
 let g:user_emmet_leader_key = '<C-e>'
-if dein#tap('emmet.vim') "{{{
-  " let g:user_emmet_install_global = 0
-  " autocmd FileType html,jade,css,scss EmmetInstall
-  autocmd MyAutoCmd User dein#source#emmet.vim
-        \ source ~/dotfiles/vim/plugin/emmet.vim
-endif "}}}
-
-" tern
-if dein#tap('tern_for_vim') "{{{
-  let g:tern_show_argument_hints = 'on_hold'
-  let g:tern_show_signature_in_pum = 1
-  autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-endif
