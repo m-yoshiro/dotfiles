@@ -62,10 +62,11 @@ aug END
 " #ColorScheme
 " ------------------
 syntax on
-colorscheme molokai
-let g:molokai_original = 1
 let g:rehash256 = 1
-set background=dark
+" solarizeの設定はtomlに記載
+" colorscheme molokai
+" let g:molokai_original = 1
+" set background=dark
 
 " -------------------
 " 全角スペースを表示する
@@ -118,7 +119,9 @@ command! Rv source $MYVIMRC
 " Help 日本語化
 set helplang=ja
 
-
+" インターフェースは英語を使用
+set langmenu=en_US
+let $LANG = 'en'
 
 " ------------------
 " # FileType

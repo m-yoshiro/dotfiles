@@ -19,6 +19,9 @@ build = 'make'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
+[[plugins]]
+repo = 'honza/vim-snippets'
+
 # Align 整形
 [[plugins]]
 repo = 'Align'

@@ -39,20 +39,20 @@ if has('nvim')
   source ~/dotfiles/vim/.nvimrc
 endif
 
-" Basic setting
+
 source ~/dotfiles/vim/.vimrc.basic
 
-" Edit
 source ~/dotfiles/vim/.vimrc.editing
 
-" Indent
 source ~/dotfiles/vim/.vimrc.indent
 
-" Moving
 source ~/dotfiles/vim/.vimrc.moving
 
 source ~/dotfiles/vim/.vimrc.completion
 
 source ~/dotfiles/vim/.vimrc.plugin
+
 "Local setting
-source ~/dotfiles/vim/.vimrc.local
+" if filereadable(expand('~/dotfiles/.vimrc.local'))
+"   source ~/dotfiles/.vimrc.local
+" endif
