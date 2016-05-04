@@ -21,13 +21,27 @@ on_source = 'unite.vim'
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
 depends = 'unite.vim'
-on_map = [['n', '<Plug>']]
+on_map = '<Plug>'
 on_if = "isdirectory(bufname('%'))"
-hook_add = '''
-  nnoremap [vimfiler] <Nop>
-  nmap <Leader>f [vimfiler]
-'''
 hook_source = 'source ~/dotfiles/vim/plugin/vimfiler.vim'
+hook_add = '''
+  noremap <silent> [vimfiler]t :<C-u>VimFilerBufferDir -winwidth=35 -split -no-quit -simple -toggle<CR>
+
+  nnoremap <silent> [vimfiler]e :<C-u>VimFilerBufferDir -quit<CR>
+
+  augroup vimfiller_setting
+    autocmd!
+    autocmd FileType vimfiler call s:vimfiler_my_settings()
+  augroup END
+  function! s:vimfiler_my_settings()
+    nmap <buffer> q <Plug>(vimfiler_exit)
+    nmap <buffer> Q <Plug>(vimfiler_hide)
+    nnoremap <buffer> <C-r> <Plug>(vimfiler_redraw_screen)
+    nmap <buffer> <C-q> <Plug>(vimfiler_quick_look)
+    nmap <buffer> <C-w> <Plug>(vimfiler_switch_to_history_directory)
+    setlocal nonumber
+  endfunction
+'''
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -57,6 +71,10 @@ hook_add = '''
   nnoremap <silent> [unite]h :<C-u>Unite -no-split -buffer-name=help help<CR>
   " テキスト、ソースをoutline表示
   nnoremap <silent> [unite]o :<C-u>Unite -no-split -no-resize outline<CR>
+  " unite-menudでチートシート
+  nnoremap <silent> [unite]l :<C-u>Unite -no-split -no-resize menu<CR>
+  " git操作
+  nnoremap <silent> [unite]g :<C-u>Unite -start-insert -no-split -no-resize giti<CR>
 
   function! s:unite_my_settings() abort
 
@@ -363,6 +381,11 @@ on_source = 'unite.vim'
 
 [[plugins]]
 repo = 'ujihisa/unite-colorscheme'
+on_source = 'unite.vim'
+
+[[plugins]]
+repo = 'kmnk/vim-unite-giti'
+depends = 'unite.vim'
 on_source = 'unite.vim'
 
 # }}}
