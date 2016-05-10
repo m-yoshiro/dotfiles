@@ -125,7 +125,7 @@ hook_source = '''
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 depends = ['neosnippet-snippets', 'vim-snippets', 'context_filetype.vim']
-on_event = 'InsertEnter'
+on_event = 'InsertCharPre'
 on_ft = 'snippet'
 hook_add = '''
   source ~/dotfiles/vim/plugin/neosnippet.vim
