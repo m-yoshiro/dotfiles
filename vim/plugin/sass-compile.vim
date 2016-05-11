@@ -1,7 +1,4 @@
-" ====================
-" sass-compile.vim
-" ====================
-
+scriptencoding utf-8
 let $PATH=$PATH.'path_to_compass'
 
 " 編集したファイルから遡るフォルダの最大数

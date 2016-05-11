@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " ==========================
 " Plugin settings
 " ==========================
@@ -76,19 +78,19 @@ endif "}}}
 " quickrun.vim
 " ---------------
 
-if dein#tap('quickrun.vim') "{{{
-  execute 'autocmd MyAutoCmd User' 'dein#source#'.g:dein#name
-        \ 'source ~/dotfiles/vim/plugin/quickrun.vim'
+" if dein#tap('quickrun.vim') "{{{
+"   execute 'autocmd MyAutoCmd User' 'dein#source#'.g:dein#name
+"         \ 'source ~/dotfiles/vim/plugin/quickrun.vim'
 
   " quickrun.vim が実行してない場合は<C-c>を呼び出す
-  augroup quickrunSettings
-    autocmd!
-    autocmd FileType qf nnoremap <silent><buffer>q :quit<CR>
-  augroup END
-  let g:quickrun_no_default_key_mappings = 1
-  nmap <Leader>r <Plug>(quickrun)
-  nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
-endif "}}}
+  " augroup quickrunSettings
+  "   autocmd!
+  "   autocmd FileType qf nnoremap <silent><buffer>q :quit<CR>
+  " augroup END
+  " let g:quickrun_no_default_key_mappings = 1
+  " nmap <Leader>r <Plug>(quickrun)
+  " nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+" endif "}}}
 
 " ---------------
 " neomake

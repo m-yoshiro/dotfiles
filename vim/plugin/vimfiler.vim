@@ -1,7 +1,4 @@
-" ====================
-" vimfiler.vim
-" ====================
-
+scriptencoding utf-8
 "デフォルトのfilerに設定
 let g:vimfiler_as_default_explorer = 1
 "セーフモード無効で起動

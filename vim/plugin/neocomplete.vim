@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " Disable AutocompPop
 let g:acp_enableAtStartup = 0
 " NeoCompleteをON

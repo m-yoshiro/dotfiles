@@ -1,7 +1,3 @@
-" ====================
-" syntastic.vim
-" ====================
-
 set statusline+=%#warningmsg#
 set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
 set statusline+=%*

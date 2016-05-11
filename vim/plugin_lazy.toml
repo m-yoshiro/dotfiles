@@ -285,9 +285,18 @@ hook_source = 'source ~/dotfiles/vim/plugin/open-browser.vim'
 # }}}
 
 # Development {{{
+
+[[plugins]]
+repo = 'thinca/vim-qfreplace'
+on_ft = ['unite', 'quickfix']
+hook_source = '''
+  autocmd MyAutoCmd FileType qf nnoremap <buffer> r :<C-u>Qfreplace<CR>
+'''
+
 [[plugins]]
 repo = 'thinca/vim-quickrun'
-on_map = '<Plug>'
+on_map = [['n', '<Plug>']]
+hook_add = 'nmap <silent> <Leader>r <Plug>(quickrun)'
 # }}}
 
 # Searching/Moving{{{

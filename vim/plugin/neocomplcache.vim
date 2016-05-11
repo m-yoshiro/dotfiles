@@ -1,3 +1,4 @@
+scriptencoding utf-8
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}

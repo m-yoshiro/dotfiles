@@ -1,7 +1,4 @@
-" ====================
-" unite.vim
-" ====================
-
+scriptencoding utf-8
 let g:unite_source_file_mru_limit=200
 let g:unite_source_rec_async_command=['pt', '--nocolor', '--nogroup', '-g', '']
 let g:unite_source_rec_max_cache_files=5000

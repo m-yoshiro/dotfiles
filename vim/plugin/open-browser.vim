@@ -1,7 +1,3 @@
-" ====================
-" open-browser.vim
-" ====================
-
 let g:openbrowser_search_engines = {
     \   'caniuse': 'http://caniuse.com/#search={query}',
     \}

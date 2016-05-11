@@ -1,4 +1,5 @@
-let mapleader = "\<Space>"
+scriptencoding utf-8
+let g:mapleader = "\<Space>"
 set scrolloff=5
 set nobackup
 set autoread
@@ -6,7 +7,7 @@ set noswapfile
 set hidden
 set backspace=indent,eol,start
 set formatoptions=lmoq
-set vb t_vb=
+set visualbell t_vb=
 set browsedir=buffer
 set whichwrap=b,s,h,l,<,>,[,]
 set showcmd
@@ -29,10 +30,10 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 function! s:VSetSearch()
-  let temp = @s
+  let l:temp = @s
   norm! gv"sy
   let @/ = '\v' . substitute(escape(@s,  '/\'), '\n', '\\n', 'g')
-  let @s = temp
+  let @s = l:temp
 endfunction
 
 " 軽くするための設定
@@ -44,7 +45,7 @@ set ttyfast
 set clipboard+=unnamed
 " ターミナルでマウスを使用できるようにする
 set mouse=a
-if has("mouse_sgr")
+if has('mouse_sgr')
     set ttymouse=sgr
 else
   if !has('nvim')

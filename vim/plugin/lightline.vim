@@ -1,7 +1,3 @@
-" ====================
-" lightline.vim
-" ====================
-
 set t_Co=256
 set laststatus=2
 
@@ -39,7 +35,7 @@ function! LightLineReadonly()
 endfunction
 
 function! LightLineFilename()
-  let fname = expand('%:t')
+  let l:fname = expand('%:t')
   return fname == 'ControlP' ? g:lightline.ctrlp_item :
         \ fname =~ '__Gundo\|NERD_tree' ? '' :
         \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
