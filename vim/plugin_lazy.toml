@@ -262,6 +262,9 @@ on_ft = 'yaml'
 [[plugins]]
 repo = 'sophacles/vim-processing'
 on_ft = 'processing'
+hook_source = '''
+  let g:processing_fold = 1
+'''
 
 # }}}
 

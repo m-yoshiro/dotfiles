@@ -42,7 +42,7 @@ set lazyredraw
 set ttyfast
 
 " OSのクリップボードを使用する
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 " ターミナルでマウスを使用できるようにする
 set mouse=a
 if has('mouse_sgr')
@@ -107,8 +107,6 @@ cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-" ヤンクをクリップボードコピー
-set clipboard=unnamed
 
 " pasteモードのトグル
 set pastetoggle=<F4>
@@ -121,8 +119,8 @@ command! Rv source $MYVIMRC
 set helplang=ja
 
 " インターフェースは英語を使用
-set langmenu=en_US
-let $LANG = 'en'
+" set langmenu=en_US
+" let $LANG = 'en'
 
 " ------------------
 " # FileType
