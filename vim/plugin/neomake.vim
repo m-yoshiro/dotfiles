@@ -1,3 +1,4 @@
+scriptencoding utf-8
 let g:neomake_place_signs = 1
 let g:neomake_open_list = 2
 let g:neomake_list_height = 5
