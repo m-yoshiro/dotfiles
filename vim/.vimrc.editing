@@ -8,6 +8,10 @@ imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
 
+imap "" ""<LEFT>
+imap '' ''<LEFT>
+imap `` ``<LEFT>
+
 " CSSの閉じタグ
 augroup MyCSS
   autocmd!
