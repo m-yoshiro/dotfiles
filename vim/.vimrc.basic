@@ -116,7 +116,7 @@ command! Ev edit $MYVIMRC
 command! Rv source $MYVIMRC
 
 " Help 日本語化
-set helplang=ja
+" set helplang=ja
 
 " インターフェースは英語を使用
 " set langmenu=en_US

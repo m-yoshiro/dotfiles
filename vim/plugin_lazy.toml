@@ -327,6 +327,7 @@ repo = 'benekastah/neomake'
 hook_source = '''
   source ~/dotfiles/vim/plugin/neomake.vim
 '''
+hook_add = 'autocmd! BufWritePost * Neomake'
 
 # }}}
 

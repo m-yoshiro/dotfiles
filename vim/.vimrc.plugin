@@ -95,7 +95,7 @@ endif "}}}
 " ---------------
 " neomake
 " ---------------
-autocmd! BufWritePost,BufEnter * Neomake
+" autocmd! BufWritePost,BufEnter * Neomake
 
 " ---------------
 " VimCSS3Syntax

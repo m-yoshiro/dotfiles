@@ -29,7 +29,14 @@ endif
 source ~/dotfiles/vim/.vimrc.dein
 
 
-filetype plugin indent on
+if !has('vim_starting')
+  call dein#call_hook('source')
+  call dein#call_hook('post_source')
+
+  syntax enable
+  filetype plugin indent on
+endif
+
 
 " ====================
 " # Include .vimrc.~
