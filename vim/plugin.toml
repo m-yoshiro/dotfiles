@@ -62,7 +62,7 @@ repo = 'matchit.zip'
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
 on_event = ['VimEnter']
-hook_post_source = '''
+hook_add = '''
   set background=dark
   colorscheme solarized
 '''
@@ -109,7 +109,7 @@ repo = 'jacquesbh/vim-showmarks'
 [[plugins]]
 repo = 'ternjs/tern_for_vim'
 on_ft = 'javaScript'
-build = 'npm install'
+build = 'sh -c "cd tern_for_vim && npm install"'
 hook_source = '''
   let g:tern_show_argument_hints = 'on_hold'
   let g:tern_show_signature_in_pum = 1
