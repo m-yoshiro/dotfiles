@@ -131,15 +131,15 @@ endif "}}}
 " ---------------
 " vim-jade
 " ---------------
-augroup vimJadeSetting
-  autocmd!
-  autocmd BufNewFile,BufRead *.jade  setf jade
-  autocmd BufNew
-augroup END
-
-if dein#tap('vim-jade.vim') "{{{
-  let g:quickrun_config['jade']={'command': 'jade', 'cmdopt': '-P', 'exec': ['%c &o < %s']}
-endif "}}}
+" augroup vimJadeSetting
+"   autocmd!
+"   autocmd BufNewFile,BufRead *.jade  setf jade
+"   autocmd BufNew
+" augroup END
+"
+" if dein#tap('vim-jade.vim') "{{{
+"   let g:quickrun_config['jade']={'command': 'jade', 'cmdopt': '-P', 'exec': ['%c &o < %s']}
+" endif "}}}
 
 
 " ---------------

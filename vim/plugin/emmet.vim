@@ -8,5 +8,8 @@ let g:user_emmet_settings = {
   \ },
   \ 'custom_expands1' : {
   \   '^\%(lorem\|lipsum\)\(\d*\)$' : function('emmet#lorem#ja#expand')
-  \ }
+  \ },
+  \ 'pug' : {
+  \   'extends' : 'jade',
+  \ },
   \}
