@@ -1,5 +1,5 @@
 [user]
-  name = yoshiro4444
+	name = m-yoshiro
   email = massugu.massugu@gmail.com
 [core]
   excludesfile = /Users/Yoshiro/.gitexclude
@@ -19,3 +19,5 @@
   st = status
 [push]
   default = simple
+[credential]
+	helper = osxkeychain

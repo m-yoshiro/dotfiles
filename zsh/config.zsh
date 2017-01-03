@@ -15,7 +15,7 @@ setopt print_eight_bit
 
 # パスの自動補完
 autoload -U compinit
-compinit
+compinit -u
 
 # cd + Tab で移動履歴表示
 setopt auto_pushd
