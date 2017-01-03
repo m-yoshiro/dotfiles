@@ -40,6 +40,14 @@ if [ -d "$PYENV_ROOT" ]; then
     export PATH=$PYENV_ROOT/bin:$PATH
     eval "$(pyenv init -)"
 fi
+
+# Go
+export GOPATH="$HOME/.go"
+export PATH="$GOPATH/bin:$PATH"
+
+# tmuxinator
+export EDITOR=vim
+
 # =========================
 # load zsh diles
 # =========================
