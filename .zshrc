@@ -59,3 +59,12 @@ source "$DOTFILES/zsh/config.zsh"
 # local setting
 # =========================
 [ -f ~/.zshrc.local ] && source "$DOTFILES/zsh/.zshrc.local"
+
+
+# =========================
+# running tmux
+# =========================
+if [[ "$TERM"!="screen-256color" ]]
+then
+  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+fi
