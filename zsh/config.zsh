@@ -37,3 +37,5 @@ setopt extended_glob
 
 # Ctrl+Dでzshを終了しない
 setopt ignore_eof
+
+setopt list_packed

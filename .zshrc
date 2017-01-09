@@ -46,7 +46,7 @@ export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
 
 # tmuxinator
-export EDITOR=vim
+export EDITOR='nvim'
 
 # =========================
 # load zsh diles
@@ -60,11 +60,10 @@ source "$DOTFILES/zsh/config.zsh"
 # =========================
 [ -f ~/.zshrc.local ] && source "$DOTFILES/zsh/.zshrc.local"
 
-
 # =========================
 # running tmux
 # =========================
-if [[ "$TERM"!="screen-256color" ]]
-then
+
+if [[ "$TERM"!="screen-256color" ]]; then
   tmux attach-session -t "$USER" || tmux new-session -s "$USER"
 fi
