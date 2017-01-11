@@ -277,11 +277,6 @@ on_ft = ['markdown', 'md']
 repo = 'kannokanno/previm'
 on_ft = ['markdown', 'md', 'rst']
 
-#URLからブラウザを開く
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_map = ['<Plug>(openbrowser-smart-search)']
-
 # }}}
 
 # Development {{{
