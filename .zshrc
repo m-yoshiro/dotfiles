@@ -56,6 +56,7 @@ export EDITOR='nvim'
 
 source "$DOTFILES/zsh/aliases.zsh"
 source "$DOTFILES/zsh/config.zsh"
+source "$DOTFILES/zsh/bindkey.zsh"
 
 # =========================
 # local setting
