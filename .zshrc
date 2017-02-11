@@ -37,8 +37,10 @@ eval "$(rbenv init -)"
 # Python pyenv
 export PYENV_ROOT=${HOME}/.pyenv
 if [ -d "$PYENV_ROOT" ]; then
-    export PATH=$PYENV_ROOT/bin:$PATH
-    eval "$(pyenv init -)"
+  export PATH=$PYENV_ROOT/bin:$PATH
+  eval "$(pyenv init -)"
+  # https://github.com/yyuu/pyenv/issues/106#issuecomment-94921352
+  alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
 fi
 
 # Go
