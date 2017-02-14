@@ -4,7 +4,7 @@ DOTFILES_ROOT=~/dotfiles
 CURRNET_DIR=`pwd`
 
 # check directory
-cd ~/.dotfiles
+cd ~/dotfiles
 if [ $? -ne 0 ]; then
   die "not found: $DOTFILES_ROOT"
 fi
@@ -40,3 +40,19 @@ do
 done
 ln -snfv "$DOTFILES_ROOT/zsh/prezto_overrides/.zpreztorc" "${ZDOTDIR:-$HOME}/.zprezto/runcoms/.zpreztorc"
 echo "Done symlink"
+
+
+# ----------------------
+# Neovim
+# ----------------------
+
+echo "Neovim setup..."
+cd ~/.config
+if [ $? -ne 0 ]; then
+  echo "Not found .config/"
+  echo "Setup .config/ ..."
+  mkdir -p ~/.config/nvim
+  ln -snfv "$DOTFILES_ROOT/.vimrc" "$HOME/.config/nvim/init.vim"
+fi
+echo "Done Neovim"
+
