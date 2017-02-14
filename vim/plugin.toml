@@ -61,12 +61,6 @@ repo = 'matchit.zip'
 
 [[plugins]]
 repo = 'altercation/vim-colors-solarized'
-on_event = ['VimEnter']
-hook_add = '''
-  set background=dark
-  " http://qiita.com/kawaz/items/ee725f6214f91337b42b
-  au MyAutoCmd VimEnter * nested colorscheme solarized
-'''
 
 [[plugins]]
 repo = 'othree/yajs'

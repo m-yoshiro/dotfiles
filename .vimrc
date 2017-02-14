@@ -28,6 +28,10 @@ endif
 
 source ~/dotfiles/vim/.vimrc.dein
 
+" Color setting
+set background=dark
+colorscheme solarized
+
 
 if !has('vim_starting')
   call dein#call_hook('source')
