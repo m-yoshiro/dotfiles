@@ -78,6 +78,7 @@ brew 'homebrew/boneyard/pyenv-pip-rehash'
 brew 'homebrew/dupes/groff'
 brew 'neovim/neovim/neovim', args: ['HEAD']
 brew 'rcmdnk/file/brew-file'
+brew 'reattach-to-user-namespace'
 
 cask 'atom'
 cask 'firefox'
