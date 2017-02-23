@@ -1,5 +1,5 @@
 [user]
-	name = m-yoshiro
+  name = m-yoshiro
   email = massugu.massugu@gmail.com
 [core]
   excludesfile = /Users/Yoshiro/.gitexclude
@@ -11,8 +11,9 @@
   cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
 [filter "lfs"]
-  clean = git lfs clean %f
-  smudge = git lfs smudge %f
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
   required = true
 [alias]
   tree = log --graph --all --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
@@ -20,4 +21,6 @@
 [push]
   default = simple
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
+[alias]
+  delete-merged-branches = !git branch --merged | grep -v master | grep -v '*' | xargs -I % git branch -d %
