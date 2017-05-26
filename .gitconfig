@@ -4,6 +4,7 @@
 [core]
   excludesfile = /Users/Yoshiro/.gitexclude
   editor = /usr/local/bin/nvim
+	pager = nkf -w | LESSCHARSET=utf-8 less
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
