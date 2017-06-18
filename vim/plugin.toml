@@ -24,16 +24,11 @@ repo = 'honza/vim-snippets'
 
 # Align 整形
 [[plugins]]
-repo = 'Align'
+repo = 'vim-scripts/Align'
 
 # surround.vim
 [[plugins]]
 repo = 'tpope/vim-surround'
-
-# true/false切り替え
-[[plugins]]
-repo = 'taku-o/vim-toggle'
-hook_add = 'source ~/dotfiles/vim/plugin/toggle.vim'
 
 # コメントアウト
 [[plugins]]
@@ -56,7 +51,7 @@ repo = 'yuroyoro/smooth_scroll.vim'
 # 単語移動
 # 「%」対応括弧へのカーソル移動を拡張
 [[plugins]]
-repo = 'matchit.zip'
+repo = 'vim-scripts/matchit.zip'
 # }}}
 
 [[plugins]]

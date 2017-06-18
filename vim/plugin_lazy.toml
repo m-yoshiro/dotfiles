@@ -185,12 +185,12 @@ hook_add = 'source ~/dotfiles/vim/plugin/emmet.vim'
 
 # XML,HTMLの編集強化
 [[plugins]]
-repo = 'xmledit'
+repo = 'vim-scripts/xmledit'
 on_ft = ['html', 'xml']
 
 # haml
 [[plugins]]
-repo = 'haml.zip'
+repo = 'vim-scripts/haml.zip'
 on_ft = 'haml'
 
 # jade
@@ -227,7 +227,7 @@ on_ft = ['javascript', 'jsx']
 
 # jQuery
 [[plugins]]
-repo = 'jQuery'
+repo = 'vim-scripts/jQuery'
 on_ft = ['javaScript', 'jsx']
 
 [[plugins]]
@@ -357,7 +357,7 @@ depends = 'vim-textobj-user'
 repo = 'kana/vim-textobj-lastpat'
 depends = 'vim-textobj-user'
 [[plugins]]
-repo = 'smartword'
+repo = 'vim-scripts/smartword'
 on_map = '<Plug>'
 
 # Unit.vim {{{
