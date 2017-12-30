@@ -96,15 +96,4 @@ repo = 'Yggdroot/indentLine'
 repo = 'jacquesbh/vim-showmarks'
 # }}}
 
-[[plugins]]
-repo = 'ternjs/tern_for_vim'
-on_ft = 'javaScript'
-build = 'sh -c "cd tern_for_vim && npm install"'
-hook_source = '''
-  let g:tern_show_argument_hints = 'on_hold'
-  let g:tern_show_signature_in_pum = 1
-  autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-'''
-
 # }}}

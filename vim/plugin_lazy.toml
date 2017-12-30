@@ -160,10 +160,6 @@ repo = 'hail2u/vim-css3-syntax'
 on_ft = ['css']
 
 [[plugins]]
-repo = 'csscomb/vim-csscomb'
-on_ft = ['css', 'scss']
-
-[[plugins]]
 repo = 'jasonlong/vim-textobj-css'
 on_ft = ['css', 'scss']
 depends = 'vim-textobj-user'
@@ -221,14 +217,10 @@ depends = 'vim-javascript'
 repo = 'pangloss/vim-javascript'
 on_ft = ['javascript', 'jsx']
 
-# [[plugins]]
-# repo = 'jiangmiao/simple-javascript-indenter'
-# on_ft = ['javaScript', 'jsx']
-
 # jQuery
 [[plugins]]
 repo = 'vim-scripts/jQuery'
-on_ft = ['javaScript', 'jsx']
+on_ft = ['javaScript']
 
 [[plugins]]
 repo = 'elzr/vim-json'
