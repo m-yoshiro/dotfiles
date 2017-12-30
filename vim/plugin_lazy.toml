@@ -215,12 +215,12 @@ depends = 'vim-javascript'
 
 [[plugins]]
 repo = 'pangloss/vim-javascript'
-on_ft = ['javascript', 'jsx']
+on_ft = ['javascript']
 
 # jQuery
 [[plugins]]
 repo = 'vim-scripts/jQuery'
-on_ft = ['javaScript']
+on_ft = ['javaScript', 'jsx']
 
 [[plugins]]
 repo = 'elzr/vim-json'
