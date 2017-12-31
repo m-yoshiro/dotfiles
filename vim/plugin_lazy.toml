@@ -306,12 +306,6 @@ repo = 'KazuakiM/vim-qfstatusline'
 [[plugins]]
 repo = 'KazuakiM/vim-qfsigns'
 
-[[plugins]]
-repo = 'benekastah/neomake'
-hook_source = '''
-  source ~/dotfiles/vim/plugin/neomake.vim
-'''
-hook_add = 'autocmd! BufWritePost * Neomake'
 
 # }}}
 

@@ -96,4 +96,7 @@ repo = 'Yggdroot/indentLine'
 repo = 'jacquesbh/vim-showmarks'
 # }}}
 
+[[plugins]]
+repo = 'w0rp/ale'
+
 # }}}
