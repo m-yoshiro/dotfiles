@@ -7,4 +7,4 @@ alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
 
 # Git
 alias g='git'
-alias -g B='`git branch -a --sort=authordate | peco --prompt "GIT BRANCH>" | tr -d " \\*"`'
+alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | tr -d " \\*"`'
