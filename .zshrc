@@ -50,6 +50,9 @@ export PATH="$GOPATH/bin:$PATH"
 # phpbrew
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
+# Composer global
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
 # tmuxinator
 export EDITOR='nvim'
 
