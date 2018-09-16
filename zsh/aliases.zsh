@@ -8,3 +8,6 @@ alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
 # Git
 alias g='git'
 alias -g B='`git branch -a | peco --prompt "GIT BRANCH>" | tr -d " \\*"`'
+
+alias gcd='cd $(ghq root)/$(ghq list | peco)'
+alias gh='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
