@@ -134,3 +134,9 @@ augroup setFiletype
   au BufRead,BufNewFile *.stylus set filetype=stylus
   au BufNewFile,BufRead *.vimrc*,*.vim  setf vim
 augroup END
+
+" ------------------
+" # Undo
+" ------------------
+set undodir=$HOME/.nvim/undodir
+set undofile
