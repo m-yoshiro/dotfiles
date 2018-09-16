@@ -76,8 +76,10 @@ brew 'homebrew/dupes/groff'
 brew 'neovim/neovim/neovim', args: ['HEAD']
 brew 'rcmdnk/file/brew-file'
 brew 'reattach-to-user-namespace'
+brew 'ghq'
+brew 'hub'
+brew 'peco'
 
-cask 'atom'
 cask 'firefox'
 cask 'google-chrome'
 cask 'google-chrome-canary'
