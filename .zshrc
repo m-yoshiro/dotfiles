@@ -74,5 +74,11 @@ source "$DOTFILES/zsh/bindkey.zsh"
 # =========================
 
 if [[ "$TERM"!="screen-256color" ]]; then
-  tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+  if [[ $VSCODE_PID == "" ]]; then
+    # https://medium.com/@joaomoreno/persistent-terminal-sessions-in-vs-code-8fc469ed6b41
+    SESSION="vscode`pwd | md5`"
+    tmux attach-session -d -t $SESSION || tmux new-session -s $SESSION
+  else
+    tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+  fi
 fi
