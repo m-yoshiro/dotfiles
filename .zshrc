@@ -74,7 +74,9 @@ source "$DOTFILES/zsh/bindkey.zsh"
 # =========================
 
 if [[ "$TERM"!="screen-256color" ]]; then
-  if [[ $VSCODE_PID == "" ]]; then
+  # Check running on vscode
+  # https://github.com/Microsoft/vscode/pull/30346
+  if [[ ${TERM_PROGRAM} == "vscode" ]]; then
     # https://medium.com/@joaomoreno/persistent-terminal-sessions-in-vs-code-8fc469ed6b41
     SESSION="vscode`pwd | md5`"
     tmux attach-session -d -t $SESSION || tmux new-session -s $SESSION
