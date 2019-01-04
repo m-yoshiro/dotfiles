@@ -38,8 +38,29 @@ do
   [ "$file" = ".vimrc.*" ] && continue
   ln -snfv "$DOTFILES_ROOT/$file" "$HOME/$file"
 done
-ln -snfv "$DOTFILES_ROOT/zsh/prezto_overrides/.zpreztorc" "${ZDOTDIR:-$HOME}/.zprezto/runcoms/.zpreztorc"
-echo "Done symlink"
+echo "Done symlinks"
+
+# ----------------------
+# Prezto
+# ----------------------
+
+echo "Prezto setup..."
+cd "${ZDOTDIR:-$HOME}/.zprezto"
+if [ $? -ne 0 ]; then
+  echo "${ZDOTDIR:-$HOME}/.zprezto"
+
+  echo "git clone for zprezto..."
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  echo "finished"
+
+  echo "copy files..."
+  setopt EXTENDED_GLOB
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  done
+fi
+
+echo "Done Prezto"
 
 
 # ----------------------
