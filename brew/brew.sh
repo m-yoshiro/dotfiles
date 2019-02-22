@@ -1,10 +1,15 @@
 #! /bin/bash
 
-# use administrator password
-sudo -v
+DOTFILES_ROOT=~/dotfiles
+CURRNET_DIR=`pwd`
 
-brew update
+which brew >/dev/null 2>&1 && brew doctor
+which brew >/dev/null 2>&1 && brew update
 
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+brew upgrade --all
 
+brew install rcmdnk/file/brew-file
+ln -snfv $CURRENT_DIR/Brewfile $HOME/.config/brewfile/Brewfile
+
+brew file install
 
