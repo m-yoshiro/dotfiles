@@ -81,6 +81,8 @@ if [[ "$TERM"!="screen-256color" ]]; then
     SESSION="vscode`pwd | md5`"
     tmux attach-session -d -t $SESSION || tmux new-session -s $SESSION
   else
-    tmux attach-session -t "$USER" || tmux new-session -s "$USER"
+    # usernameにpresiodが含まれる場合は差し替える
+    tmux_user=$(echo $USER | tr . _ )
+    tmux attach-session -t "$tmux_user" || tmux new-session -s "$tmux_user"
   fi
 fi
