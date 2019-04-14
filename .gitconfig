@@ -1,5 +1,5 @@
 [user]
-  name = m-yoshiro
+	name = m-yoshiro
   email = massugu.massugu@gmail.com
 [core]
 	excludesfile = /Users/yoshiro/.gitignore_global
@@ -28,3 +28,5 @@
   helper = osxkeychain
 [alias]
   delete-merged-branches = !git branch --merged | grep -v master | grep -v '*' | xargs -I % git branch -d %
+[include]
+  path = ~/.gitconfig.local
