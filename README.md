@@ -7,5 +7,3 @@ git clone git@github.com:yoshiro4460/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 install.sh
 ```
-
-
