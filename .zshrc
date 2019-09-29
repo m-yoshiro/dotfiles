@@ -30,6 +30,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/loca
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
 export NODE_PATH=$HOME/.nodebrew/current/lib/node_modules
 
+# Nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+
 # Ruby rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

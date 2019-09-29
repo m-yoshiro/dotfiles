@@ -49,6 +49,8 @@ cd "${ZDOTDIR:-$HOME}/.zprezto"
 if [ $? -ne 0 ]; then
   echo "${ZDOTDIR:-$HOME}/.zprezto"
 
+  echo "excute zsh..."
+
   echo "git clone for zprezto..."
   git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   echo "finished"

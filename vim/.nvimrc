@@ -1,5 +1,7 @@
 "Python3 support
-let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
+let g:python_host_prog  = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python3_host_prog = expand('$HOME') . '/.pyenv/shims/python'
 
 " Cursor shape
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1

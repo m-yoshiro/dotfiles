@@ -73,7 +73,7 @@ brew 'zsh'
 brew 'zsh-completions'
 brew 'homebrew/boneyard/pyenv-pip-rehash'
 brew 'homebrew/dupes/groff'
-brew 'neovim/neovim/neovim', args: ['HEAD']
+brew 'neovim'
 brew 'rcmdnk/file/brew-file'
 brew 'reattach-to-user-namespace'
 brew 'ghq'
