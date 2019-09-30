@@ -31,8 +31,8 @@ export PATH="$HOME/.nodebrew/current/bin:$PATH"
 export NODE_PATH=$HOME/.nodebrew/current/lib/node_modules
 
 # Ruby rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # Python pyenv
 export PYENV_ROOT=${HOME}/.pyenv
@@ -86,3 +86,6 @@ if [[ "$TERM"!="screen-256color" ]]; then
     tmux attach-session -t "$tmux_user" || tmux new-session -s "$tmux_user"
   fi
 fi
+
+# anyenv
+eval "$(anyenv init -)"
