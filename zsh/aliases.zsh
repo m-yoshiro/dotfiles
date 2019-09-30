@@ -18,7 +18,8 @@ function select-branch-with-tmux() {
 
   if [[ $dir != "$(ghq root)/" ]]; then
     if [[ ! -z ${TMUX} ]]; then
-      repository=${dir##*/}
+      # convert to "organization/repository"
+      repository=$(echo $dir | sed -E 's/.*\/(.*\/.*)$/\1/')
       session=${repository//./-}
       current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
 
