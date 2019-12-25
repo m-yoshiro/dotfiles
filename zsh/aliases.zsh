@@ -71,3 +71,20 @@ function ghq-new() {
 }
 
 alias ghn=ghq-new
+
+# Search unused files in git project.
+# Web開発で不要になったファイルの探索に使用する。
+# @pattern 対象ファイルパスをpatternで指定する
+function git-check-unrefs-files() {
+  local pattern files
+  pattern=$1
+  files=$(git ls-files | grep "$pattern")
+
+  for file in $files
+  do
+    if ! git grep --name-only $(basename $file); then
+      echo $file
+    fi
+  done
+}
+alias gcuf=git-check-unrefs-files
