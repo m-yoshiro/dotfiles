@@ -83,6 +83,7 @@ if [[ "$TERM"!="screen-256color" ]]; then
   else
     # usernameにpresiodが含まれる場合は差し替える
     tmux_user=$(echo $USER | tr . _ )
-    tmux attach-session -t "$tmux_user" || tmux new-session -s "$tmux_user"
+    # tmux attach-session -t "$tmux_user" || tmux new-session -s "$tmux_user"
+    tmux new-session -A -t "$tmux_user"
   fi
 fi
