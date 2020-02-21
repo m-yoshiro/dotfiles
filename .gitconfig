@@ -30,3 +30,5 @@
   delete-merged-branches = !git branch --merged | grep -v master | grep -v '*' | xargs -I % git branch -d %
 [include]
   path = ~/.gitconfig.local
+[ghq]
+  root = ~/ghq
