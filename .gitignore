@@ -3,3 +3,4 @@
 **/.zshrc.local
 .ga-token.rds
 q
+**/.env
