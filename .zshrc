@@ -47,6 +47,9 @@ fi
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # phpbrew
 [[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
