@@ -4,3 +4,4 @@
 .ga-token.rds
 q
 **/.env
+*.log
