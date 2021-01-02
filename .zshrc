@@ -26,6 +26,9 @@ export DOTFILES=$HOME/dotfiles
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$PATH"
 
+# --------
+# Tools
+
 # Anyenv
 # https://github.com/anyenv/anyenv
 if [ -d "${HOME}/.anyenv" ]; then
