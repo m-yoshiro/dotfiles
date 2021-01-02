@@ -63,7 +63,7 @@ source "$DOTFILES/zsh/completion.zsh"
 [ -f ~/.zshrc.local ] && source "$DOTFILES/zsh/.zshrc.local"
 
 # =========================
-# running tmux
+# Tmux
 # =========================
 
 if [[ "$TERM"!="screen-256color" ]]; then
@@ -74,10 +74,12 @@ if [[ "$TERM"!="screen-256color" ]]; then
     SESSION="vscode`pwd | md5`"
     tmux attach-session -d -t $SESSION || tmux new-session -s $SESSION
   else
-    # usernameにpresiodが含まれる場合は差し替える
-    tmux_user=$(echo $USER | tr . _ )
-    # tmux attach-session -t "$tmux_user" || tmux new-session -s "$tmux_user"
-    tmux new-session -A -t "$tmux_user"
+    # Excute initialy when tmux haven't attatched a current session yet.
+    if [ ! "$TMUX" ]; then
+        # usernameにpresiodが含まれる場合は差し替える
+        tmux_user=$(echo $USER | tr . _ )
+        tmux new-session -A -t "$tmux_user"
+    fi
   fi
 fi
 
