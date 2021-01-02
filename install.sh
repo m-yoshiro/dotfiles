@@ -52,7 +52,7 @@ if [ $? -ne 0 ]; then
   echo "excute zsh..."
 
   echo "git clone for zprezto..."
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  git clone --recursive --progress https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   echo "finished"
 
   echo "copy files..."
