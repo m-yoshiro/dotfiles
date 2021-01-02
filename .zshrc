@@ -33,23 +33,13 @@ if [ -d "${HOME}/.anyenv" ]; then
 fi
 
 # Node.js
-# Use nodenv if the command exists, but if not, I use nodebrew.
-if ! command -v nodenv &> /dev/null; then
-  # Nodebrew
-  # NOTE: I will remove nodebrew if the necessity goes down.
-  if [ -d "${HOME}/.nodebrew"]; then
-    export PATH="$HOME/.nodebrew/current/bin:$PATH"
-    export NODE_PATH=$HOME/.nodebrew/current/lib/node_modules
-  fi
-fi
-
-# Python pyenv
-export PYENV_ROOT=${HOME}/.pyenv
-if [ -d "$PYENV_ROOT" ]; then
-  export PATH=$PYENV_ROOT/bin:$PATH
-  eval "$(pyenv init -)"
-  # https://github.com/yyuu/pyenv/issues/106#issuecomment-94921352
-  alias brew="env PATH=${PATH//$(pyenv root)\/shims:/} brew"
+# Basicaly I use nodenv via anyenv.
+#
+# [nodebrew]
+# NOTE: I will remove nodebrew if the necessity decreases.
+if [ -d "${HOME}/.nodebrew"]; then
+  export PATH="$HOME/.nodebrew/current/bin:$PATH"
+  export NODE_PATH=$HOME/.nodebrew/current/lib/node_modules
 fi
 
 # Go
@@ -58,9 +48,6 @@ export PATH="$GOPATH/bin:$PATH"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# phpbrew
-[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 # Composer global
 export PATH="$HOME/.composer/vendor/bin:$PATH"
