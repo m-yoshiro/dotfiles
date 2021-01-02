@@ -49,12 +49,13 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export EDITOR='nvim'
 
 # =========================
-# load zsh diles
+# load zsh files
 # =========================
 
 source "$DOTFILES/zsh/aliases.zsh"
 source "$DOTFILES/zsh/config.zsh"
 source "$DOTFILES/zsh/bindkey.zsh"
+source "$DOTFILES/zsh/completion.zsh"
 
 # =========================
 # local setting
