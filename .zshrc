@@ -30,7 +30,7 @@ fi
 #
 # [nodebrew]
 # NOTE: I will remove nodebrew if the necessity decreases.
-if [ -d "${HOME}/.nodebrew"]; then
+if [ -d "${HOME}/.nodebrew" ]; then
   export PATH="$HOME/.nodebrew/current/bin:$PATH"
   export NODE_PATH=$HOME/.nodebrew/current/lib/node_modules
 fi
