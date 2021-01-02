@@ -3,9 +3,11 @@ DEFAULT_USER="Yoshiro"
 export TERM=xterm-256color
 
 
-HISTFILE=~/.zhistory
+# HISTFILE=~/.zhistory
 SAVEHIST=100000
 HISTSIZE=10000
+unsetopt inc_append_history
+unsetopt share_history
 
 # ビープ音を鳴らさないようにする
 setopt no_beep
