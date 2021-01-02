@@ -26,13 +26,22 @@ export DOTFILES=$HOME/dotfiles
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$PATH"
 
-# Nodebrew
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
-export NODE_PATH=$HOME/.nodebrew/current/lib/node_modules
-
 # Anyenv
 # https://github.com/anyenv/anyenv
-eval "$(anyenv init -)"
+if [ -d "${HOME}/.anyenv" ]; then
+  eval "$(anyenv init -)"
+fi
+
+# Node.js
+# Use nodenv if the command exists, but if not, I use nodebrew.
+if ! command -v nodenv &> /dev/null; then
+  # Nodebrew
+  # NOTE: I will remove nodebrew if the necessity goes down.
+  if [ -d "${HOME}/.nodebrew"]; then
+    export PATH="$HOME/.nodebrew/current/bin:$PATH"
+    export NODE_PATH=$HOME/.nodebrew/current/lib/node_modules
+  fi
+fi
 
 # Python pyenv
 export PYENV_ROOT=${HOME}/.pyenv
