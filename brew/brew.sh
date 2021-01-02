@@ -12,7 +12,5 @@ brew doctor
 brew update
 brew upgrade --all
 
-brew install rcmdnk/file/brew-file
-ln -snfv $CURRENT_DIR/Brewfile $HOME/.config/brewfile/Brewfile
-
-brew file install
+ln -snfv $CURRENT_DIR/.Brewfile $HOME/.Brewfile
+brew bundle
