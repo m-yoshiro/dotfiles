@@ -80,3 +80,13 @@ if [[ "$TERM"!="screen-256color" ]]; then
     tmux new-session -A -t "$tmux_user"
   fi
 fi
+
+# =========================
+# Homebrew
+# =========================
+
+# Homebrew-file
+# https://homebrew-file.readthedocs.io/en/latest/installation.html#installation
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
