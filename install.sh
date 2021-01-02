@@ -63,19 +63,3 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Done Prezto"
-
-
-# ----------------------
-# Neovim
-# ----------------------
-
-echo "Neovim setup..."
-cd ~/.config
-if [ $? -ne 0 ]; then
-  echo "Not found .config/"
-  echo "Setup .config/ ..."
-  mkdir -p ~/.config/nvim
-  ln -snfv "$DOTFILES_ROOT/.vimrc" "$HOME/.config/nvim/init.vim"
-fi
-echo "Done Neovim"
-
