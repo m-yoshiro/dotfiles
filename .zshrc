@@ -75,7 +75,7 @@ path=(
 )
 
 if [[ "${(L)$( uname -s )}" == darwin ]] && (( $+commands[arch] )); then
-  [[ -x /usr/local/bin/brew ]] && alias brew="arch -arch x86_64 /usr/local/bin/brew"
+  alias brew_x86="arch -arch x86_64 /usr/local/bin/brew"
   alias x64='exec arch -arch x86_64 "$SHELL"'
   alias a64='exec arch -arch arm64e "$SHELL"'
   switch-arch() {
