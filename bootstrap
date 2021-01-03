@@ -45,14 +45,21 @@ install_packages_via_homebrew() {
     echo "Install anyenv..."
     brew install anyenv
 
+    exec $SHELL -l
+
     echo "Initialize anyenv"
     anyenv init
 
-    anyenv install nodenv
-    anyenv install rbenv
+    mkdir -p $(anyenv root)/plugins
+    git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
   else
-    echo "`brew install anyanv` can't run."
+    echo "`anyanv` is already installed."
   fi
+
+  echo "Installing specific *env..."
+  anyenv update
+  anyenv install nodenv
+  anyenv install rbenv
 
   echo "Done"
 }
