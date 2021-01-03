@@ -1,0 +1,105 @@
+#!/bin/bash
+
+DOTFILES_ROOT=~/dotfiles
+CURRNET_DIR=`pwd`
+
+# check directory
+cd $DOTFILES_ROOT
+if [ $? -ne 0 ]; then
+  die "not found: $DOTFILES_ROOT"
+fi
+
+# ----------------------
+# Install tools
+# ----------------------
+
+install_homebrew() {
+  echo "Setup Homebrew..."
+  # install homebrew
+  if has "brew"; then
+    echo "Already installed Homebrew"
+  else
+    echo "Installing Homebrew..."
+
+    if test "$(uname -m)" = "x86_64"; then
+      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    elif test "$(uname)" = "arm64"; then
+      echo "Installing to /usr/local for using emulation with Rosseta 2 (1/2)"
+      arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+      echo "Installing to /opt/homebrew for natively running on macOS ARM (2/2)"
+      cd /opt
+      mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+    fi
+
+    echo "Done"
+  fi
+}
+
+install_packages_via_homebrew() {
+  echo "Installing packages via Homebrew..."
+  $DOTFILES_ROOT/brew/brew.sh
+  wait
+
+  if hash !anyenv 2>/dev/null; then
+    echo "Install anyenv..."
+    brew install anyenv
+
+    echo "Initialize anyenv"
+    anyenv init
+
+    anyenv install nodenv
+    anyenv install rbenv
+  else
+    echo "`brew install anyanv` can't run."
+  fi
+
+  echo "Done"
+}
+
+# ----------------------
+# Set symlinks
+# ----------------------
+
+create_symlinks() {
+  echo "Create symlinks..."
+  for file in .??*
+  do
+    [ "$file" = ".git" ] && continue
+    [ "$file" = ".vimrc.*" ] && continue
+    ln -snfv "$DOTFILES_ROOT/$file" "$HOME/$file"
+  done
+  echo "Done symlinks"
+}
+
+# ----------------------
+# Prezto
+# ----------------------
+
+install_prezto() {
+  echo "Prezto setup..."
+  cd "${ZDOTDIR:-$HOME}/.zprezto"
+  if [ $? -ne 0 ]; then
+    echo "${ZDOTDIR:-$HOME}/.zprezto"
+
+    echo "excute zsh..."
+
+    echo "git clone for zprezto..."
+    git clone --recursive --progress https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+    echo "finished"
+
+    echo "copy files..."
+    setopt EXTENDED_GLOB
+    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+      ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+    done
+    echo "Done Prezto"
+  fi
+}
+
+if [ $1 -eq "all" ] || [ -z $1 ]; then
+  install_homebrew
+  install_packages_via_homebrew
+  create_symlinks
+  install_prezto
+fi

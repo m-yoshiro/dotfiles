@@ -8,9 +8,6 @@ if ! command -v brew >/dev/null 2>&1; then
   exit
 fi
 
-brew doctor
-brew update
-brew upgrade --all
-
 ln -snfv $CURRENT_DIR/.Brewfile $HOME/.Brewfile
+
 brew bundle
