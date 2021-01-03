@@ -40,6 +40,20 @@ install_packages_via_homebrew() {
   echo "Installing packages via Homebrew..."
   $DOTFILES_ROOT/brew/brew.sh
   wait
+
+  if hash !anyenv 2>/dev/null; then
+    echo "Install anyenv..."
+    brew install anyenv
+
+    echo "Initialize anyenv"
+    anyenv init
+
+    anyenv install nodenv
+    anyenv install rbenv
+  else
+    echo "`brew install anyanv` can't run."
+  fi
+
   echo "Done"
 }
 
