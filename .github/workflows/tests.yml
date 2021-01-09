@@ -18,6 +18,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Bootstrap
+      - name: Run bootstrap
         run: |
-          bootstrap
+          bash bootstrap
