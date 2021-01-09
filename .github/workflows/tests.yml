@@ -1,0 +1,23 @@
+name: CI
+
+on: [push]
+
+jobs:
+  bootstrap:
+    runs-on: macos-latest
+    name: Bootstrap
+    steps:
+      - name: Clean up macOS
+        if: macos
+        run: |
+          brew uninstall --force $(brew list --formula)
+          brew cleanup --prune-prefix
+          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
+          rm -rf "$NVM_DIR"
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Bootstrap
+        run: |
+          bootstrap
