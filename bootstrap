@@ -86,6 +86,7 @@ install_prezto() {
     echo "${ZDOTDIR:-$HOME}/.zprezto"
 
     echo "excute zsh..."
+    sudo chsh -s "$(which zsh)" "${USER}"
 
     echo "git clone for zprezto..."
     git clone --recursive --progress https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
