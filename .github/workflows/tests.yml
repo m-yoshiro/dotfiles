@@ -8,7 +8,7 @@ jobs:
     name: Bootstrap
     steps:
       - name: Clean up macOS
-        if: macos
+        if: runner.os == 'macOS'
         run: |
           brew uninstall --force $(brew list --formula)
           brew cleanup --prune-prefix
