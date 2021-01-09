@@ -1,5 +1,4 @@
- dotfiles
-Mac OSXでの使用を想定しています。
+# Dotfiles
 ## Install
 ```
 git clone git@github.com:m-yoshiro/dotfiles.git ~/dotfiles
