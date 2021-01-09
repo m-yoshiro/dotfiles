@@ -87,7 +87,7 @@ create_symlinks() {
 # ----------------------
 
 install_zsh_tools() {
-  /bin/zsh ./scripts/install_prezto.zsh
+  /bin/zsh $DOTFILES_ROOT/scripts/install-prezto.zsh
 }
 
 if [ $1 -eq "all" ] || [ -z $1 ]; then
