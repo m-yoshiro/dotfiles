@@ -60,6 +60,13 @@ install_packages_via_homebrew() {
   echo "Done"
 }
 
+set_default_shell() {
+  if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then
+    sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
+    chsh -s /usr/local/bin/zsh
+  fi
+}
+
 # ----------------------
 # Set symlinks
 # ----------------------
@@ -76,33 +83,16 @@ create_symlinks() {
 }
 
 # ----------------------
-# Prezto
+# zsh
 # ----------------------
 
-install_prezto() {
-  echo "Prezto setup..."
-  cd "${ZDOTDIR:-$HOME}/.zprezto"
-  if [ $? -ne 0 ]; then
-    echo "${ZDOTDIR:-$HOME}/.zprezto"
-
-    echo "excute zsh..."
-
-    echo "git clone for zprezto..."
-    git clone --recursive --progress https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-    echo "finished"
-
-    echo "copy files..."
-    setopt EXTENDED_GLOB
-    for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-      ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-    done
-    echo "Done Prezto"
-  fi
+install_zsh_tools() {
+  /bin/zsh ./scripts/install_prezto.zsh
 }
 
 if [ $1 -eq "all" ] || [ -z $1 ]; then
   install_homebrew
   install_packages_via_homebrew
   create_symlinks
-  install_prezto
+  install_zsh_tools
 fi
