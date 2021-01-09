@@ -105,5 +105,5 @@ if [ $1 -eq "all" ] || [ -z $1 ]; then
   install_homebrew
   install_packages_via_homebrew
   create_symlinks
-  install_prezto
+  "$(which zsh)" -i -c install_prezto
 fi
