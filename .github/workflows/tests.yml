@@ -20,4 +20,4 @@ jobs:
 
       - name: Run bootstrap
         run: |
-          bash bootstrap
+          zsh bootstrap
