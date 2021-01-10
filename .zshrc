@@ -10,7 +10,6 @@ export LANG=ja_JP.UTF-8
 # PATH
 # =========================
 
-# dotfiles path
 export DOTFILES=$HOME/dotfiles
 
 # User configuration
@@ -52,15 +51,15 @@ export EDITOR='nvim'
 # load zsh files
 # =========================
 
-source "$DOTFILES/zsh/aliases.zsh"
-source "$DOTFILES/zsh/config.zsh"
-source "$DOTFILES/zsh/bindkey.zsh"
-source "$DOTFILES/zsh/completion.zsh"
+source "$DOTFILES/.zsh/aliases.zsh"
+source "$DOTFILES/.zsh/config.zsh"
+source "$DOTFILES/.zsh/bindkey.zsh"
+source "$DOTFILES/.zsh/completion.zsh"
 
 # =========================
 # local setting
 # =========================
-[ -f ~/.zshrc.local ] && source "$DOTFILES/zsh/.zshrc.local"
+[ -f ~/.zshrc.local ] && source "$DOTFILES/.zsh/.zshrc.local"
 
 # =========================
 # Homebrew

@@ -1,9 +1,6 @@
 #!/usr/bin/env zsh
 
-DOTFILES_ROOT=$(pwd -P)
-
-# check directory
-cd $DOTFILES_ROOT
+DOTFILES_ROOT=$(dirname "${BASH_SOURCE[0]:-$0}")
 
 # ----------------------
 # Install tools
