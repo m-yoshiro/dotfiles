@@ -11,7 +11,7 @@ export LANG=ja_JP.UTF-8
 # =========================
 
 # dotfiles path
-export DOTFILES=$(pwd -P)
+export DOTFILES=$HOME/dotfiles
 
 # User configuration
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:$PATH"
