@@ -47,6 +47,9 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 # tmuxinator
 export EDITOR='nvim'
 
+# Flutter
+export PATH="$HOME/flutter/bin:$PATH"
+
 # =========================
 # load zsh files
 # =========================
