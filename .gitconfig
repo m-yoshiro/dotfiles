@@ -32,3 +32,5 @@
   path = ~/.gitconfig.local
 [ghq]
 root = ~/.ghq
+[pull]
+	rebase = false
