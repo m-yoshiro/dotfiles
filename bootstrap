@@ -46,6 +46,9 @@ install_packages_via_homebrew() {
     exit
   fi
 
+  echo "$DOTFILES_ROOT/brew/.Brewfile"
+  echo "$HOME/.Brewfile"
+
   ln -s "$DOTFILES_ROOT/brew/.Brewfile" "$HOME/.Brewfile"
   brew bundle
   wait
