@@ -4,8 +4,8 @@ DOTFILES_ROOT=$(dirname "${BASH_SOURCE[0]:-$0}")
 
 set -ue
 
-RED=$(tput setaf 1)
-GREEN=$(tput setaf 2)
+GREEN=$'\e[1;32m'
+END=$'\e[0m'
 
 success () {
   printf "${GREEN} [ OK ] $1\n"
