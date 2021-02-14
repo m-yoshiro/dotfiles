@@ -103,7 +103,7 @@ create_symlinks() {
     success "linked $src to $dst"
   done
 
-  success 'Done symlinks'
+  success 'Symlinks'
 }
 
 # ----------------------

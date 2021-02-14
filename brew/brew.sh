@@ -8,6 +8,6 @@ if ! command -v brew >/dev/null 2>&1; then
   exit
 fi
 
-ln -snfv $CURRENT_DIR/.Brewfile $HOME/.Brewfile
+ln -s $CURRENT_DIR/.Brewfile $HOME/.Brewfile
 
 brew bundle
