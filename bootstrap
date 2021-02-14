@@ -58,7 +58,7 @@ install_packages_via_homebrew() {
   echo "$DOTFILES_ROOT/brew/.Brewfile"
   echo "$HOME/.Brewfile"
 
-  if [ ! -f "$DOTFILES_ROOT/brew/.Brewfile" ]; then
+  if [ ! -f "$DOTFILES_ROOT/brew/Brewfile" ]; then
     fail '.Brewfile was not found.'
   fi
 
