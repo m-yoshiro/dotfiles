@@ -6,7 +6,7 @@ RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
 
 success () {
-  printf "${RED} [ OK ] $1\n"
+  printf "${GREEN} [ OK ] $1\n"
 }
 
 # ----------------------
