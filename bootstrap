@@ -88,6 +88,7 @@ setup_anyenv() {
     git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
   fi
 
+  anyenv install --init
   anyenv update || true
   anyenv install nodenv
   anyenv install rbenv
