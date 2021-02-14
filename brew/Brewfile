@@ -10,6 +10,7 @@ brew "gibo"
 brew "git"
 brew "highlight"
 brew "hub"
+brew "jq"
 brew "mas"
 brew "nkf"
 brew "peco"
@@ -26,6 +27,9 @@ cask "julia"
 cask "kap"
 cask "keycastr"
 mas "CotEditor", id: 1024640650
+mas "Day One", id: 1055511498
+mas "Focus", id: 777233759
+mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
