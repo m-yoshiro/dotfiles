@@ -100,6 +100,8 @@ set_default_shell() {
   if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then
     sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
     sudo chsh -s /usr/local/bin/zsh
+
+    success 'Setup default shell'
   fi
 }
 
@@ -137,6 +139,8 @@ create_symlinks() {
 
 install_zsh_tools() {
   /bin/zsh $DOTFILES_ROOT/scripts/install-prezto.zsh
+
+  success 'Setup zsh tools'
 }
 
 if [ $1 -eq "all" ] || [ -z $1 ]; then
