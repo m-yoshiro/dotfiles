@@ -10,13 +10,13 @@ GREEN=$'\e[1;32m'
 END=$'\e[0m'
 
 fail () {
-  printf "${RED} [ FAIL ] $1\n"
+  printf "${RED}[ FAIL ] $1\n"
   echo ""
   exit 1
 }
 
 success () {
-  printf "${GREEN} [ OK ] $1\n"
+  printf "${GREEN}[ OK ] $1\n"
 }
 
 # ----------------------
@@ -102,7 +102,7 @@ setup_anyenv() {
 set_default_shell() {
   if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then
     sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
-    chsh -s /usr/local/bin/zsh
+    sudo chsh -s /usr/local/bin/zsh
   fi
 }
 
