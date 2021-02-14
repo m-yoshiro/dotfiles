@@ -94,7 +94,7 @@ create_symlinks() {
     local src="$DOTFILES_ROOT/$file"
     local dst="$HOME/$file"
 
-    if [ -f "$dst" || -d "$dst" || -L "$dst" ]; then
+    if [[ -f "$dst" || -d "$dst" || -L "$dst" ]]; then
       printf "File already exists."
       continue
     fi
