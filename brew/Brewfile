@@ -22,7 +22,6 @@ brew "tmux"
 brew "tree"
 brew "yarn"
 brew "zsh"
-cask "julia"
 cask "kap"
 cask "keycastr"
 mas "CotEditor", id: 1024640650
