@@ -1,6 +1,23 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-DOTFILES_ROOT=$(dirname "${BASH_SOURCE[0]:-$0}")
+# DOTFILES_ROOT=$(dirname "${BASH_SOURCE[0]:-$0}")
+DOTFILES_ROOT=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd -P)
+
+set -e
+
+RED=$'\e[1;31m'
+GREEN=$'\e[1;32m'
+END=$'\e[0m'
+
+fail () {
+  printf "${RED}[ FAIL ] $1\n"
+  echo ""
+  exit 1
+}
+
+success () {
+  printf "${GREEN}[ OK ] $1\n"
+}
 
 # ----------------------
 # Install tools
@@ -9,7 +26,7 @@ DOTFILES_ROOT=$(dirname "${BASH_SOURCE[0]:-$0}")
 install_homebrew() {
   echo "Setup Homebrew..."
   # install homebrew
-  if has "brew"; then
+  if hash brew 2>/dev/null; then
     echo "Already installed Homebrew"
   else
     echo "Installing Homebrew..."
@@ -25,42 +42,67 @@ install_homebrew() {
       mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
     fi
 
-    echo "Done"
+    success 'Homebrew'
   fi
 }
 
 install_packages_via_homebrew() {
   echo "Installing packages via Homebrew..."
-  $DOTFILES_ROOT/brew/brew.sh
+
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "brew command could not be found"
+    exit
+  fi
+
+  if [ ! -f "$DOTFILES_ROOT/brew/Brewfile" ]; then
+    fail '.Brewfile was not found.'
+  fi
+
+  ln -s "$DOTFILES_ROOT/brew/Brewfile" "$HOME/.Brewfile"
+  [ ! -L "$HOME/.Brewfile" ] && echo '.BrewFile not found.'
+
+  export HOMEBREW_BUNDLE_MAS_SKIP=$(brew bundle list --global --mas | paste -sd " " -)
+  brew bundle install --global
   wait
 
-  if hash !anyenv 2>/dev/null; then
+  success 'Packages Installation by Homebrew'
+}
+
+setup_anyenv() {
+  echo "Setup anyenv..."
+
+  if command anyenv -v &> /dev/null; then
+    echo "anyenv is already installed."
+  else
     echo "Install anyenv..."
     brew install anyenv
-
-    exec $SHELL -l
 
     echo "Initialize anyenv"
     anyenv init
 
     mkdir -p $(anyenv root)/plugins
     git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
-  else
-    echo "`anyanv` is already installed."
   fi
 
-  echo "Installing specific *env..."
-  anyenv update
-  anyenv install nodenv
-  anyenv install rbenv
+  anyenv init 2>/dev/null || true
+  # exec $SHELL -l
 
-  echo "Done"
+  # mkdir -p $(anyenv root)/plugins
+  # git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
+
+  # anyenv update || true
+  # anyenv install nodenv
+  # anyenv install rbenv
+
+  success 'Setup anyenv'
 }
 
 set_default_shell() {
   if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then
     sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
-    chsh -s /usr/local/bin/zsh
+    sudo chsh -s /usr/local/bin/zsh
+
+    success 'Setup default shell'
   fi
 }
 
@@ -74,10 +116,22 @@ create_symlinks() {
   for file in .??*
   do
     [ "$file" = ".git" ] && continue
+    [ "$file" = ".github" ] && continue
     [ "$file" = ".vimrc.*" ] && continue
-    ln -snfv "$DOTFILES_ROOT/$file" "$HOME/$file"
+
+    local src="$DOTFILES_ROOT/$file"
+    local dst="$HOME/$file"
+
+    if [[ -f "$dst" || -d "$dst" || -L "$dst" ]]; then
+      printf "File already exists."
+      continue
+    fi
+
+    ln -s $src $dst
+    success "linked $src to $dst"
   done
-  echo "Done symlinks"
+
+  success 'Symlinks'
 }
 
 # ----------------------
@@ -86,13 +140,19 @@ create_symlinks() {
 
 install_zsh_tools() {
   /bin/zsh $DOTFILES_ROOT/scripts/install-prezto.zsh
+
+  success 'Setup zsh tools'
 }
 
 if [ $1 -eq "all" ] || [ -z $1 ]; then
   install_homebrew
   install_packages_via_homebrew
-
   install_zsh_tools
 
+  set_default_shell
+  setup_anyenv
+
   create_symlinks
+
+  success 'Bootstrap'
 fi
