@@ -2,6 +2,8 @@
 
 DOTFILES_ROOT=$(dirname "${BASH_SOURCE[0]:-$0}")
 
+set -ue
+
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
 
