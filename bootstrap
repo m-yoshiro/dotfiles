@@ -73,8 +73,8 @@ install_packages_via_homebrew() {
 setup_anyenv() {
   echo "Setup anyenv..."
 
-  if hash anyenv 2>/dev/null; then
-    echo "`anyenv` is already installed."
+  if command anyenv -v &> /dev/null; then
+    echo "anyenv is already installed."
   else
     echo "Install anyenv..."
     brew install anyenv
