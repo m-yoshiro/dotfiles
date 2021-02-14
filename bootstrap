@@ -65,6 +65,8 @@ install_packages_via_homebrew() {
   ln -s "$DOTFILES_ROOT/brew/Brewfile" "$HOME/.Brewfile"
   [ ! -L "$HOME/.Brewfile" ] && echo '.BrewFile not found.'
 
+  echo $(ls -l $HOME/.Brewfile)
+
   brew bundle install --global --cask --tap --formula
   wait
 
