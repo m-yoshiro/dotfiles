@@ -34,7 +34,15 @@ install_packages_via_homebrew() {
   $DOTFILES_ROOT/brew/brew.sh
   wait
 
-  if hash !anyenv 2>/dev/null; then
+  echo "Done"
+}
+
+setup_anyenv() {
+  echo "Setup anyenv..."
+
+  if hash anyenv 2>/dev/null; then
+    echo "`anyenv` is already installed."
+  else
     echo "Install anyenv..."
     brew install anyenv
 
@@ -45,16 +53,11 @@ install_packages_via_homebrew() {
 
     mkdir -p $(anyenv root)/plugins
     git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
-  else
-    echo "`anyenv` is already installed."
   fi
 
-  echo "Installing specific *env..."
   anyenv update
   anyenv install nodenv
   anyenv install rbenv
-
-  echo "Done"
 }
 
 set_default_shell() {
@@ -91,8 +94,10 @@ install_zsh_tools() {
 if [ $1 -eq "all" ] || [ -z $1 ]; then
   install_homebrew
   install_packages_via_homebrew
-
   install_zsh_tools
+
+  set_default_shell
+  setup_anyenv
 
   create_symlinks
 fi
