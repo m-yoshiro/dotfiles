@@ -144,7 +144,7 @@ install_zsh_tools() {
   success 'Setup zsh tools'
 }
 
-if [ $1 -eq "all" ] || [ -z $1 ]; then
+if [[ $1 == "all" ]] || [ -z $1 ]; then
   install_homebrew
   install_packages_via_homebrew
   install_zsh_tools
