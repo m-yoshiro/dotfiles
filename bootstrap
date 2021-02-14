@@ -55,12 +55,14 @@ install_packages_via_homebrew() {
   fi
 
   echo $(pwd)
+  echo "$DOTFILES_ROOT/brew/.Brewfile"
+  echo "$HOME/.Brewfile"
+
   if [ -f "$DOTFILES_ROOT/brew/.Brewfile" ]; then
     fail '.Brewfile was not found.'
   fi
 
-  echo "$DOTFILES_ROOT/brew/.Brewfile"
-  echo "$HOME/.Brewfile"
+
 
   ln -s "$DOTFILES_ROOT/brew/.Brewfile" "$HOME/.Brewfile"
   brew bundle
