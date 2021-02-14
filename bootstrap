@@ -90,7 +90,7 @@ create_symlinks() {
     [ "$file" = ".git" ] && continue
     [ "$file" = ".github" ] && continue
     [ "$file" = ".vimrc.*" ] && continue
-    ln -snfv "$DOTFILES_ROOT/$file" "$HOME/$file"
+    ln -s "$DOTFILES_ROOT/$file" "$HOME/$file"
   done
 
   success 'Done symlinks'
