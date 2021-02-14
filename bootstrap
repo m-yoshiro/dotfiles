@@ -79,8 +79,6 @@ setup_anyenv() {
     echo "Install anyenv..."
     brew install anyenv
 
-    exec $SHELL -l
-
     echo "Initialize anyenv"
     anyenv init
 
@@ -88,7 +86,12 @@ setup_anyenv() {
     git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
   fi
 
-  anyenv install --init
+  anyenv init
+  exec $SHELL -l
+
+  mkdir -p $(anyenv root)/plugins
+  git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
+
   anyenv update || true
   anyenv install nodenv
   anyenv install rbenv
