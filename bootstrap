@@ -67,7 +67,7 @@ install_packages_via_homebrew() {
 
   ls -l "$HOME/.Brewfile"
 
-  export HOMEBREW_BUNDLE_MAS_SKIP=$(brew bundle list --mas | paste -sd " " -)
+  export HOMEBREW_BUNDLE_MAS_SKIP=$(brew bundle list --global --mas | paste -sd " " -)
   brew bundle install --global
   wait
 
