@@ -10,13 +10,13 @@ GREEN=$'\e[1;32m'
 END=$'\e[0m'
 
 fail () {
-  printf "${RED}[ FAIL ] $1\n"
+  printf "\n${RED}[ FAIL ] $1\n"
   echo ""
   exit 1
 }
 
 success () {
-  printf "${GREEN}[ OK ] $1\n"
+  printf "\n${GREEN}[ OK ] $1\n"
 }
 
 # ----------------------
