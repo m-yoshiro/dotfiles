@@ -2,7 +2,7 @@
 
 DOTFILES_ROOT=$(dirname "${BASH_SOURCE[0]:-$0}")
 
-set -ue
+set -e
 
 GREEN=$'\e[1;32m'
 END=$'\e[0m'
