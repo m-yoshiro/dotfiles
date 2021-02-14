@@ -4,5 +4,5 @@
 git clone git@github.com:m-yoshiro/dotfiles.git ~/dotfiles
 
 cd ~/dotfiles
-bootstrap
+zsh bootstrap
 ```
