@@ -61,8 +61,6 @@ install_packages_via_homebrew() {
   ln -s "$DOTFILES_ROOT/brew/Brewfile" "$HOME/.Brewfile"
   [ ! -L "$HOME/.Brewfile" ] && echo '.BrewFile not found.'
 
-  ls -l "$HOME/.Brewfile"
-
   export HOMEBREW_BUNDLE_MAS_SKIP=$(brew bundle list --global --mas | paste -sd " " -)
   brew bundle install --global
   wait
