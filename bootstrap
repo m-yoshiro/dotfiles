@@ -4,8 +4,15 @@ DOTFILES_ROOT=$(dirname "${BASH_SOURCE[0]:-$0}")
 
 set -e
 
+RED=$'\e[1;31m'
 GREEN=$'\e[1;32m'
 END=$'\e[0m'
+
+fail () {
+  printf "${RED} [ FAIL ] $1\n"
+  echo ""
+  exit
+}
 
 success () {
   printf "${GREEN} [ OK ] $1\n"
@@ -44,6 +51,11 @@ install_packages_via_homebrew() {
   if ! command -v brew >/dev/null 2>&1; then
     echo "brew command could not be found"
     exit
+  fi
+
+  echo $(pwd)
+  if [ -f "$DOTFILES_ROOT/brew/.Brewfile" ]; then
+    fail '.Brewfile was not found.'
   fi
 
   echo "$DOTFILES_ROOT/brew/.Brewfile"
