@@ -87,14 +87,14 @@ setup_anyenv() {
   fi
 
   anyenv init
-  exec $SHELL -l
+  # exec $SHELL -l
 
-  mkdir -p $(anyenv root)/plugins
-  git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
+  # mkdir -p $(anyenv root)/plugins
+  # git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
 
-  anyenv update || true
-  anyenv install nodenv
-  anyenv install rbenv
+  # anyenv update || true
+  # anyenv install nodenv
+  # anyenv install rbenv
 
   success 'Setup anyenv'
 }
