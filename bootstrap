@@ -18,7 +18,7 @@ success () {
 install_homebrew() {
   echo "Setup Homebrew..."
   # install homebrew
-  if has "brew"; then
+  if hash brew 2>/dev/null; then
     echo "Already installed Homebrew"
   else
     echo "Installing Homebrew..."
