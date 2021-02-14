@@ -40,7 +40,14 @@ install_homebrew() {
 
 install_packages_via_homebrew() {
   echo "Installing packages via Homebrew..."
-  source $DOTFILES_ROOT/brew/brew.sh
+
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "brew command could not be found"
+    exit
+  fi
+
+  ln -s "$DOTFILES_ROOT/brew/.Brewfile" "$HOME/.Brewfile"
+  brew bundle
   wait
 
   success 'Packages Installation by Homebrew'
