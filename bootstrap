@@ -40,7 +40,7 @@ install_homebrew() {
 
 install_packages_via_homebrew() {
   echo "Installing packages via Homebrew..."
-  $DOTFILES_ROOT/brew/brew.sh
+  source $DOTFILES_ROOT/brew/brew.sh
   wait
 
   success 'Packages Installation by Homebrew'
