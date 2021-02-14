@@ -13,4 +13,4 @@ link_brewfile() {
 }
 
 link_brewfile
-brew bundle
+brew bundle --global
