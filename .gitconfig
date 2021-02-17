@@ -3,7 +3,7 @@
   email = massugu.massugu@gmail.com
 [core]
   excludesfile = ~/.gitignore_global
-  editor = /usr/local/bin/nvim
+  editor = /usr/bin/vim
   pager = nkf -w | LESSCHARSET=utf-8 less
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
