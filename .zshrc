@@ -44,9 +44,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Composer global
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-# tmuxinator
-export EDITOR='nvim'
-
 # Flutter
 export PATH="$HOME/flutter/bin:$PATH"
 
