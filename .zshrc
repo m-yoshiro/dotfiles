@@ -24,16 +24,6 @@ if [ -d "${HOME}/.anyenv" ]; then
   eval "$(anyenv init -)"
 fi
 
-# Node.js
-# Basicaly I use nodenv via anyenv.
-#
-# [nodebrew]
-# NOTE: I will remove nodebrew if the necessity decreases.
-if [ -d "${HOME}/.nodebrew" ]; then
-  export PATH="$HOME/.nodebrew/current/bin:$PATH"
-  export NODE_PATH=$HOME/.nodebrew/current/lib/node_modules
-fi
-
 # Go
 export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$PATH"
