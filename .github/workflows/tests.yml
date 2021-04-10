@@ -8,7 +8,7 @@ jobs:
     name: Bootstrap
     steps:
       - name: Clean up macOS
-        if: runner.os == 'macOS'
+        if: ${{ github.ref == 'refs/heads/master' }}
         run: |
           brew uninstall --force $(brew list --formula)
           brew cleanup --prune-prefix
