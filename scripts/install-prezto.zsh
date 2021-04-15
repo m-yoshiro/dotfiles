@@ -20,3 +20,5 @@ install_prezto() {
     echo "Done Prezto"
   fi
 }
+
+install_prezto
