@@ -97,10 +97,11 @@ setup_anyenv() {
 }
 
 set_default_shell() {
-  if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then
-    sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
-    sudo chsh -s /usr/local/bin/zsh
-
+  if [[ $(basename $SHELL) != "zsh" ]] && [[ "$(uname -m)" = "x86_64" ]]; then
+    if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then
+      sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
+      sudo chsh -s /usr/local/bin/zsh
+    fi
     success 'Setup default shell'
   fi
 }
