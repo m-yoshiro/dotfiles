@@ -17,6 +17,7 @@ fail () {
 
 success () {
   printf "\n${GREEN}[ OK ] $1\n"
+  echo ""
 }
 
 # ----------------------
@@ -32,14 +33,11 @@ install_homebrew() {
     echo "Installing Homebrew..."
 
     if test "$(uname -m)" = "x86_64"; then
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    elif test "$(uname)" = "arm64"; then
-      echo "Installing to /usr/local for using emulation with Rosseta 2 (1/2)"
-      arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-      echo "Installing to /opt/homebrew for natively running on macOS ARM (2/2)"
-      cd /opt
-      mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    elif test "$(uname -m)" = "arm64"; then
+      echo "Installing to /opt/homebrew for natively running on macOS ARM"
+      arch -arm64e /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      source ~/.zprofile
     fi
 
     success 'Homebrew'
@@ -58,13 +56,14 @@ install_packages_via_homebrew() {
     fail '.Brewfile was not found.'
   fi
 
-  ln -s "$DOTFILES_ROOT/brew/Brewfile" "$HOME/.Brewfile"
-  [ ! -L "$HOME/.Brewfile" ] && echo '.BrewFile not found.'
+  if [ ! -L "$HOME/.Brewfile" ]; then
+    ln -s "$DOTFILES_ROOT/brew/Brewfile" "$HOME/.Brewfile"
+  fi
 
   export HOMEBREW_BUNDLE_MAS_SKIP=$(brew bundle list --global --mas | paste -sd " " -)
-  brew bundle install --global
-  wait
+  brew bundle install --global || true
 
+  wait
   success 'Packages Installation by Homebrew'
 }
 
@@ -98,10 +97,11 @@ setup_anyenv() {
 }
 
 set_default_shell() {
-  if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then
-    sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
-    sudo chsh -s /usr/local/bin/zsh
-
+  if [[ $(basename $SHELL) != "zsh" ]] && [[ "$(uname -m)" = "x86_64" ]]; then
+    if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then
+      sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
+      sudo chsh -s /usr/local/bin/zsh
+    fi
     success 'Setup default shell'
   fi
 }
