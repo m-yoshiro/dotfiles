@@ -39,7 +39,7 @@ install_homebrew() {
 
       echo "Installing to /opt/homebrew for natively running on macOS ARM (2/2)"
       cd /opt
-      mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+      sudo mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
     fi
 
     success 'Homebrew'
