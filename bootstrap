@@ -33,7 +33,7 @@ install_homebrew() {
 
     if test "$(uname -m)" = "x86_64"; then
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    elif test "$(uname)" = "arm64"; then
+    elif test "$(uname -m)" = "arm64"; then
       echo "Installing to /usr/local for using emulation with Rosseta 2 (1/2)"
       arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
