@@ -52,32 +52,6 @@ source "$DOTFILES/.zsh/completion.zsh"
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # =========================
-# Homebrew
-# =========================
-
-# https://zenn.dev/ress/articles/069baf1c305523dfca3d
-typeset -U path PATH
-path=(
-  /opt/homebrew/bin(N-/)
-  /usr/local/bin(N-/)
-  $path
-)
-
-if [[ "${(L)$( uname -s )}" == darwin ]] && (( $+commands[arch] )); then
-  alias brew_x86="arch -arch x86_64 /usr/local/bin/brew"
-  alias x64='exec arch -arch x86_64 "$SHELL"'
-  alias a64='exec arch -arch arm64e "$SHELL"'
-  switch-arch() {
-    if  [[ "$(uname -m)" == arm64 ]]; then
-      arch=x86_64
-    elif [[ "$(uname -m)" == x86_64 ]]; then
-      arch=arm64e
-    fi
-    exec arch -arch $arch "$SHELL"
-  }
-fi
-
-# =========================
 # Tmux
 # =========================
 
