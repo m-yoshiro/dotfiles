@@ -37,6 +37,11 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 # Flutter
 export PATH="$HOME/flutter/bin:$PATH"
 
+# Node.js
+export N_PREFIX=$HOME/.n
+export PATH="$PATH:$N_PREFIX/bin"
+
+
 # =========================
 # load zsh files
 # =========================
