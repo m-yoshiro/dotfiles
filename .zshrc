@@ -31,15 +31,13 @@ export PATH="$GOPATH/bin:$PATH"
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Composer global
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-
 # Flutter
 export PATH="$HOME/flutter/bin:$PATH"
 
 # Node.js
-export N_PREFIX=$HOME/.n
-export PATH="$PATH:$N_PREFIX/bin"
+# https://github.com/volta-cli/volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 
 
 # =========================
