@@ -1,0 +1,12 @@
+name: Issue
+description: Create a Issue
+body:
+  - type: textarea
+      id: What
+      attributes:
+        label: What
+        description: このIssueは何か
+        placeholder: Tell us what you see!
+        value: "What"
+      validations:
+        required: true
