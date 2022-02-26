@@ -1,6 +1,5 @@
 [user]
-	name = m-yoshiro
-  email = massugu.massugu@gmail.com
+  name = m-yoshiro
 [core]
   excludesfile = ~/.gitignore_global
   editor = /usr/bin/vim
@@ -31,7 +30,7 @@
 [include]
   path = ~/.gitconfig.local
 [ghq]
-root = ~/.ghq
+  root = ~/.ghq
 [pull]
 	rebase = false
 [init]
