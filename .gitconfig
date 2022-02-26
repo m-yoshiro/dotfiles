@@ -21,6 +21,8 @@
   co = checkout
   ci = commit
   review = diff origin/master...
+  fu = git fetch upstream
+  f = git fetch
 [push]
   default = simple
 [credential]
