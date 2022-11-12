@@ -28,17 +28,11 @@ install_homebrew() {
   echo "Setup Homebrew..."
   # install homebrew
   if hash brew 2>/dev/null; then
-    echo "Already installed Homebrew"
+    echo "Homebrew is already installed"
   else
     echo "Installing Homebrew..."
 
-    if test "$(uname -m)" = "x86_64"; then
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    elif test "$(uname -m)" = "arm64"; then
-      echo "Installing to /opt/homebrew for natively running on macOS ARM"
-      arch -arm64e /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      source ~/.zprofile
-    fi
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     success 'Homebrew'
   fi
