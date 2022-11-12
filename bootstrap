@@ -143,6 +143,24 @@ create_symlinks() {
 }
 
 # ----------------------
+# Local config files
+# ----------------------
+
+create_local_config_files() {
+  local gitconfig_local = "$Home/.gitconfig.local"
+  if [ ! -f "$gitconfig_local" ]; then
+    echo "# [user]" > $gitconfig_local
+    echo "#   name = m-yoshiro" >> $gitconfig_local
+    echo "#   email = massugu.massugu@gmail.com" >> $gitconfig_local
+  fi
+
+  local zshrc_local = "$Home/.zshrc.local"
+  if [ ! -f "$zshrc_local" ]; then
+    echo "# zshrc for local configuration" > $zshrc_local
+  fi
+}
+
+# ----------------------
 # zsh
 # ----------------------
 
