@@ -1,10 +1,11 @@
-# Initialize Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# =========================
+# ZSH
+# =========================
+
+# ZSH Framework
+source "$HOME/dotfiles/.zsh/zimfw.zsh"
 
 export LANG=ja_JP.UTF-8
-
 
 # =========================
 # PATH

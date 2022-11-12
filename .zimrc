@@ -1,0 +1,7 @@
+zmodule zsh-users/zsh-completions --fpath src
+zmodule completion
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions
+
+# https://spaceship-prompt.sh/
+zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
