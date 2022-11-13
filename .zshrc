@@ -40,6 +40,11 @@ export PATH="$HOME/flutter/bin:$PATH"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+# TheFuck
+if command thefuck -v &> /dev/null; then
+  eval $(thefuck --alias)
+else
+
 
 # =========================
 # load zsh files
