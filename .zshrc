@@ -19,6 +19,9 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/loca
 # --------
 # Tools
 
+# Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+
 # Anyenv
 # https://github.com/anyenv/anyenv
 if [ -d "${HOME}/.anyenv" ]; then
