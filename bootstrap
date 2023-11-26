@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # DOTFILES_ROOT=$(dirname "${BASH_SOURCE[0]:-$0}")
-DOTFILES_ROOT=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd -P)
+DOTFILES_ROOT=$(cd "$(dirname "${BASH_SOURCE:-$0}")"; pwd -P)
 
 set -e
 
@@ -10,13 +10,13 @@ GREEN=$'\e[1;32m'
 END=$'\e[0m'
 
 fail () {
-  printf "\n${RED}[ FAIL ] $1\n"
+  printf "\n${RED}[ FAIL ] %s\n" "$1"
   echo ""
   exit 1
 }
 
 success () {
-  printf "\n${GREEN}[ OK ] $1\n"
+  printf "\n${GREEN}[ OK ] %s\n" "$1"
   echo ""
 }
 
@@ -73,7 +73,7 @@ setup_anyenv() {
     echo "Initialize anyenv"
     anyenv init
 
-    mkdir -p $(anyenv root)/plugins
+    mkdir -p "$(anyenv root)/plugins"
     git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
   fi
 
@@ -105,7 +105,7 @@ setup_nodejs_tools() {
 }
 
 set_default_shell() {
-  if [[ $(basename $SHELL) != "zsh" ]] && [[ "$(uname -m)" = "x86_64" ]]; then
+  if [[ $(basename "$SHELL") != "zsh" ]] && [[ "$(uname -m)" = "x86_64" ]]; then
     if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then
       sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
       sudo chsh -s /usr/local/bin/zsh
@@ -135,7 +135,7 @@ create_symlinks() {
       continue
     fi
 
-    ln -s $src $dst
+    ln -s "$src" "$dst"
     success "linked $src to $dst"
   done
 
@@ -147,16 +147,16 @@ create_symlinks() {
 # ----------------------
 
 create_local_config_files() {
-  local gitconfig_local = "$Home/.gitconfig.local"
+  local gitconfig_local="$HOME/.gitconfig.local"
   if [ ! -f "$gitconfig_local" ]; then
-    echo "# [user]" > $gitconfig_local
-    echo "#   name = m-yoshiro" >> $gitconfig_local
-    echo "#   email = massugu.massugu@gmail.com" >> $gitconfig_local
+    echo "# [user]" > "$gitconfig_local"
+    echo "#   name = m-yoshiro" >> "$gitconfig_local"
+    echo "#   email = massugu.massugu@gmail.com" >> "$gitconfig_local"
   fi
 
-  local zshrc_local = "$Home/.zshrc.local"
+  local zshrc_local="$HOME/.zshrc.local"
   if [ ! -f "$zshrc_local" ]; then
-    echo "# zshrc for local configuration" > $zshrc_local
+    echo "# zshrc for local configuration" > "$zshrc_local"
   fi
 }
 
@@ -164,7 +164,7 @@ create_local_config_files() {
 # Main
 # ----------------------
 
-if [[ $1 == "all" ]] || [ -z $1 ]; then
+if [[ $1 == "all" ]] || [ -z "$1" ]; then
   install_homebrew
   install_packages_via_homebrew
 
