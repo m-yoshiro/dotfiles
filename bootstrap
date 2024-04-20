@@ -7,7 +7,6 @@ set -e
 
 RED=$'\e[1;31m'
 GREEN=$'\e[1;32m'
-END=$'\e[0m'
 
 fail () {
   printf "\n${RED}[ FAIL ] %s\n" "$1"
@@ -54,40 +53,12 @@ install_packages_via_homebrew() {
     ln -s "$DOTFILES_ROOT/brew/Brewfile" "$HOME/.Brewfile"
   fi
 
-  export HOMEBREW_BUNDLE_MAS_SKIP=$(brew bundle list --global --mas | paste -sd " " -)
+  HOMEBREW_BUNDLE_MAS_SKIP=$(brew bundle list --global --mas)
+  export HOMEBREW_BUNDLE_MAS_SKIP
   brew bundle install --global || true
 
   wait
   success 'Packages Installation by Homebrew'
-}
-
-setup_anyenv() {
-  echo "Setup anyenv..."
-
-  if command anyenv -v &> /dev/null; then
-    echo "anyenv is already installed."
-  else
-    echo "Install anyenv..."
-    brew install anyenv
-
-    echo "Initialize anyenv"
-    anyenv init
-
-    mkdir -p "$(anyenv root)/plugins"
-    git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
-  fi
-
-  anyenv init 2>/dev/null || true
-  # exec $SHELL -l
-
-  # mkdir -p $(anyenv root)/plugins
-  # git clone "https://github.com/znz/anyenv-update.git" "$(anyenv root)/plugins/anyenv-update"
-
-  # anyenv update || true
-  # anyenv install nodenv
-  # anyenv install rbenv
-
-  success 'Setup anyenv'
 }
 
 setup_nodejs_tools() {
@@ -169,7 +140,6 @@ if [[ $1 == "all" ]] || [ -z "$1" ]; then
   install_packages_via_homebrew
 
   set_default_shell
-  setup_anyenv
 
   create_symlinks
 
