@@ -22,10 +22,20 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/loca
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
-# Anyenv
-# https://github.com/anyenv/anyenv
-if [ -d "${HOME}/.anyenv" ]; then
-  eval "$(anyenv init -)"
+#asdf
+ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
+if [[ ! -f "$ASDF_DIR/asdf.sh" ]]; then
+  if (( $+commands[brew] )); then
+    _ASDF_PREFIX="$(brew --prefix asdf)"
+    ASDF_DIR="${_ASDF_PREFIX}/libexec"
+    unset _ASDF_PREFIX
+  else
+    return
+  fi
+fi
+# Load command
+if [[ -f "$ASDF_DIR/asdf.sh" ]]; then
+  source "$ASDF_DIR/asdf.sh"
 fi
 
 # Go
