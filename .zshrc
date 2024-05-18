@@ -79,9 +79,10 @@ if [[ "$TERM"!="screen-256color" ]]; then
   # Check running on vscode
   # https://github.com/Microsoft/vscode/pull/30346
   if [[ ${TERM_PROGRAM} == "vscode" ]]; then
+    # VSCodeの時にterminalウィンドウのresizeの度に不要な文字列が挿入されてしまうので,tmuxを起動しない
     # https://medium.com/@joaomoreno/persistent-terminal-sessions-in-vs-code-8fc469ed6b41
-    SESSION="vscode`pwd | md5`"
-    tmux attach-session -d -t $SESSION || tmux new-session -s $SESSION
+    # SESSION="vscode`pwd | md5`"
+    # tmux attach-session -d -t $SESSION || tmux new-session -s $SESSION
   else
     # Excute initialy when tmux haven't attatched a current session yet.
     if [ ! "$TMUX" ]; then
