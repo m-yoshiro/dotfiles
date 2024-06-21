@@ -1,3 +1,6 @@
+# if [[ -d /opt/homebrew/share/zsh ]] && [[ $(uname) == Darwin ]] ; then
+#     zmodule /opt/homebrew/share/zsh --fpath site-functions
+# fi
 zmodule zsh-users/zsh-completions --fpath src
 zmodule completion
 zmodule zsh-users/zsh-syntax-highlighting

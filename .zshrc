@@ -50,8 +50,8 @@ export PATH="$HOME/flutter/bin:$PATH"
 
 # Node.js
 # https://github.com/volta-cli/volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# export VOLTA_HOME="$HOME/.volta"
+# export PATH="$VOLTA_HOME/bin:$PATH"
 
 # TheFuck
 eval $(thefuck --alias)
