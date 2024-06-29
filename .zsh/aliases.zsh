@@ -87,3 +87,6 @@ function git-check-unrefs-files() {
   done
 }
 alias gcuf=git-check-unrefs-files
+
+# pnpm
+alias pn=pnpm
