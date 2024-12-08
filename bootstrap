@@ -94,6 +94,9 @@ create_symlinks() {
 
   for file in .??*
   do
+    # Skip unnecessary files
+    [ "$file" = ".DS_Store" ] && continue
+    [ "$file" = ".gitignore" ] && continue
     [ "$file" = ".git" ] && continue
     [ "$file" = ".github" ] && continue
     [ "$file" = ".vimrc.*" ] && continue
