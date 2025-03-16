@@ -133,6 +133,36 @@ install_packages_via_homebrew() {
   success 'Packages Installation by Homebrew'
 }
 
+install_tool_version_manager() {
+  header "Setup tool version manager..."
+  info "Trying to install mise..."
+  # install homebrew
+  if hash mise 2>/dev/null; then
+    info "mise is already installed"
+  else
+    info "Installing mise..."
+
+    if [[ $DRYRUN == true ]]; then
+      dryrun "curl -fsSL https://mise.run | sh"
+      dryrun "mise --version"
+    else
+      if ! curl -fsSL https://mise.run | sh; then
+        error "Failed to install mise"
+      fi
+
+      if hash mise 2>/dev/null; then
+        mise --version
+      elif [ -f ~/.local/bin/mise ]; then
+        ~/.local/bin/mise --version
+      else
+        error "mise was installed but cannot be found in PATH"
+      fi
+    fi
+
+    success 'Tool version manager'
+  fi
+}
+
 set_default_shell() {
   if [[ $(basename "$SHELL") != "zsh" ]] && [[ "$(uname -m)" = "x86_64" ]]; then
     if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then

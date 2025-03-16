@@ -22,20 +22,30 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/loca
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
-#asdf
-ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
-if [[ ! -f "$ASDF_DIR/asdf.sh" ]]; then
-  if (( $+commands[brew] )); then
-    _ASDF_PREFIX="$(brew --prefix asdf)"
-    ASDF_DIR="${_ASDF_PREFIX}/libexec"
-    unset _ASDF_PREFIX
-  else
-    return
+# Tool version manager
+if [ -x ~/.local/bin/mise ]; then
+  eval "$(~/.local/bin/mise activate zsh)"
+  use_asdf=false
+else
+  # mise が使えない場合は asdf を使用
+  use_asdf=true
+
+  # asdf
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+  ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
+  if [[ ! -f "$ASDF_DIR/asdf.sh" ]]; then
+    if (( $+commands[brew] )); then
+      _ASDF_PREFIX="$(brew --prefix asdf)"
+      ASDF_DIR="${_ASDF_PREFIX}/libexec"
+      unset _ASDF_PREFIX
+    else
+      use_asdf=false
+    fi
   fi
-fi
-# Load command
-if [[ -f "$ASDF_DIR/asdf.sh" ]]; then
-  source "$ASDF_DIR/asdf.sh"
+  # Load command
+  if [["$use_asdf" = true && -f "$ASDF_DIR/asdf.sh" ]]; then
+    source "$ASDF_DIR/asdf.sh"
+  fi
 fi
 
 # Go
