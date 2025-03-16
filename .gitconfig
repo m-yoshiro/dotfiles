@@ -29,7 +29,7 @@
 [credential]
   helper = osxkeychain
 [alias]
-  delete-merged-branches = !git branch --merged | grep -v master | grep -v main | grep -v '*' | xargs -I % git branch -d %
+  delete-merged-branches = !git branch --merged | grep -v \"$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')\" | grep -v '*' | xargs -I % git branch -d %
 [include]
   path = ~/.gitconfig.local
 [ghq]
