@@ -102,3 +102,9 @@ if [[ "$TERM"!="screen-256color" ]]; then
     fi
   fi
 fi
+
+# =========================
+# fzf
+# =========================
+
+export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=1 --padding=1"

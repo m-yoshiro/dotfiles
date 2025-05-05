@@ -27,8 +27,6 @@ brew "jq"
 brew "neovim"
 # Network Kanji code conversion Filter (NKF)
 brew "nkf"
-# Simplistic interactive filtering tool
-brew "peco"
 # Fast, disk space efficient package manager
 brew "pnpm"
 # Object-relational database system
