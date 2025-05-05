@@ -74,7 +74,6 @@ eval $(thefuck --alias)
 source "$DOTFILES/.zsh/aliases.zsh"
 source "$DOTFILES/.zsh/config.zsh"
 source "$DOTFILES/.zsh/bindkey.zsh"
-source "$DOTFILES/.zsh/completion.zsh"
 
 # =========================
 # local setting
