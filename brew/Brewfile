@@ -1,22 +1,60 @@
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-tap "homebrew/core"
-tap "homebrew/services"
+tap "nikitabobko/tap"
+tap "oven-sh/bun"
 tap "rcmdnk/file"
-brew "ack"
-brew "anyenv"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Secure runtime for JavaScript and TypeScript
 brew "deno"
+# Modern, maintained replacement for ls
+brew "eza"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GNU awk utility
+brew "gawk"
+# GitHub command-line tool
 brew "gh"
+# Remote repository management made easy
 brew "ghq"
+# Distributed revision control system
 brew "git"
-brew "hub"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Network Kanji code conversion Filter (NKF)
 brew "nkf"
+# Simplistic interactive filtering tool
 brew "peco"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Object-relational database system
+brew "postgresql@16", restart_service: :changed
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.11"
+# Generic machine emulator and virtualizer
+brew "qemu"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Programmatically correct mistyped console commands
 brew "thefuck"
+# Text interface for Git repositories
 brew "tig"
+# Terminal multiplexer
 brew "tmux"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
+# UNIX shell (command interpreter)
 brew "zsh"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "aerospace"
 cask "font-hack-nerd-font"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
