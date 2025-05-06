@@ -42,4 +42,4 @@ alias ghbr='gh browse -R $(ghq list | fzf --prompt "GIT BRANCH>")'
 # --- Tmux (T) ---------
 
 alias Tgr=tmux_select_git_repo
-alias Tdot=tmux_select_dotfile
+alias Tdt=tmux_select_dotfile
