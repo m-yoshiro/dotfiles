@@ -58,21 +58,16 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Flutter
 export PATH="$HOME/flutter/bin:$PATH"
 
-# Node.js
-# https://github.com/volta-cli/volta
-# export VOLTA_HOME="$HOME/.volta"
-# export PATH="$VOLTA_HOME/bin:$PATH"
-
 # TheFuck
 eval $(thefuck --alias)
-
 
 # =========================
 # load zsh files
 # =========================
 
-source "$DOTFILES/.zsh/aliases.zsh"
 source "$DOTFILES/.zsh/config.zsh"
+source "$DOTFILES/.zsh/functions.zsh"
+source "$DOTFILES/.zsh/aliases.zsh"
 source "$DOTFILES/.zsh/bindkey.zsh"
 
 # =========================
@@ -107,3 +102,10 @@ fi
 # =========================
 
 export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=1 --padding=1"
+
+# =========================
+# zoxide
+# =========================
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh)"
+fi
