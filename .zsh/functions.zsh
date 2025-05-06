@@ -1,24 +1,25 @@
 # --- Tmux -----------
 
 # Git
-function _switch_tmux_session_with_git_repo() {
-  local dir repository session current_session
+function tmux_switch_directory() {
+  local dir tail_path new_session current_session
   dir=$1
   if [[ ! -z ${TMUX} ]]; then
     # convert to "organization/repository"
-    repository=$(echo $dir | sed -E 's/.*\/(.*\/.*)$/\1/')
-    session=${repository//./-}
+    tail_path=$(echo $dir | sed -E 's/.*\/(.*\/.*)$/\1/')
+    new_session=${tail_path//./-}
     current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
 
+    # 数値の場合はtmuxのデフォルトセッション番号とみなす
     if [[ $current_session =~ ^[0-9]+$ ]]; then
       cd $dir
-      tmux rename-session $session
+      tmux rename-session $new_session
     else
-      tmux list-sessions | cut -d":" -f1 | grep $session > /dev/null
+      tmux list-sessions | cut -d":" -f1 | grep $new_session > /dev/null
       if [[ $? != 0 ]]; then
-        tmux new-session -d -c $dir -s $session
+        tmux new-session -d -c $dir -s $new_session
       fi
-      tmux switch-client -t $session
+      tmux switch-client -t $new_session
     fi
   else
     cd $dir
@@ -30,7 +31,7 @@ function tmux_select_git_repo() {
   dir=$(ghq root)/$(ghq list | fzf --prompt 'GIT REPO>')
 
   if [[ $dir != "$(ghq root)/" ]]; then
-    _switch_tmux_session_with_git_repo "$dir"
+    tmux_switch_directory "$dir"
   fi
 }
 
@@ -44,7 +45,7 @@ function tmux_select_dotfile() {
     return
   fi
 
-  _switch_tmux_session_with_git_repo "$dir"
+  tmux_switch_directory "$dir"
 }
 
 # --- Git -----------
