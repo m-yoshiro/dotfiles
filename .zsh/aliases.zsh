@@ -35,6 +35,27 @@ alias gbc='git checkout -b'
 # Commit (c)
 alias gco='git checkout'
 alias gcob='git checkout B'
+alias gcr='git revert'
+alias gcR='git reset "HEAD^"'
+
+# Fetch (f)
+alias gf='git fetch'
+alias gfa='git fetch --all'
+
+# Rebase (r)
+alias gr='git rebase'
+alias gra='git rebase --abort'
+alias grc='git rebase --continue'
+alias gri='git rebase --interactive --autosquash'
+
+# Working trees (W)
+alias gW='git worktree'
+alias gWa='git worktree add'
+alias gWl='git worktree list'
+alias gWm='git worktree move'
+alias gWp='git worktree prune'
+alias gWx='git worktree remove'
+alias gWX='git worktree remove --force'
 
 # GitHub CLI (gh)
 alias ghbr='gh browse -R $(ghq list | fzf --prompt "GIT BRANCH>")'
