@@ -2,8 +2,6 @@ DEFAULT_USER="Yoshiro"
 
 export TERM=xterm-256color
 
-# preztoのHistoryを使う
-# https://github.com/sorin-ionescu/prezto/tree/0a405494cae54e208ff550c1ba83380ed115410a/modules/history
 # HISTFILE=~/.zhistory
 # SAVEHIST=100000
 # HISTSIZE=10000
