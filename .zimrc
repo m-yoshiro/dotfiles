@@ -1,8 +1,6 @@
-# if [[ -d /opt/homebrew/share/zsh ]] && [[ $(uname) == Darwin ]] ; then
-#     zmodule /opt/homebrew/share/zsh --fpath site-functions
-# fi
-zmodule zsh-users/zsh-completions --fpath src
+# shellcheck disable=SC2148
 zmodule completion
+zmodule fzf
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-autosuggestions
 
