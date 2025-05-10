@@ -99,10 +99,3 @@ fi
 # =========================
 
 export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=1 --padding=1"
-
-# =========================
-# zoxide
-# =========================
-if (( $+commands[zoxide] )); then
-  eval "$(zoxide init zsh)"
-fi

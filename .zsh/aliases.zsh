@@ -11,9 +11,6 @@ alias cdddddd="cd ../../../../.."
 alias cddddddd="cd ../../../../../.."
 alias -- -="cd -"
 
-# Resent directories
-alias zf='cd $(zoxide query -l | fzf --reverse --prompt "Zoxide> ")'
-
 # --- Tools -----------
 
 # Chrome CLI
