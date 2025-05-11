@@ -195,6 +195,10 @@ set_default_shell() {
 create_symlinks() {
   header "Create symlinks..."
 
+  local backup_dir
+  backup_dir="$HOME/.dotfiles_backup_$(date +%Y%m%d%H%M%S)"
+  mkdir -p "$backup_dir"
+
   for file in .??*
   do
     # Skip unnecessary files
@@ -202,7 +206,7 @@ create_symlinks() {
     [ "$file" = ".gitignore" ] && continue
     [ "$file" = ".git" ] && continue
     [ "$file" = ".github" ] && continue
-    [ "$file" = ".vimrc.*" ] && continue
+    [[ $file == .vimrc.* ]] && continue
 
     local src="$DOTFILES_ROOT/$file"
     local dst="$HOME/$file"
@@ -212,8 +216,13 @@ create_symlinks() {
       continue
     fi
 
-    if [[ -f "$dst" || -d "$dst" || -L "$dst" ]]; then
-      info "$dst has already existed."
+    if [[ -e "$dst" && ! -L "$dst" ]]; then
+      info "Backing up existing $dst to $backup_dir"
+      mv "$dst" "$backup_dir/"
+    fi
+
+    if [[ -L "$dst" ]]; then
+      info "Symlink for $dst already exists."
       continue
     fi
 
