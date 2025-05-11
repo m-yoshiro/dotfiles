@@ -11,6 +11,14 @@ alias cdddddd="cd ../../../../.."
 alias cddddddd="cd ../../../../../.."
 alias -- -="cd -"
 
+# ls
+if command -v eza >/dev/null 2>&1; then
+  alias ls="eza"
+else
+  alias ls="ls"
+fi
+alias lsa="ls -a"
+
 # --- Tools -----------
 
 # Chrome CLI
