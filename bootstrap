@@ -146,17 +146,16 @@ install_packages_via_homebrew() {
 install_tool_version_manager() {
   header "Setup tool version manager..."
   info "Trying to install mise..."
-  # install homebrew
   if hash mise 2>/dev/null; then
     info "mise is already installed"
   else
     info "Installing mise..."
 
     if [[ $DRYRUN == true ]]; then
-      dryrun "curl -fsSL https://mise.run | sh"
+      dryrun "curl https://mise.run | sh"
       dryrun "mise --version"
     else
-      if ! curl -fsSL https://mise.run | sh; then
+      if ! curl https://mise.run | sh; then
         error "Failed to install mise"
       fi
 
