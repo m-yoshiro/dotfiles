@@ -16,7 +16,6 @@ trap 'error "An unexpected error occurred" "$LINENO"' ERR
 # Config
 # ----------------------
 
-DRYRUN=false
 TARGET="all"
 
 # ----------------------
@@ -68,8 +67,6 @@ error() {
 header () { _alert header "$1"; }
 info () { _alert info "$1"; }
 success () { _alert success "$1"; }
-dryrun () { _alert dryrun "$1"; }
-
 
 # ----------------------
 # Parse options
@@ -78,9 +75,6 @@ dryrun () { _alert dryrun "$1"; }
 parse_args () {
   while [[ "$#" -gt 0 ]]; do
     case $1 in
-      -n|--dry-run)
-        DRYRUN=true
-        ;;
       --target)
         TARGET=$2
         shift
@@ -124,20 +118,12 @@ install_packages_via_homebrew() {
   fi
 
   if [ ! -L "$HOME/.Brewfile" ]; then
-    if [[ $DRYRUN == true ]]; then
-      dryrun "ln -s $DOTFILES_ROOT/brew/Brewfile $HOME/.Brewfile"
-    else
-      ln -s "$DOTFILES_ROOT/brew/Brewfile" "$HOME/.Brewfile"
-    fi
+    ln -s "$DOTFILES_ROOT/brew/Brewfile" "$HOME/.Brewfile"
   fi
 
   HOMEBREW_BUNDLE_MAS_SKIP=$(brew bundle list --global --mas)
   export HOMEBREW_BUNDLE_MAS_SKIP
-  if [[ $DRYRUN == true ]]; then
-    dryrun "brew bundle install --global"
-  else
-    brew bundle install --global || true
-  fi
+  brew bundle install --global || true
 
   wait
   success 'Packages Installation by Homebrew'
@@ -151,21 +137,16 @@ install_tool_version_manager() {
   else
     info "Installing mise..."
 
-    if [[ $DRYRUN == true ]]; then
-      dryrun "curl https://mise.run | sh"
-      dryrun "mise --version"
-    else
-      if ! curl https://mise.run | sh; then
-        error "Failed to install mise"
-      fi
+    if ! curl https://mise.run | sh; then
+      error "Failed to install mise"
+    fi
 
-      if hash mise 2>/dev/null; then
-        mise --version
-      elif [ -f ~/.local/bin/mise ]; then
+    if hash mise 2>/dev/null; then
+      mise --version
+    elif [ -f ~/.local/bin/mise ]; then
         ~/.local/bin/mise --version
-      else
-        error "mise was installed but cannot be found in PATH"
-      fi
+    else
+      error "mise was installed but cannot be found in PATH"
     fi
 
     success 'Tool version manager'
@@ -175,13 +156,8 @@ install_tool_version_manager() {
 set_default_shell() {
   if [[ $(basename "$SHELL") != "zsh" ]] && [[ "$(uname -m)" = "x86_64" ]]; then
     if [[ "$SHELL" != "/usr/local/bin/zsh" ]]; then
-      if [[ $DRYRUN == true ]]; then
-        dryrun "sudo bash -c 'echo \"/usr/local/bin/zsh\" >> /etc/shells'"
-        dryrun "sudo chsh -s /usr/local/bin/zsh"
-      else
-        sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
-        sudo chsh -s /usr/local/bin/zsh
-      fi
+      sudo bash -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
+      sudo chsh -s /usr/local/bin/zsh
     fi
     success 'Setup default shell'
   fi
@@ -209,11 +185,6 @@ create_symlinks() {
 
     local src="$DOTFILES_ROOT/$file"
     local dst="$HOME/$file"
-
-    if [[ $DRYRUN == true ]]; then
-      dryrun "ln -s $src $dst"
-      continue
-    fi
 
     if [[ -e "$dst" && ! -L "$dst" ]]; then
       info "Backing up existing $dst to $backup_dir"
