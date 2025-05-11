@@ -55,7 +55,7 @@ alias gWx='git worktree remove'
 alias gWX='git worktree remove --force'
 
 # GitHub CLI (gh)
-alias ghbr='gh browse -R $(ghq list | fzf --prompt "GIT BRANCH>")'
+alias ghbr='gh browse'
 
 # --- Tmux (T) ---------
 
