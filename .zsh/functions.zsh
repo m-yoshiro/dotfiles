@@ -35,6 +35,18 @@ function tmux_select_git_repo() {
   fi
 }
 
+function tmux_select_work() {
+  local dir
+  dir=$HOME/Works/$(ls $HOME/Works | fzf --prompt 'WORK>')
+
+  if [[ ! -d $dir ]]; then
+    echo "Not found $dir"
+    return
+  fi
+
+  tmux_switch_directory "$dir"
+}
+
 # select dotfile
 function tmux_select_dotfile() {
   local dir repository session current_session

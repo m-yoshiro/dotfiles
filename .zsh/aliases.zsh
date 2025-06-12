@@ -66,6 +66,7 @@ alias gWX='git worktree remove --force'
 alias ghbr='gh browse'
 
 # --- Tmux (T) ---------
-
+# required functions.zsh
 alias Tgr=tmux_select_git_repo
-alias Tdt=tmux_select_dotfile
+alias Tgw=tmux_select_work
+alias Tgd=tmux_select_dotfile
