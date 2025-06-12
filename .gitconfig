@@ -1,7 +1,7 @@
 [user]
   name = m-yoshiro
 [core]
-  excludesfile = ~/.gitignore_global
+  # excludesfile = ~/.gitignore_global
   editor = /usr/bin/vim
   pager = nkf -w | LESSCHARSET=utf-8 less
 [difftool "sourcetree"]

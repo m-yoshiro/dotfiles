@@ -1,0 +1,8 @@
+**/.ignore/
+**/.vimrc.local
+**/.zshrc.local
+.ga-token.rds
+q
+**/.env
+*.log
+.DS_Store
