@@ -61,7 +61,7 @@ alias gWd='git_worktree_dir_of B'
 alias gWl='git worktree list'
 alias gWm='git worktree move'
 alias gWp='git worktree prune'
-alias gWx='git worktree remove'
+alias gWx='git worktree remove "$(wtree_select)"'
 alias gWX='git worktree remove --force'
 
 # GitHub CLI (gh)

@@ -87,6 +87,10 @@ function git_worktree_dir_of() {
   '
 }
 
+wtree_select() {
+  git worktree list | sort -u | grep '\.worktrees/' | fzf --prompt "WORKTREES>" | awk '{print $1}'
+}
+
 # --- ghq -----------
 
 # https://qiita.com/tuttieee/items/7fb6bcd333b2c8cb0a2a
