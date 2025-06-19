@@ -1,5 +1,6 @@
 [user]
   name = m-yoshiro
+  email = 5795937+m-yoshiro@users.noreply.github.com
 [core]
   # excludesfile = ~/.gitignore_global
   editor = /usr/bin/vim
