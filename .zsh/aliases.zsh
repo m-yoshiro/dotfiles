@@ -31,7 +31,8 @@ alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
 # Git (g)
 alias g='git'
 
-alias -g B='`git branch -a | sed "s/remotes\///" | sort -u | fzf --prompt "BRANCH>" | tr -d " \\*"`'
+# Get branch name via fzf with normalization
+alias -g B='`git branch -a | sed "s/remotes\///" | sort -u | fzf --prompt "BRANCH>" | tr -d " \\*" | tr -d " \\+"`'
 
 # Branch (b) – including checkout
 alias gb='git branch'
@@ -56,6 +57,7 @@ alias gri='git rebase --interactive --autosquash'
 # Working trees (W)
 alias gW='git worktree'
 alias gWa='git worktree add'
+alias gWd='git_worktree_dir_of B'
 alias gWl='git worktree list'
 alias gWm='git worktree move'
 alias gWp='git worktree prune'

@@ -78,6 +78,15 @@ function git_check_unrefs_files() {
   done
 }
 
+# 特定のworktreeからディレクトリパスを取得
+function git_worktree_dir_of() {
+  local branch="$1"
+  git worktree list --porcelain | awk -v target="refs/heads/$branch" '
+    /^worktree / { path = $2 }
+    /^branch / && $2 == target { print path }
+  '
+}
+
 # --- ghq -----------
 
 # https://qiita.com/tuttieee/items/7fb6bcd333b2c8cb0a2a
