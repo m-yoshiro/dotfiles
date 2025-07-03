@@ -57,6 +57,12 @@ Custom Git aliases and functions for:
 ## Testing
 The repository includes automated testing via GitHub Actions that verifies the bootstrap process on macOS.
 
+## File Editing Restrictions
+
+- **Scope Limitation**: Only edit files within this dotfiles repository directory. 
+- **No External Edits**: Never edit files in `/tmp/`, home directory, or any other locations outside this repository.
+- **Temporary Files**: If temporary files are needed, create them in `./tmp/` within the repository.
+
 ## Common Tasks
 - **Update packages**: Run `brew bundle` from `brew/` directory
 - **Test installation**: The bootstrap script can be run multiple times safely
