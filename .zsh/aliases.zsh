@@ -58,6 +58,8 @@ alias gri='git rebase --interactive --autosquash'
 alias gW='git worktree'
 alias gWa='git_worktree_add'
 alias gWc='cd "$(wtree_select)"'
+# open vscode in the selected worktree
+alias gWv='$(cd "$(wtree_select)" && code .)'
 alias gWd='git_worktree_dir_of B'
 alias gWl='git worktree list'
 alias gWm='git worktree move "$(wtree_select)"'
