@@ -6,3 +6,4 @@ q
 **/.env
 *.log
 .DS_Store
+tmp/
