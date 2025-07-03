@@ -87,8 +87,24 @@ function git_worktree_dir_of() {
   '
 }
 
+export WORKTREE_DIR=$HOME/.worktrees
+function git_worktree_add() {
+  repo=$(basename "$(git rev-parse --show-toplevel)")
+
+  # ★2. ブランチ名を決定
+  #    - $1 が渡されていればそれを使う
+  #    - 省略時は現在チェックアウト中のブランチ名を自動取得
+  branch=${1:-$(git rev-parse --abbrev-ref HEAD)}
+
+  # ★3. / や : を - に置換して安全なディレクトリ名に
+  safe_branch=$(echo "$branch" | tr '/:' '-')
+
+  # ★4. worktree を追加
+  git worktree add -b "$branch" "$WORKTREE_DIR/${repo}-${safe_branch}"
+}
+
 wtree_select() {
-  git worktree list | sort -u | grep '\.worktrees/' | fzf --prompt "WORKTREES>" | awk '{print $1}'
+  git worktree list | sort -u | fzf --prompt "WORKTREES>" | awk '{print $1}'
 }
 
 # --- ghq -----------

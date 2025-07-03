@@ -56,10 +56,11 @@ alias gri='git rebase --interactive --autosquash'
 
 # Working trees (W)
 alias gW='git worktree'
-alias gWa='git worktree add'
+alias gWa='git_worktree_add'
+alias gWc='cd "$(wtree_select)"'
 alias gWd='git_worktree_dir_of B'
 alias gWl='git worktree list'
-alias gWm='git worktree move'
+alias gWm='git worktree move "$(wtree_select)"'
 alias gWp='git worktree prune'
 alias gWx='git worktree remove "$(wtree_select)"'
 alias gWX='git worktree remove --force'
