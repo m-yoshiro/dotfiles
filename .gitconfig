@@ -1,10 +1,12 @@
 [user]
   name = m-yoshiro
-	email = 12345678+m-yoshiro@users.noreply.github.com
+	email = 5795937+m-yoshiro@users.noreply.github.com
 [core]
   # excludesfile = ~/.gitignore_global
   editor = /usr/bin/vim
-  pager = nkf -w | LESSCHARSET=utf-8 less
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path =
@@ -39,3 +41,6 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[delta]
+  navigate = true
+  side-by-side = true
