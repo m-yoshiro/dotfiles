@@ -15,7 +15,7 @@ function tmux_switch_directory() {
       cd $dir
       tmux rename-session $new_session
     else
-      tmux list-sessions | cut -d":" -f1 | grep $new_session > /dev/null
+      tmux list-sessions | cut -d":" -f1 | grep -Fx -- "$new_session" > /dev/null
       if [[ $? != 0 ]]; then
         tmux new-session -d -c $dir -s $new_session
       fi
@@ -49,7 +49,7 @@ function tmux_select_work() {
 
 # select dotfile
 function tmux_select_dotfile() {
-  local dir repository session current_session
+  local dir
   dir=$DOTFILES
 
   if [[ ! -d $dir ]]; then
