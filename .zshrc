@@ -61,7 +61,7 @@ source "$DOTFILES/.zsh/bindkey.zsh"
 if [[ "$TERM"!="screen-256color" ]]; then
   # Check running on vscode
   # https://github.com/Microsoft/vscode/pull/30346
-  if [[ ${TERM_PROGRAM} == "vscode" ]]; then
+  if [[ ${TERM_PROGRAM} == "vscode" ]] || [[ ${TERM_PROGRAM} == "zed" ]]; then
     # VSCodeの時にterminalウィンドウのresizeの度に不要な文字列が挿入されてしまうのでtmuxを起動しない
   else
     # Execute initially when tmux haven't attached a current session yet.
