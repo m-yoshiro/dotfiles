@@ -8,6 +8,12 @@ onboarding = false
 # Keep new tabs and panes in the focused pane or workspace directory.
 new_cwd = "follow"
 
+[ui]
+# Capture mouse selection in Herdr and copy the selected text to the macOS
+# system clipboard immediately. Copy mode retains Herdr's built-in v/y keys.
+mouse_capture = true
+copy_on_select = true
+
 [keys]
 prefix = "ctrl+a"
 
