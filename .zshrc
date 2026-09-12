@@ -55,21 +55,18 @@ source "$DOTFILES/.zsh/bindkey.zsh"
 [ -r ~/.zshrc.local ] && source ~/.zshrc.local
 
 # =========================
-# Tmux
+# Herdr
 # =========================
 
-if [[ "$TERM"!="screen-256color" ]]; then
-  # Check running on vscode
+if [[ -o interactive ]] && [[ -z ${HERDR_ENV:-} ]]; then
+  # Do not start a multiplexer in VS Code or Zed.
   # https://github.com/Microsoft/vscode/pull/30346
   if [[ ${TERM_PROGRAM} == "vscode" ]] || [[ ${TERM_PROGRAM} == "zed" ]]; then
-    # VSCodeの時にterminalウィンドウのresizeの度に不要な文字列が挿入されてしまうのでtmuxを起動しない
+    :
   else
-    # Execute initially when tmux haven't attached a current session yet.
-    if [ ! "$TMUX" ]; then
-        # usernameにpresiodが含まれる場合は差し替える
-        tmux_user=$(echo $USER | tr . _ )
-        tmux new-session -A -t "$tmux_user"
-    fi
+    # Launch or attach to Herdr's default persistent session. HERDR_ENV keeps
+    # shells inside Herdr panes from launching a nested client.
+    command -v herdr >/dev/null 2>&1 && herdr
   fi
 fi
 
