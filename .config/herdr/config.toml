@@ -9,6 +9,9 @@ onboarding = false
 new_cwd = "follow"
 
 [ui]
+# Start with the workspace sidebar expanded.
+sidebar_start_collapsed = false
+
 # Capture mouse selection in Herdr and copy the selected text to the macOS
 # system clipboard immediately. Copy mode retains Herdr's built-in v/y keys.
 mouse_capture = true
