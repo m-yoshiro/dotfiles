@@ -24,22 +24,24 @@ This script handles:
 ### Configuration Structure
 - **Shell (ZSH)**: Main config in `.zshrc`, modular setup in `.zsh/` directory
 - **Git**: Configuration in `.gitconfig` with custom aliases and workflow integration
-- **Tmux**: Main config in `.tmux.conf` with macOS-specific overrides in `.tmux.mac.conf`
+- **Herdr**: Configuration in `.config/herdr/config.toml`, loaded through
+  `HERDR_CONFIG_PATH`
 - **Editors**: Vim configuration split across multiple files in `vim/` directory, minimal Neovim setup
 - **Package Management**: Homebrew managed via `brew/Brewfile`
 
 ### Key Components
-- `.zsh/functions.zsh`: Contains tmux session management and Git workflow functions
+- `.zsh/functions.zsh`: Contains Herdr workspace selection and Git workflow functions
 - `.zsh/aliases.zsh`: Command aliases for modern CLI tools
 - `bootstrap`: Main installation script with robust error handling and logging
 - `.github/workflows/tests.yml`: CI pipeline for testing bootstrap process
 
 ## Development Workflow
 
-### Tmux-Centric Approach
-The setup is optimized for tmux-based development with functions that integrate Git repository management:
-- `tmux_select_git_repo()`: FZF-based repository selection with tmux session creation
-- `tmux_select_work()`: Work directory navigation
+### Herdr-Centric Approach
+The setup is optimized for Herdr-based development with functions that integrate Git repository management:
+- `herdr_select_git_repo()`: FZF-based repository selection with Herdr workspace focus or creation
+- `herdr_select_work()`: Work directory selection with Herdr workspace focus or creation
+- `herdr_select_dotfile()`: Dotfiles workspace focus or creation
 - `git_worktree_dir_of()`: Git worktree directory resolution
 
 ### Git Integration

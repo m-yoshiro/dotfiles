@@ -1,5 +1,5 @@
 # Herdr configuration managed by dotfiles.
-# The keys below preserve the existing tmux muscle memory where Herdr has an
+# The keys below preserve established terminal muscle memory where Herdr has an
 # equivalent action.
 
 onboarding = false
