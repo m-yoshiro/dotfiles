@@ -23,7 +23,7 @@ if command -v fzf >/dev/null 2>&1; then
   alias fls="ls -a | \
     fzf -e --prompt 'FILE>' \
       --preview 'bat --style=numbers --color=always {}' \
-      --bind 'right:execute: tmux display-popup \"bat {}\"' \
+      --bind 'right:execute(bat --paging=always --style=numbers --color=always {})' \
       "
 fi
 
