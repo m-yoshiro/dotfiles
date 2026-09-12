@@ -83,3 +83,9 @@ alias ghbr='gh browse'
 alias Tgr=tmux_select_git_repo
 alias Tgw=tmux_select_work
 alias Tgd=tmux_select_dotfile
+
+# --- Herdr (H) --------
+# Required functions.zsh. Keep the tmux aliases during the migration.
+alias Hgr=herdr_select_git_repo
+alias Hgw=herdr_select_work
+alias Hgd=herdr_select_dotfile
