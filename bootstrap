@@ -181,6 +181,9 @@ create_symlinks() {
     [ "$file" = ".gitignore" ] && continue
     [ "$file" = ".git" ] && continue
     [ "$file" = ".github" ] && continue
+    # ~/.config commonly contains application-managed state. Link only the
+    # dotfiles-managed entries below instead of replacing the whole directory.
+    [ "$file" = ".config" ] && continue
     [[ $file == .vimrc.* ]] && continue
 
     local src="$DOTFILES_ROOT/$file"
@@ -199,6 +202,34 @@ create_symlinks() {
     ln -s "$src" "$dst"
     success "linked $src to $dst"
   done
+
+  mkdir -p "$HOME/.config"
+
+  while IFS= read -r -d '' src
+  do
+    local relative_path
+    local dst
+    local backup_path
+    relative_path=${src#"$DOTFILES_ROOT/.config/"}
+    dst="$HOME/.config/$relative_path"
+
+    mkdir -p "$(dirname "$dst")"
+
+    if [[ -e "$dst" && ! -L "$dst" ]]; then
+      backup_path="$backup_dir/.config/$relative_path"
+      mkdir -p "$(dirname "$backup_path")"
+      info "Backing up existing $dst to $backup_path"
+      mv "$dst" "$backup_path"
+    fi
+
+    if [[ -L "$dst" ]]; then
+      info "Symlink for $dst already exists."
+      continue
+    fi
+
+    ln -s "$src" "$dst"
+    success "linked $src to $dst"
+  done < <(find "$DOTFILES_ROOT/.config" -type f -print0)
 
   success 'Symlinks'
 }

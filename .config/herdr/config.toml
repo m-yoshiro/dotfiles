@@ -1,0 +1,48 @@
+# Herdr configuration managed by dotfiles.
+# The keys below preserve established terminal muscle memory where Herdr has an
+# equivalent action.
+
+onboarding = false
+
+[terminal]
+# Keep new tabs and panes in the focused pane or workspace directory.
+new_cwd = "follow"
+
+[ui]
+# Start with the workspace sidebar expanded.
+sidebar_start_collapsed = false
+
+# Capture mouse selection in Herdr and copy the selected text to the macOS
+# system clipboard immediately. Copy mode retains Herdr's built-in v/y keys.
+mouse_capture = true
+copy_on_select = true
+
+[session]
+# After a full server restart, restore supported agents through their native
+# session references. The Codex integration supplies those references.
+resume_agents_on_restore = true
+
+[experimental]
+# Do not retain arbitrary pane screen history across full server restarts.
+pane_history = false
+
+[keys]
+prefix = "ctrl+a"
+
+# Panes
+split_vertical = "prefix+|"
+split_horizontal = "prefix+minus"
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+resize_mode = "prefix+r"
+
+# Tabs
+previous_tab = "prefix+ctrl+n"
+next_tab = "prefix+ctrl+p"
+
+# Session controls
+copy_mode = "prefix+esc"
+detach = "prefix+d"
+reload_config = "prefix+shift+r"

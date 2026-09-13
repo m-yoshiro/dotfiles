@@ -1,6 +1,7 @@
 DEFAULT_USER="Yoshiro"
 
 export TERM=xterm-256color
+export HERDR_CONFIG_PATH="$DOTFILES/.config/herdr/config.toml"
 
 # HISTFILE=~/.zhistory
 # SAVEHIST=100000

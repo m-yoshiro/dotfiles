@@ -23,7 +23,7 @@ if command -v fzf >/dev/null 2>&1; then
   alias fls="ls -a | \
     fzf -e --prompt 'FILE>' \
       --preview 'bat --style=numbers --color=always {}' \
-      --bind 'right:execute: tmux display-popup \"bat {}\"' \
+      --bind 'right:execute(bat --paging=always --style=numbers --color=always {})' \
       "
 fi
 
@@ -78,8 +78,8 @@ alias gWX='git worktree remove --force'
 # GitHub CLI (gh)
 alias ghbr='gh browse'
 
-# --- Tmux (T) ---------
-# required functions.zsh
-alias Tgr=tmux_select_git_repo
-alias Tgw=tmux_select_work
-alias Tgd=tmux_select_dotfile
+# --- Herdr (H) --------
+# Required functions.zsh.
+alias Hgr=herdr_select_git_repo
+alias Hgw=herdr_select_work
+alias Hgd=herdr_select_dotfile

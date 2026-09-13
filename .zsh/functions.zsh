@@ -1,41 +1,43 @@
-# --- Tmux -----------
+# --- Herdr ----------
 
-# Git
-function tmux_switch_directory() {
-  local dir tail_path new_session current_session
-  dir=$1
-  if [[ ! -z ${TMUX} ]]; then
-    # convert to "organization/repository"
-    tail_path=$(echo $dir | sed -E 's/.*\/(.*\/.*)$/\1/')
-    new_session=${tail_path//./-}
-    current_session=$(tmux list-sessions | grep 'attached' | cut -d":" -f1)
+# Open a directory as a Herdr workspace when running inside Herdr. Outside
+# Herdr, change to the selected directory in the current shell.
+function herdr_switch_directory() {
+  local dir tail_path workspace_id workspaces
 
-    # 数値の場合はtmuxのデフォルトセッション番号とみなす
-    if [[ $current_session =~ ^[0-9]+$ ]]; then
-      cd $dir
-      tmux rename-session $new_session
-    else
-      tmux list-sessions | cut -d":" -f1 | grep -Fx -- "$new_session" > /dev/null
-      if [[ $? != 0 ]]; then
-        tmux new-session -d -c $dir -s $new_session
-      fi
-      tmux switch-client -t $new_session
-    fi
-  else
-    cd $dir
+  dir=$(cd -- "$1" && pwd -P) || return 1
+
+  if [[ -z ${HERDR_ENV:-} ]]; then
+    cd "$dir"
+    return
   fi
+
+  workspaces=$(herdr workspace list) || return 1
+  workspace_id=$(printf '%s\n' "$workspaces" \
+    | jq -r --arg cwd "$dir" \
+      '.result.workspaces[]? | select(.cwd == $cwd) | .workspace_id' \
+    | head -n 1)
+
+  if [[ -n $workspace_id && $workspace_id != "null" ]]; then
+    herdr workspace focus "$workspace_id"
+    return
+  fi
+
+  # Use the final two path components for a concise workspace label.
+  tail_path=${dir:h:t}/${dir:t}
+  herdr workspace create --cwd "$dir" --label "${tail_path//./-}" --focus
 }
 
-function tmux_select_git_repo() {
+function herdr_select_git_repo() {
   local dir
   dir=$(ghq root)/$(ghq list | fzf --prompt 'GIT REPO>')
 
   if [[ $dir != "$(ghq root)/" ]]; then
-    tmux_switch_directory "$dir"
+    herdr_switch_directory "$dir"
   fi
 }
 
-function tmux_select_work() {
+function herdr_select_work() {
   local dir
   dir=$HOME/Works/$(ls $HOME/Works | fzf --prompt 'WORK>')
 
@@ -44,11 +46,10 @@ function tmux_select_work() {
     return
   fi
 
-  tmux_switch_directory "$dir"
+  herdr_switch_directory "$dir"
 }
 
-# select dotfile
-function tmux_select_dotfile() {
+function herdr_select_dotfile() {
   local dir
   dir=$DOTFILES
 
@@ -57,7 +58,7 @@ function tmux_select_dotfile() {
     return
   fi
 
-  tmux_switch_directory "$dir"
+  herdr_switch_directory "$dir"
 }
 
 # --- Git -----------
